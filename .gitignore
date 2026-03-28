@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.log
+.wizard/
+.vercel/
+node_modules/
+.env
+.env.local
