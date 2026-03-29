@@ -3,46 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Unico Consult — IT consulting sur mesure pour les PME. Gestion IT, développement d'applications, digitalisation, RH & paie, comptabilité. Zaventem, Belgique.">
-  <meta property="og:title" content="Unico Consult — Votre partenaire IT unique">
-  <meta property="og:description" content="IT consulting sur mesure. Gestion IT, développement sur mesure, RH & paie, digitalisation. Zaventem, Belgique.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80">
+  <meta name="description" content="Unico Consult — Expert en accompagnement de gestion d'entreprise. RH, Management, Conseils, Back office, Logistique, Branding. Sint-Stevens-Woluwe, Belgique.">
+  <meta property="og:title" content="Unico Consult — Votre business, notre challenge">
+  <meta property="og:description" content="Expert en accompagnement de gestion d'entreprise. RH, Management, Conseils, Logistique, Branding. 15 ans d'expérience, Belgique.">
   <meta property="og:type" content="website">
-  <title>Unico Consult — IT Consulting Belgique</title>
+  <title>Unico Consult — Votre business, notre challenge</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     /* =====================================================
-       DESIGN SYSTEM — Unico Consult (Slalom x Globant Fusion)
+       DESIGN SYSTEM — Unico Consult v3
+       Brand: Purple (#7C3AED) + Teal (#0F9E78)
     ===================================================== */
     :root {
-      --dark:        #0F1923;
-      --charcoal:    #1A2332;
-      --teal:        #0F9E78;
-      --teal-light:  #5DCAA5;
-      --teal-glow:   rgba(15, 158, 120, 0.25);
-      --white:       #FFFFFF;
-      --offwhite:    #F7F9F8;
-      --gray-50:     #F9FAFB;
-      --gray-100:    #E8ECEB;
-      --gray-300:    #9CA3A0;
-      --gray-500:    #6B7280;
-      --gray-600:    #4A5553;
-      --text:        #0F1923;
-      --amber:       #F2A623;
+      /* Brand */
+      --purple:       #7C3AED;
+      --purple-dark:  #5B21B6;
+      --purple-mid:   #6D28D9;
+      --purple-glow:  rgba(124, 58, 237, 0.22);
+      --teal:         #0F9E78;
+      --teal-light:   #5DCAA5;
+      --teal-glow:    rgba(15, 158, 120, 0.2);
+      --logo-cyan:    #06B6D4;
+
+      /* Neutrals */
+      --dark:         #0A0812;
+      --dark-mid:     #120E22;
+      --charcoal:     #1A1430;
+      --white:        #FFFFFF;
+      --offwhite:     #F8F7FC;
+      --gray-50:      #F3F2F8;
+      --gray-100:     #E4E2EF;
+      --gray-200:     #C8C5DC;
+      --gray-400:     #8B87A8;
+      --gray-500:     #6B6789;
+      --gray-600:     #4A4766;
+      --text:         #120E22;
+
+      /* Fonts */
       --font-display: 'Plus Jakarta Sans', sans-serif;
       --font-body:    'Heebo', sans-serif;
+
+      /* Easing */
       --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-std:     cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Shape */
       --radius:       12px;
       --radius-lg:    20px;
       --radius-pill:  100px;
     }
 
-    /* Reset */
+    /* ── Reset ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
@@ -50,101 +65,96 @@
       color: var(--text);
       background: var(--white);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    h1, h2, h3, h4, h5 {
-      font-family: var(--font-display);
-      letter-spacing: -0.025em;
-      line-height: 1.08;
-    }
+    h1,h2,h3,h4,h5 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.025em; }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+    button { font: inherit; cursor: pointer; }
 
-    /* Container */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 clamp(20px, 4vw, 80px);
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 80px); }
 
     /* =====================================================
        NAVBAR
     ===================================================== */
     .navbar {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: 72px; z-index: 1000;
-      display: flex; align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      z-index: 1000; display: flex; align-items: center;
       padding: 0 clamp(20px, 4vw, 80px);
-      transition: background 350ms var(--ease-standard),
-                  border-color 350ms var(--ease-standard),
-                  backdrop-filter 350ms;
+      transition: background 350ms var(--ease-std), border-color 350ms, backdrop-filter 350ms;
       border-bottom: 1px solid transparent;
     }
     .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-color: var(--gray-100);
     }
-    .navbar__inner {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      width: 100%;
+    .navbar__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+
+    /* Logo SVG — reproduit le vrai logo Unico Consult */
+    .navbar__logo { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; gap: 2px; }
+    .navbar__logo-unico {
+      font: 800 22px/1 var(--font-display);
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #9333EA 0%, #7C3AED 45%, #5B21B6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .navbar.scrolled .navbar__logo-unico {
+      background: linear-gradient(135deg, #9333EA 0%, #7C3AED 45%, #5B21B6 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    /* On dark hero: override with white */
+    .navbar:not(.scrolled) .navbar__logo-unico {
+      background: none; -webkit-text-fill-color: white;
+    }
+    .navbar__logo-consult {
+      display: flex; align-items: center; gap: 5px;
+      font: 600 9px/1 var(--font-body);
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--logo-cyan);
+    }
+    .navbar:not(.scrolled) .navbar__logo-consult { color: rgba(255,255,255,0.5); }
+    .navbar__logo-consult::before,
+    .navbar__logo-consult::after {
+      content: ''; display: block; height: 1px; width: 14px;
+      background: currentColor; flex-shrink: 0;
     }
 
-    /* Logo */
-    .navbar__logo {
-      font: 700 20px/1 var(--font-display);
-      color: var(--white);
-      letter-spacing: -0.03em;
-      transition: color 350ms;
-      display: flex; align-items: center; gap: 2px;
-    }
-    .navbar.scrolled .navbar__logo { color: var(--text); }
-    .navbar__logo-accent { color: var(--teal); }
-
-    /* Links */
+    /* Nav links */
     .navbar__links {
       display: flex; gap: 36px; list-style: none;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
     .navbar__links a {
-      font: 500 14px/1 var(--font-body);
-      color: rgba(255,255,255,0.8);
-      transition: color 200ms;
+      font: 500 13px/1 var(--font-body);
+      color: rgba(255,255,255,0.75);
       letter-spacing: 0.01em;
+      transition: color 200ms;
     }
-    .navbar.scrolled .navbar__links a { color: var(--gray-600); }
+    .navbar.scrolled .navbar__links a { color: var(--gray-500); }
     .navbar__links a:hover { color: var(--white); }
-    .navbar.scrolled .navbar__links a:hover { color: var(--teal); }
+    .navbar.scrolled .navbar__links a:hover { color: var(--purple); }
 
-    /* CTA */
+    /* CTA button */
     .navbar__cta {
       font: 600 13px/1 var(--font-body);
-      color: var(--white);
-      background: var(--teal);
-      border-radius: var(--radius-pill);
-      padding: 10px 22px;
+      background: var(--purple); color: var(--white);
+      border-radius: var(--radius-pill); padding: 10px 22px;
       transition: all 250ms var(--ease-out);
-      white-space: nowrap;
     }
-    .navbar__cta:hover {
-      transform: scale(1.04);
-      box-shadow: 0 4px 20px var(--teal-glow);
-    }
+    .navbar__cta:hover { transform: scale(1.04); box-shadow: 0 4px 20px var(--purple-glow); }
 
-    /* Mobile */
+    /* Hamburger */
     .navbar__burger {
-      display: none; background: none; border: none; cursor: pointer;
+      display: none; background: none; border: none;
       width: 24px; height: 18px; position: relative;
     }
     .navbar__burger span {
       display: block; width: 100%; height: 1.5px;
-      background: var(--white);
+      background: var(--white); border-radius: 2px;
       position: absolute; left: 0;
       transition: all 300ms var(--ease-out);
-      border-radius: 2px;
     }
     .navbar.scrolled .navbar__burger span { background: var(--text); }
     .navbar__burger span:nth-child(1) { top: 0; }
@@ -154,32 +164,22 @@
     .navbar__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .navbar__burger.open span:nth-child(3) { transform: rotate(-45deg); top: 8px; }
 
-    /* Mobile Menu */
     .mobile-menu {
-      display: none;
-      position: fixed; top: 72px; left: 0; right: 0;
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
       height: calc(100dvh - 72px);
-      background: var(--dark);
-      flex-direction: column; align-items: flex-start;
-      justify-content: center;
-      padding: 0 clamp(20px, 4vw, 80px);
-      gap: 8px; z-index: 999;
+      background: var(--dark); flex-direction: column;
+      align-items: flex-start; justify-content: center;
+      padding: 0 clamp(20px, 4vw, 80px); gap: 8px; z-index: 999;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu__link {
-      font: 300 clamp(28px, 6vw, 48px)/1.2 var(--font-display);
-      color: rgba(255,255,255,0.85);
-      letter-spacing: -0.02em;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      width: 100%;
-      transition: color 200ms;
+    .mobile-menu a {
+      font: 300 clamp(28px, 6vw, 44px)/1.2 var(--font-display);
+      color: rgba(255,255,255,0.8); letter-spacing: -0.02em;
+      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      width: 100%; transition: color 200ms;
     }
-    .mobile-menu__link:hover { color: var(--teal-light); }
-    .mobile-menu .navbar__cta {
-      margin-top: 32px;
-      font-size: 15px; padding: 14px 32px;
-    }
+    .mobile-menu a:hover { color: var(--teal-light); }
+    .mobile-menu .navbar__cta { font-size: 15px; padding: 14px 32px; margin-top: 24px; border-bottom: none; }
 
     @media (max-width: 1024px) {
       .navbar__links, .navbar__cta { display: none; }
@@ -191,874 +191,619 @@
     ===================================================== */
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
-      font: 600 14px/1 var(--font-body);
-      border-radius: var(--radius-pill);
-      padding: 14px 28px; cursor: pointer;
-      transition: all 250ms var(--ease-out);
+      font: 600 14px/1 var(--font-body); letter-spacing: 0.01em;
+      border-radius: var(--radius-pill); padding: 14px 28px;
       border: 1.5px solid transparent;
-      letter-spacing: 0.01em;
+      transition: all 250ms var(--ease-out);
     }
-    .btn--primary {
-      background: var(--teal); color: var(--white); border-color: var(--teal);
-    }
-    .btn--primary:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 28px var(--teal-glow);
-    }
-    .btn--outline-dark {
-      background: transparent; color: var(--text); border-color: var(--gray-300);
-    }
-    .btn--outline-dark:hover {
-      border-color: var(--teal); color: var(--teal);
-    }
-    .btn--outline-white {
-      background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5);
-    }
-    .btn--outline-white:hover {
-      background: var(--white); color: var(--dark);
-    }
-    .btn__arrow {
-      width: 16px; height: 16px; flex-shrink: 0;
-      transition: transform 200ms var(--ease-out);
-    }
-    .btn:hover .btn__arrow { transform: translateX(4px); }
+    .btn--primary   { background: var(--purple); color: var(--white); border-color: var(--purple); }
+    .btn--primary:hover { transform: scale(1.03); box-shadow: 0 0 28px var(--purple-glow); }
+    .btn--teal      { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .btn--teal:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--teal-glow); }
+    .btn--outline   { background: transparent; color: var(--text); border-color: var(--gray-200); }
+    .btn--outline:hover { border-color: var(--purple); color: var(--purple); }
+    .btn--outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
+    .btn--outline-white:hover { background: var(--white); color: var(--dark); }
+    .btn__arr { width: 14px; height: 14px; flex-shrink: 0; transition: transform 200ms var(--ease-out); }
+    .btn:hover .btn__arr { transform: translateX(4px); }
 
     /* =====================================================
-       HERO — 100vh, photo réelle, Slalom-style
+       HERO — CSS-ONLY, brand gradient, 100vh
     ===================================================== */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      position: relative; min-height: 100vh;
       display: flex; align-items: center;
-      color: var(--white);
-      overflow: hidden;
+      color: var(--white); overflow: hidden;
+      background: var(--dark);
     }
 
-    /* Photo de fond haute qualité */
-    .hero__photo {
+    /* Deep gradient background */
+    .hero__bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=85&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center 30%;
-      transform: scale(1.04);
-      transition: transform 8s ease-out;
-    }
-    .hero__photo.loaded { transform: scale(1); }
-
-    /* Overlay gradient */
-    .hero__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(10, 18, 28, 0.88) 0%,
-        rgba(10, 18, 28, 0.65) 55%,
-        rgba(10, 18, 28, 0.3) 100%
-      );
+      background:
+        radial-gradient(ellipse at 15% 55%, rgba(124,58,237,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(15,158,120,0.14) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(124,58,237,0.1) 0%, transparent 40%),
+        linear-gradient(160deg, #0A0812 0%, #120E22 40%, #1A0E35 70%, #0A1420 100%);
     }
 
-    /* Subtle dot texture */
-    .hero__texture {
+    /* Dot grid */
+    .hero__dots {
       position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 28px 28px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
+
+    /* Vertical accent line */
+    .hero__line {
+      position: absolute; top: 0; left: clamp(20px, 4vw, 80px);
+      width: 1px; height: 0;
+      background: linear-gradient(to bottom, transparent, var(--purple), var(--teal), transparent);
+      animation: line-grow 1.6s var(--ease-out) 0.4s forwards;
+    }
+    @keyframes line-grow { to { height: 100%; } }
+
+    /* Floating orbs */
+    .hero__orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      filter: blur(80px); opacity: 0;
+      animation: orb-fade 2s ease forwards;
+    }
+    .hero__orb--1 {
+      width: 500px; height: 500px; top: -100px; right: -80px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%);
+      animation-delay: 0.2s;
+    }
+    .hero__orb--2 {
+      width: 400px; height: 400px; bottom: -60px; left: 30%;
+      background: radial-gradient(circle, rgba(15,158,120,0.12), transparent 70%);
+      animation-delay: 0.6s;
+    }
+    @keyframes orb-fade { to { opacity: 1; } }
 
     .hero__content {
       position: relative; z-index: 2;
-      padding: 140px 0 100px;
-      max-width: 760px;
+      padding: 140px 0 100px; max-width: 780px;
     }
-
     .hero__eyebrow {
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 36px;
+      display: flex; align-items: center; gap: 14px; margin-bottom: 36px;
     }
-    .hero__eyebrow-line {
-      width: 40px; height: 1.5px;
-      background: var(--teal); border-radius: 2px;
-    }
+    .hero__eyebrow-line { width: 36px; height: 1.5px; background: var(--purple); border-radius: 2px; }
     .hero__eyebrow-text {
-      font: 600 11px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.14em;
-      color: var(--teal-light);
+      font: 600 11px/1 var(--font-body); text-transform: uppercase;
+      letter-spacing: 0.14em; color: rgba(255,255,255,0.45);
     }
 
     .hero h1 {
-      font-size: clamp(42px, 5.5vw, 76px);
-      font-weight: 300;
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      margin-bottom: 32px;
-      color: var(--white);
+      font-size: clamp(42px, 5.8vw, 80px);
+      font-weight: 300; line-height: 1.04; letter-spacing: -0.03em;
+      margin-bottom: 12px; color: var(--white);
     }
-    .hero h1 em {
-      font-style: normal;
-      font-weight: 700;
-      color: var(--white);
+    .hero h1 strong { font-weight: 800; display: block; }
+    .hero__tagline {
+      font-size: clamp(42px, 5.8vw, 80px);
+      font-weight: 800; line-height: 1.04; letter-spacing: -0.03em;
+      margin-bottom: 36px;
+      background: linear-gradient(135deg, #A78BFA 0%, var(--purple) 50%, var(--teal-light) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .hero h1 .word-teal {
-      color: var(--teal-light);
-      font-weight: 700;
-    }
-
     .hero__sub {
       font: 400 clamp(16px, 1.5vw, 19px)/1.7 var(--font-body);
-      color: rgba(255,255,255,0.6);
-      max-width: 500px;
-      margin-bottom: 48px;
+      color: rgba(255,255,255,0.52); max-width: 520px; margin-bottom: 52px;
     }
-    .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
     /* Scroll indicator */
     .hero__scroll {
       position: absolute; bottom: 40px; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 10px;
-      font: 500 11px/1 var(--font-body);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      z-index: 2;
-      animation: scroll-bounce 2.5s ease-in-out infinite;
+      font: 500 10px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); z-index: 2;
+      animation: scroll-pulse 2.8s ease-in-out infinite;
     }
-    .hero__scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-    }
-    @keyframes scroll-bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
+    .hero__scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent); }
+    @keyframes scroll-pulse {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50%      { transform: translateX(-50%) translateY(8px); opacity: 1; }
     }
 
     @media (max-width: 768px) {
       .hero__content { padding: 120px 0 80px; }
-      .hero__scroll { display: none; }
+      .hero__scroll, .hero__line { display: none; }
     }
 
     /* =====================================================
-       MARQUEE — Clients, texte propre, sans icône
+       MARQUEE
     ===================================================== */
-    .marquee-section {
-      background: var(--white);
-      border-top: 1px solid var(--gray-100);
-      border-bottom: 1px solid var(--gray-100);
-      overflow: hidden;
-      padding: 0;
+    .marquee-wrap {
+      background: var(--white); overflow: hidden;
+      border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100);
     }
-    .marquee__track {
-      display: flex; align-items: center; gap: 0;
-      animation: marquee-anim 50s linear infinite;
-      width: max-content;
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: marquee 48s linear infinite;
     }
-    .marquee__item {
-      flex-shrink: 0;
-      padding: 28px 40px;
-      font: 500 13px/1 var(--font-body);
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--gray-300);
-      border-right: 1px solid var(--gray-100);
-      transition: color 300ms;
-      white-space: nowrap;
+    .marquee-item {
+      flex-shrink: 0; padding: 26px 44px;
+      font: 500 12px/1 var(--font-body); letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--gray-200); border-right: 1px solid var(--gray-100);
+      transition: color 300ms; white-space: nowrap;
     }
-    .marquee__item:hover { color: var(--teal); }
-
-    @keyframes marquee-anim {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .marquee__track { animation: none; }
-    }
+    .marquee-item:hover { color: var(--purple); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
     /* =====================================================
-       SECTION UTILITY
+       SECTION HELPERS
     ===================================================== */
     .section { padding: clamp(80px, 10vw, 140px) 0; }
     .section--offwhite { background: var(--offwhite); }
-    .section--dark { background: var(--dark); color: var(--white); }
-    .section--charcoal { background: var(--charcoal); color: var(--white); }
+    .section--dark     { background: var(--dark);     color: var(--white); }
 
-    .section-eyebrow {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px;
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
     }
-    .section-eyebrow-line {
-      width: 28px; height: 1.5px;
-      background: var(--teal); border-radius: 2px;
+    .eyebrow__line { width: 26px; height: 1.5px; background: var(--purple); border-radius: 2px; }
+    .eyebrow__text {
+      font: 600 11px/1 var(--font-body); text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--purple);
     }
-    .section-eyebrow-text {
-      font: 600 11px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--teal);
-    }
-    .section--dark .section-eyebrow-text,
-    .section--charcoal .section-eyebrow-text { color: var(--teal-light); }
+    .section--dark .eyebrow__line { background: var(--teal-light); }
+    .section--dark .eyebrow__text { color: var(--teal-light); }
 
     .section-title {
-      font: 700 clamp(30px, 3.5vw, 48px)/1.08 var(--font-display);
-      letter-spacing: -0.025em;
-      margin-bottom: 20px;
+      font: 700 clamp(30px, 3.5vw, 50px)/1.08 var(--font-display);
+      letter-spacing: -0.025em; margin-bottom: 20px;
     }
     .section-lead {
-      font: 400 18px/1.65 var(--font-body);
-      color: var(--gray-500);
-      max-width: 540px;
+      font: 400 17px/1.7 var(--font-body);
+      color: var(--gray-500); max-width: 540px;
     }
-    .section--dark .section-lead,
-    .section--charcoal .section-lead { color: rgba(255,255,255,0.55); }
+    .section--dark .section-lead { color: rgba(255,255,255,0.48); }
 
     .section-header {
-      display: flex; align-items: flex-end;
-      justify-content: space-between;
-      gap: 40px; margin-bottom: 64px;
-      flex-wrap: wrap;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 40px; margin-bottom: 60px; flex-wrap: wrap;
     }
     .section-header__left { max-width: 580px; }
 
     /* =====================================================
-       SERVICES — SVG icons, layout propre
+       SERVICES — grille 3×2, vrais services
     ===================================================== */
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--gray-100);
-      border: 1px solid var(--gray-100);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--gray-100);
+      border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden;
     }
-    .service-item {
-      background: var(--white);
-      padding: 40px 36px;
-      transition: background 250ms;
-      cursor: default;
-      position: relative;
-    }
-    .service-item::after {
-      content: '';
-      position: absolute; bottom: 0; left: 36px; right: 36px;
-      height: 2px; background: var(--teal);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 350ms var(--ease-out);
-    }
-    .service-item:hover { background: var(--offwhite); }
-    .service-item:hover::after { transform: scaleX(1); }
 
-    .service-item__icon {
-      width: 44px; height: 44px;
-      color: var(--teal);
-      margin-bottom: 28px;
+    .svc {
+      background: var(--white); padding: 40px 32px 36px;
+      position: relative; transition: background 250ms;
     }
-    .service-item__title {
-      font: 600 19px/1.2 var(--font-display);
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
+    .svc::after {
+      content: ''; position: absolute; bottom: 0; left: 32px; right: 32px;
+      height: 2px; background: linear-gradient(90deg, var(--purple), var(--teal));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 400ms var(--ease-out);
     }
-    .service-item__desc {
-      font: 400 14px/1.65 var(--font-body);
-      color: var(--gray-500);
+    .svc:hover { background: var(--offwhite); }
+    .svc:hover::after { transform: scaleX(1); }
+
+    .svc__icon {
+      width: 44px; height: 44px; margin-bottom: 26px;
+      color: var(--purple);
     }
-    .service-item__link {
+    .svc__num {
+      font: 600 10px/1 var(--font-body); text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--gray-200); margin-bottom: 10px;
+    }
+    .svc__title {
+      font: 700 18px/1.2 var(--font-display); letter-spacing: -0.01em;
+      margin-bottom: 10px; color: var(--text);
+    }
+    .svc__desc {
+      font: 400 13px/1.65 var(--font-body); color: var(--gray-500);
+    }
+    .svc__link {
       display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 24px;
-      font: 600 13px/1 var(--font-body);
-      color: var(--teal);
-      letter-spacing: 0.02em;
+      margin-top: 22px; font: 600 12px/1 var(--font-body);
+      color: var(--purple); letter-spacing: 0.02em;
       transition: gap 200ms;
     }
-    .service-item:hover .service-item__link { gap: 10px; }
-    .service-item__link svg { width: 13px; height: 13px; }
+    .svc:hover .svc__link { gap: 10px; }
+    .svc__link svg { width: 12px; height: 12px; }
 
-    /* Featured service (large, dark) */
-    .service-item--featured {
-      grid-column: span 2;
-      background: var(--dark);
-      color: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: 0;
-      overflow: hidden;
-    }
-    .service-item--featured:hover { background: var(--charcoal); }
-    .service-item--featured::after { display: none; }
-    .service-item--featured-content { padding: 48px 40px; }
-    .service-item--featured .service-item__title { color: var(--white); }
-    .service-item--featured .service-item__desc { color: rgba(255,255,255,0.55); font-size: 15px; }
-    .service-item--featured .service-item__link { color: var(--teal-light); }
-    .service-item--featured .service-item__icon { color: var(--teal-light); width: 48px; height: 48px; }
-    .service-item--featured-photo {
-      background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop');
-      background-size: cover; background-position: center;
-      min-height: 280px;
-      position: relative;
-    }
-    .service-item--featured-photo::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--dark) 0%, transparent 60%);
-    }
-
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .service-item--featured {
-        grid-column: span 2;
-        grid-template-columns: 1fr;
-      }
-      .service-item--featured-photo { min-height: 200px; }
-    }
-    @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .service-item--featured { grid-column: span 1; }
-    }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .services-grid { grid-template-columns: 1fr; } }
 
     /* =====================================================
-       STATS — Slalom-style bandeau sombre
+       STATS BAND
     ===================================================== */
-    .stats-band {
-      background: var(--dark);
-      padding: 80px 0;
-    }
+    .stats-band { background: var(--dark-mid); padding: 72px 0; }
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+      display: grid; grid-template-columns: repeat(4, 1fr);
     }
     .stat {
-      padding: 0 32px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      text-align: left;
+      padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.07);
     }
     .stat:first-child { padding-left: 0; }
-    .stat:last-child { border-right: none; }
-    .stat__number {
-      font: 300 clamp(48px, 5vw, 72px)/1 var(--font-display);
-      color: var(--white);
-      letter-spacing: -0.04em;
-      margin-bottom: 8px;
+    .stat:last-child  { border-right: none; }
+    .stat__n {
+      font: 300 clamp(44px, 5vw, 68px)/1 var(--font-display);
+      letter-spacing: -0.04em; color: var(--white); margin-bottom: 8px;
     }
-    .stat__number span {
-      color: var(--teal-light);
-      font-weight: 700;
+    .stat__n span { color: var(--teal-light); font-weight: 700; }
+    .stat__l {
+      font: 400 12px/1.5 var(--font-body); color: rgba(255,255,255,0.35);
+      text-transform: uppercase; letter-spacing: 0.07em;
     }
-    .stat__label {
-      font: 400 13px/1.5 var(--font-body);
-      color: rgba(255,255,255,0.4);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
     @media (max-width: 900px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
       .stat { border-right: none; padding: 0; }
     }
 
     /* =====================================================
-       SPLIT — À propos, photo réelle
+       À PROPOS — Split
     ===================================================== */
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(48px, 6vw, 100px);
-      align-items: center;
-    }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 6vw, 96px); align-items: center; }
     .split__photo {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      aspect-ratio: 4/3;
+      position: relative; border-radius: var(--radius-lg);
+      overflow: hidden; aspect-ratio: 4/3;
     }
     .split__photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover;
       transition: transform 600ms var(--ease-out);
     }
     .split:hover .split__photo img { transform: scale(1.03); }
-    .split__photo-badge {
+    .split__badge {
       position: absolute; bottom: 24px; left: 24px;
-      background: var(--teal);
-      color: var(--white);
-      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+      color: var(--white); border-radius: var(--radius);
       padding: 18px 24px;
       font: 700 28px/1 var(--font-display);
     }
-    .split__photo-badge p {
-      font: 400 12px/1 var(--font-body);
-      opacity: 0.9; margin-top: 4px;
-    }
+    .split__badge p { font: 400 11px/1 var(--font-body); opacity: 0.8; margin-top: 5px; }
 
-    .split__text .section-lead { max-width: 100%; }
-    .split__list {
-      list-style: none; margin-top: 36px;
-      display: flex; flex-direction: column; gap: 0;
-    }
+    .split__list { list-style: none; margin-top: 32px; }
     .split__list li {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--gray-100);
-      font: 400 15px/1.5 var(--font-body);
-      color: var(--gray-600);
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--gray-100);
+      font: 400 14px/1.55 var(--font-body); color: var(--gray-600);
     }
     .split__list li:first-child { border-top: 1px solid var(--gray-100); }
-    .split__list-icon {
-      width: 20px; height: 20px; flex-shrink: 0;
-      color: var(--teal); margin-top: 2px;
-    }
+    .split__list-ic { width: 18px; height: 18px; flex-shrink: 0; color: var(--teal); margin-top: 2px; }
 
     @media (max-width: 900px) {
       .split { grid-template-columns: 1fr; }
       .split__photo { aspect-ratio: 16/9; }
-      .split--reverse .split__photo { order: -1; }
     }
 
     /* =====================================================
-       CAS CLIENTS — Grandes photos, overlays soignés
+       CAS CLIENTS — grille photo
     ===================================================== */
-    .cases-layout {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      grid-template-rows: auto auto;
-      gap: 2px;
-      background: var(--gray-100);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+    .cases-grid {
+      display: grid; grid-template-columns: 3fr 2fr;
+      grid-template-rows: 1fr 1fr; gap: 2px;
+      background: var(--gray-100); border-radius: var(--radius-lg); overflow: hidden;
+      min-height: 520px;
     }
-    .case-card {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
+    .case {
+      position: relative; overflow: hidden; cursor: pointer;
       background: var(--charcoal);
     }
-    .case-card--main {
-      grid-row: span 2;
-      aspect-ratio: 3/4;
-    }
-    .case-card--sm { aspect-ratio: 16/9; }
+    .case--main { grid-row: span 2; }
 
-    .case-card__photo {
+    .case__bg {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
       transition: transform 600ms var(--ease-out);
     }
-    .case-card:hover .case-card__photo { transform: scale(1.05); }
+    .case:hover .case__bg { transform: scale(1.05); }
 
-    .case-card__overlay {
+    /* CSS-only backgrounds for Amethys (no stock photo) */
+    .case--amethys .case__bg {
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(15,158,120,0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #0A1A16 0%, #061A2A 100%);
+    }
+    .case--amethys .case__geo {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .case--amethys .case__geo svg { width: 100%; height: 100%; opacity: 0.08; }
+
+    .case--moby .case__bg {
+      background-image: url('https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=800&q=80&auto=format&fit=crop');
+    }
+    .case--unity .case__bg {
+      background-image: url('https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=700&q=80&auto=format&fit=crop');
+    }
+
+    .case__overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,18,28,0.92) 0%, rgba(10,18,28,0.4) 50%, transparent 100%);
+      background: linear-gradient(to top, rgba(10,8,18,0.92) 0%, rgba(10,8,18,0.4) 50%, transparent 100%);
       transition: background 300ms;
     }
-    .case-card:hover .case-card__overlay {
-      background: linear-gradient(to top, rgba(10,18,28,0.96) 0%, rgba(10,18,28,0.5) 60%, transparent 100%);
+    .case:hover .case__overlay {
+      background: linear-gradient(to top, rgba(10,8,18,0.96) 0%, rgba(10,8,18,0.55) 65%, transparent 100%);
     }
-
-    .case-card__content {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 32px;
-    }
-    .case-card__tag {
-      display: inline-block;
-      font: 600 10px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--teal-light);
-      margin-bottom: 10px;
-    }
-    .case-card__title {
-      font: 600 clamp(16px, 1.8vw, 22px)/1.2 var(--font-display);
-      color: var(--white);
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .case-card__desc {
-      font: 400 13px/1.55 var(--font-body);
-      color: rgba(255,255,255,0.55);
-      max-width: 340px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 300ms, transform 300ms var(--ease-out);
-    }
-    .case-card:hover .case-card__desc {
-      opacity: 1; transform: none;
-    }
-    .case-card__arrow {
-      position: absolute; top: 24px; right: 24px;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      color: white;
+    .case__arrow {
+      position: absolute; top: 20px; right: 20px;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center; color: white;
       transition: background 250ms, border-color 250ms;
     }
-    .case-card:hover .case-card__arrow {
-      background: var(--teal); border-color: var(--teal);
+    .case:hover .case__arrow { background: var(--purple); border-color: var(--purple); }
+    .case__arrow svg { width: 13px; height: 13px; }
+    .case__content {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 28px;
     }
-    .case-card__arrow svg { width: 14px; height: 14px; }
-
-    /* Photo backgrounds */
-    .case--amethys .case-card__photo {
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop');
+    .case__tag {
+      font: 600 10px/1 var(--font-body); text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--teal-light); margin-bottom: 8px;
     }
-    .case--moby .case-card__photo {
-      background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&q=80&auto=format&fit=crop');
+    .case__title {
+      font: 600 clamp(16px, 1.8vw, 21px)/1.2 var(--font-display);
+      color: var(--white); margin-bottom: 6px; letter-spacing: -0.01em;
     }
-    .case--unity .case-card__photo {
-      background-image: url('https://images.unsplash.com/photo-1555421689-491a97ff2040?w=700&q=80&auto=format&fit=crop');
+    .case__desc {
+      font: 400 13px/1.55 var(--font-body); color: rgba(255,255,255,0.48);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 300ms, transform 300ms var(--ease-out);
     }
+    .case:hover .case__desc { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
-      .cases-layout { grid-template-columns: 1fr; }
-      .case-card--main { aspect-ratio: 4/3; grid-row: span 1; }
-      .case-card__desc { opacity: 1; transform: none; }
+      .cases-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+      .case--main { grid-row: span 1; aspect-ratio: 4/3; }
+      .case--sm { aspect-ratio: 16/9; }
+      .case__desc { opacity: 1; transform: none; }
     }
 
     /* =====================================================
-       QUOTE — Pleine largeur, typographie forte
+       QUOTE
     ===================================================== */
-    .quote-section {
-      background: var(--dark);
-      padding: clamp(80px, 10vw, 140px) 0;
-    }
-    .quote-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .quote-section { background: var(--dark); padding: clamp(80px, 10vw, 130px) 0; }
+    .quote-inner { max-width: 820px; margin: 0 auto; text-align: center; }
     .quote__mark {
-      display: block;
-      font: 300 80px/1 var(--font-display);
-      color: var(--teal);
-      margin-bottom: -20px;
-      letter-spacing: -0.05em;
+      font: 300 72px/1 var(--font-display);
+      background: linear-gradient(135deg, var(--purple), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: -16px; display: block;
     }
     .quote__text {
-      font: 300 clamp(22px, 2.8vw, 36px)/1.5 var(--font-display);
-      color: rgba(255,255,255,0.9);
-      letter-spacing: -0.015em;
-      margin-bottom: 48px;
+      font: 300 clamp(20px, 2.6vw, 34px)/1.5 var(--font-display);
+      color: rgba(255,255,255,0.88); letter-spacing: -0.015em; margin-bottom: 44px;
     }
-    .quote__divider {
-      width: 48px; height: 1.5px;
-      background: var(--teal);
-      margin: 0 auto 28px;
-    }
-    .quote__author {
-      font: 600 15px/1 var(--font-body);
-      color: var(--white); margin-bottom: 6px;
-    }
-    .quote__role {
-      font: 400 13px/1 var(--font-body);
-      color: rgba(255,255,255,0.35);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
+    .quote__divider { width: 44px; height: 1.5px; background: linear-gradient(90deg, var(--purple), var(--teal)); margin: 0 auto 26px; }
+    .quote__author { font: 600 15px/1 var(--font-body); color: var(--white); margin-bottom: 6px; }
+    .quote__role { font: 400 12px/1 var(--font-body); color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; }
 
     /* =====================================================
-       TEAM — Zaventem, contacts réels
+       ÉQUIPE — Abstract CSS art (pas de photos de visages)
     ===================================================== */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
     .team-card {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-    }
-    .team-card__photo {
-      aspect-ratio: 3/4;
-      background-size: cover; background-position: top center;
-      position: relative;
-    }
-    .team-card__photo--otman {
-      background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80&auto=format&fit=crop&crop=faces');
-    }
-    .team-card__photo--jamal {
-      background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&auto=format&fit=crop&crop=faces');
-    }
-    .team-card__photo--farid {
-      background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80&auto=format&fit=crop&crop=faces');
-    }
-    .team-card__body {
-      padding: 24px;
-    }
-    .team-card__name {
-      font: 600 17px/1.2 var(--font-display);
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-    .team-card__role {
-      font: 400 13px/1.4 var(--font-body);
-      color: var(--gray-500);
-      margin-bottom: 16px;
-    }
-    .team-card__email {
-      font: 500 12px/1 var(--font-body);
-      color: var(--teal);
-      letter-spacing: 0.01em;
-    }
-
-    @media (max-width: 768px) {
-      .team-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .team-grid { grid-template-columns: 1fr; }
-    }
-
-    /* =====================================================
-       INSIGHTS — 3 cards articles propres
-    ===================================================== */
-    .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .insight-card {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--gray-100);
+      background: var(--white); border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg); overflow: hidden;
       transition: transform 300ms var(--ease-out), box-shadow 300ms;
     }
-    .insight-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
-    }
-    .insight-card__photo {
-      aspect-ratio: 16/9;
-      background-size: cover; background-position: center;
-    }
-    .insight-card__photo--1 {
-      background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80&auto=format&fit=crop');
-    }
-    .insight-card__photo--2 {
-      background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80&auto=format&fit=crop');
-    }
-    .insight-card__photo--3 {
-      background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop');
-    }
-    .insight-card__body { padding: 28px; }
-    .insight-card__category {
-      font: 600 10px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--teal); margin-bottom: 12px;
-    }
-    .insight-card__title {
-      font: 600 17px/1.3 var(--font-display);
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
-    }
-    .insight-card__excerpt {
-      font: 400 13px/1.6 var(--font-body);
-      color: var(--gray-500);
-    }
+    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
 
-    @media (max-width: 900px) {
-      .insights-grid { grid-template-columns: 1fr 1fr; }
+    /* Abstract art zone — CSS gradient + SVG illustration */
+    .team-card__art {
+      height: 220px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
-    @media (max-width: 580px) {
-      .insights-grid { grid-template-columns: 1fr; }
-    }
-
-    /* =====================================================
-       CTA FINAL — Slalom "Let's solve together"
-    ===================================================== */
-    .cta-section {
-      background: var(--teal);
-      padding: clamp(80px, 10vw, 120px) 0;
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
+    .team-card__art-bg {
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
-      pointer-events: none;
+      transition: transform 600ms var(--ease-out);
     }
-    .cta-section__inner {
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 48px;
-      flex-wrap: wrap; position: relative; z-index: 1;
+    .team-card:hover .team-card__art-bg { transform: scale(1.04); }
+    .team-card__art-pattern {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
     }
-    .cta-section h2 {
-      font: 300 clamp(28px, 3.5vw, 52px)/1.1 var(--font-display);
-      color: var(--white);
-      letter-spacing: -0.02em;
-    }
-    .cta-section h2 em {
-      font-style: normal; font-weight: 700;
-    }
-    .cta-section__actions {
-      display: flex; gap: 14px; flex-shrink: 0; flex-wrap: wrap;
+    .team-card__art-icon {
+      position: relative; z-index: 2;
+      width: 80px; height: 80px; color: rgba(255,255,255,0.9);
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.3));
     }
 
-    /* =====================================================
-       CONTACT — Coordonnées Unico
-    ===================================================== */
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-      align-items: start;
+    /* Otman — GM — gradient violet */
+    .team-card--otman .team-card__art-bg {
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(167,139,250,0.4) 0%, transparent 55%),
+        linear-gradient(145deg, #2d1b4e 0%, #4c1d95 50%, #5B21B6 100%);
     }
-    .contact-form__group { margin-bottom: 20px; }
+    /* Jamal — Ops — gradient teal */
+    .team-card--jamal .team-card__art-bg {
+      background:
+        radial-gradient(ellipse at 70% 30%, rgba(92,213,163,0.3) 0%, transparent 55%),
+        linear-gradient(145deg, #0F1923 0%, #064e3b 50%, #065f46 100%);
+    }
+    /* Farid — RH — gradient indigo */
+    .team-card--farid .team-card__art-bg {
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(129,140,248,0.35) 0%, transparent 55%),
+        linear-gradient(145deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%);
+    }
+
+    .team-card__body { padding: 24px 26px 28px; }
+    .team-card__name { font: 700 17px/1.2 var(--font-display); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .team-card__role { font: 400 13px/1.4 var(--font-body); color: var(--gray-500); margin-bottom: 16px; }
+    .team-card__email { font: 500 12px/1 var(--font-body); color: var(--purple); }
+    .team-card__email:hover { color: var(--purple-mid); text-decoration: underline; }
+
+    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
+
+    /* =====================================================
+       INSIGHTS
+    ===================================================== */
+    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .insight {
+      border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--white); border: 1px solid var(--gray-100);
+      transition: transform 300ms var(--ease-out), box-shadow 300ms;
+    }
+    .insight:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+    .insight__img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .insight__img--1 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop'); }
+    .insight__img--2 { background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&auto=format&fit=crop'); }
+    .insight__img--3 { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80&auto=format&fit=crop'); }
+    .insight__body { padding: 26px; }
+    .insight__cat {
+      font: 600 10px/1 var(--font-body); text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--purple); margin-bottom: 10px;
+    }
+    .insight__title { font: 600 16px/1.3 var(--font-display); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .insight__text { font: 400 13px/1.6 var(--font-body); color: var(--gray-500); }
+    @media (max-width: 900px) { .insights-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .insights-grid { grid-template-columns: 1fr; } }
+
+    /* =====================================================
+       CTA BAND
+    ===================================================== */
+    .cta-band {
+      background: linear-gradient(110deg, var(--purple-dark) 0%, var(--purple) 50%, #5B21B6 100%);
+      padding: clamp(72px, 9vw, 110px) 0; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.07) 0%, transparent 60%);
+    }
+    .cta-band__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 44px; flex-wrap: wrap; position: relative; z-index: 1;
+    }
+    .cta-band h2 {
+      font: 300 clamp(26px, 3.2vw, 48px)/1.12 var(--font-display);
+      color: var(--white); letter-spacing: -0.02em;
+    }
+    .cta-band h2 strong { font-weight: 800; }
+    .cta-band__btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+
+    .contact-form__group { margin-bottom: 18px; }
     .contact-form label {
-      display: block;
-      font: 600 12px/1 var(--font-body);
+      display: block; font: 600 11px/1 var(--font-body);
       text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--gray-500);
-      margin-bottom: 8px;
+      color: var(--gray-400); margin-bottom: 8px;
     }
     .contact-form input,
     .contact-form textarea,
     .contact-form select {
-      width: 100%;
-      font: 400 15px/1.5 var(--font-body);
-      color: var(--text);
-      background: var(--white);
-      border: 1.5px solid var(--gray-100);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      transition: border-color 200ms;
-      outline: none;
-      -webkit-appearance: none;
+      width: 100%; font: 400 15px/1.5 var(--font-body); color: var(--text);
+      background: var(--white); border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius); padding: 13px 15px;
+      transition: border-color 200ms; outline: none; -webkit-appearance: none;
     }
     .contact-form input:focus,
     .contact-form textarea:focus,
-    .contact-form select:focus { border-color: var(--teal); }
-    .contact-form textarea { height: 140px; resize: vertical; }
+    .contact-form select:focus { border-color: var(--purple); }
+    .contact-form textarea { height: 130px; resize: vertical; }
 
-    .contact-info__item {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--gray-100);
+    .contact-info { display: flex; flex-direction: column; }
+    .cinfo {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 20px 0; border-bottom: 1px solid var(--gray-100);
     }
-    .contact-info__item:first-child { padding-top: 0; border-top: 1px solid var(--gray-100); }
-    .contact-info__icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      border-radius: 10px;
-      background: rgba(15,158,120,0.08);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--teal);
+    .cinfo:first-child { padding-top: 0; border-top: 1px solid var(--gray-100); }
+    .cinfo__ic {
+      width: 38px; height: 38px; flex-shrink: 0;
+      border-radius: 10px; background: rgba(124,58,237,0.07);
+      display: flex; align-items: center; justify-content: center; color: var(--purple);
     }
-    .contact-info__icon svg { width: 18px; height: 18px; }
-    .contact-info__label {
-      font: 600 11px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--gray-300); margin-bottom: 6px;
-    }
-    .contact-info__value {
-      font: 500 15px/1.4 var(--font-body);
-      color: var(--text);
-    }
+    .cinfo__ic svg { width: 17px; height: 17px; }
+    .cinfo__l { font: 600 10px/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-200); margin-bottom: 5px; }
+    .cinfo__v { font: 500 14px/1.4 var(--font-body); color: var(--text); }
+    .cinfo__v a { color: var(--purple); transition: color 150ms; }
+    .cinfo__v a:hover { color: var(--purple-mid); }
 
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
 
     /* =====================================================
        FOOTER
     ===================================================== */
-    .footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.45);
-      padding: 80px 0 40px;
-    }
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; margin-bottom: 64px;
-    }
+    .footer { background: var(--dark); color: rgba(255,255,255,0.4); padding: 72px 0 36px; }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
 
-    .footer__logo {
-      font: 700 20px/1 var(--font-display);
-      color: var(--white);
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      display: block;
+    .footer__logo { display: flex; flex-direction: column; gap: 2px; margin-bottom: 18px; }
+    .footer__logo-unico {
+      font: 800 20px/1 var(--font-display); letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #A78BFA, #7C3AED, #5B21B6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .footer__logo span { color: var(--teal); }
-    .footer__desc {
-      font: 400 13px/1.7 var(--font-body);
-      max-width: 260px; margin-bottom: 32px;
+    .footer__logo-consult {
+      display: flex; align-items: center; gap: 5px;
+      font: 600 8px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--logo-cyan);
     }
-    .footer__address {
-      font: 400 13px/1.8 var(--font-body);
-      display: flex; flex-direction: column; gap: 0;
+    .footer__logo-consult::before, .footer__logo-consult::after {
+      content: ''; display: block; height: 1px; width: 12px; background: currentColor; flex-shrink: 0;
     }
+    .footer__desc { font: 400 13px/1.7 var(--font-body); max-width: 240px; margin-bottom: 28px; }
+    .footer__address { font: 400 12px/1.9 var(--font-body); }
 
-    .footer__col-title {
-      font: 600 11px/1 var(--font-body);
-      color: var(--white); text-transform: uppercase;
-      letter-spacing: 0.1em; margin-bottom: 20px;
-    }
-    .footer__col a {
-      display: block; font: 400 13px/1 var(--font-body);
-      margin-bottom: 14px; transition: color 200ms;
-    }
+    .footer__col h4 { font: 600 10px/1 var(--font-body); color: var(--white); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+    .footer__col a { display: block; font: 400 13px/1 var(--font-body); margin-bottom: 13px; transition: color 200ms; }
     .footer__col a:hover { color: var(--teal-light); }
 
-    .footer__socials {
-      display: flex; gap: 8px; margin-top: 24px;
-    }
-    .footer__social {
-      width: 34px; height: 34px; border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+    .footer__socials { display: flex; gap: 8px; margin-top: 20px; }
+    .footer__soc {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.4);
-      transition: all 200ms;
+      color: rgba(255,255,255,0.35); transition: all 200ms;
     }
-    .footer__social:hover {
-      background: var(--teal); color: var(--white); border-color: var(--teal);
-    }
-    .footer__social svg { width: 15px; height: 15px; }
+    .footer__soc:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
+    .footer__soc svg { width: 14px; height: 14px; }
 
     .footer__bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px;
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
-      font: 400 12px/1 var(--font-body);
+      flex-wrap: wrap; gap: 10px; font: 400 12px/1 var(--font-body);
     }
 
-    @media (max-width: 900px) {
-      .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-    }
-    @media (max-width: 480px) {
-      .footer__grid { grid-template-columns: 1fr; }
-      .footer__bottom { flex-direction: column; gap: 8px; }
-    }
+    @media (max-width: 900px) { .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } .footer__bottom { flex-direction: column; gap: 8px; } }
 
     /* =====================================================
-       SCROLL REVEAL ANIMATIONS
+       SCROLL REVEAL
     ===================================================== */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
-    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
     .reveal.visible { opacity: 1; transform: none; }
-
-    .reveal-stagger > * {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
-    }
-    .reveal-stagger.visible > * { opacity: 1; transform: none; }
-    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
-    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 80ms; }
-    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 160ms; }
-    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 240ms; }
-    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 320ms; }
-
+    .stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+    .stagger.visible > * { opacity: 1; transform: none; }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 70ms; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 140ms; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 210ms; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 280ms; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 350ms; }
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .reveal-stagger > * {
-        opacity: 1; transform: none; transition: none;
-      }
+      .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-<nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+<!-- NAVBAR -->
+<nav class="navbar" id="nav" aria-label="Navigation principale">
   <div class="navbar__inner">
-    <a href="#" class="navbar__logo">
-      Unico<span class="navbar__logo-accent">Consult</span>
+    <a href="#" class="navbar__logo" aria-label="Unico Consult — Accueil">
+      <span class="navbar__logo-unico">unico</span>
+      <span class="navbar__logo-consult">Consult</span>
     </a>
 
     <ul class="navbar__links" role="list">
@@ -1071,54 +816,49 @@
 
     <a href="#contact" class="navbar__cta">Parlons de votre projet</a>
 
-    <button class="navbar__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <button class="navbar__burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
-  <a href="#services" class="mobile-menu__link">Services</a>
-  <a href="#apropos" class="mobile-menu__link">À propos</a>
-  <a href="#realisations" class="mobile-menu__link">Réalisations</a>
-  <a href="#equipe" class="mobile-menu__link">Équipe</a>
-  <a href="#contact" class="mobile-menu__link">Contact</a>
-  <a href="#contact" class="navbar__cta" style="margin-top:32px;font-size:15px;padding:14px 36px;">
-    Parlons de votre projet
-  </a>
+  <a href="#services">Services</a>
+  <a href="#apropos">À propos</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#equipe">Équipe</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="navbar__cta">Parlons de votre projet</a>
 </div>
 
 <!-- =====================================================
-     HERO — Photo Zaventem / Bureaux modernes
+     HERO — CSS-only, brand gradient
 ===================================================== -->
-<section class="hero" id="home" aria-label="Hero">
-  <div class="hero__photo" id="heroBg"></div>
-  <div class="hero__overlay"></div>
-  <div class="hero__texture" aria-hidden="true"></div>
+<section class="hero" id="home" aria-label="Accueil">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__dots" aria-hidden="true"></div>
+  <div class="hero__line" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
 
   <div class="container">
     <div class="hero__content">
       <div class="hero__eyebrow">
         <span class="hero__eyebrow-line" aria-hidden="true"></span>
-        <span class="hero__eyebrow-text">IT Consulting — Zaventem, Belgique</span>
+        <span class="hero__eyebrow-text">Sint-Stevens-Woluwe · Belgique · depuis 2010</span>
       </div>
 
-      <h1>
-        Votre partenaire<br>
-        IT <em>unique</em><br>
-        en <span class="word-teal">Belgique</span>
-      </h1>
+      <h1>Votre business ?</h1>
+      <p class="hero__tagline" aria-label="Notre challenge">Notre challenge.</p>
 
       <p class="hero__sub">
-        Gestion informatique, développement d'applications et digitalisation pour les entreprises qui veulent avancer — sur mesure, depuis 2016.
+        Expert en accompagnement de gestion d'entreprise — RH, management, conseils, back office, logistique et branding. Concentrez-vous sur votre cœur de métier, nous veillons au reste.
       </p>
 
       <div class="hero__actions">
         <a href="#services" class="btn btn--primary">
           Découvrir nos services
-          <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4"/>
-          </svg>
+          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
         </a>
         <a href="#contact" class="btn btn--outline-white">Prendre contact</a>
       </div>
@@ -1131,241 +871,241 @@
   </div>
 </section>
 
-<!-- =====================================================
-     MARQUEE — Clients / Partenaires
-===================================================== -->
-<div class="marquee-section" aria-label="Nos clients et partenaires">
-  <div class="marquee__track" aria-hidden="true">
-    <span class="marquee__item">Amethys Clean Services</span>
-    <span class="marquee__item">Moby Green</span>
-    <span class="marquee__item">Nassim Consult</span>
-    <span class="marquee__item">Last Green Mile</span>
-    <span class="marquee__item">Acerty Solution</span>
-    <span class="marquee__item">SD Worx</span>
-    <span class="marquee__item">CodaBox · Peppol</span>
-    <span class="marquee__item">Dell Technologies</span>
-    <span class="marquee__item">Isara · NSI SA</span>
-    <!-- duplicate -->
-    <span class="marquee__item">Amethys Clean Services</span>
-    <span class="marquee__item">Moby Green</span>
-    <span class="marquee__item">Nassim Consult</span>
-    <span class="marquee__item">Last Green Mile</span>
-    <span class="marquee__item">Acerty Solution</span>
-    <span class="marquee__item">SD Worx</span>
-    <span class="marquee__item">CodaBox · Peppol</span>
-    <span class="marquee__item">Dell Technologies</span>
-    <span class="marquee__item">Isara · NSI SA</span>
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-label="Clients et partenaires">
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item">Amethys Clean Services</span>
+    <span class="marquee-item">Moby Green SRL</span>
+    <span class="marquee-item">Last Green Mile</span>
+    <span class="marquee-item">Nassim Consult</span>
+    <span class="marquee-item">Acerty Solution</span>
+    <span class="marquee-item">SD Worx</span>
+    <span class="marquee-item">CodaBox · Peppol</span>
+    <span class="marquee-item">Dell Technologies</span>
+    <span class="marquee-item">Isara · NSI SA</span>
+    <span class="marquee-item">Amethys Clean Services</span>
+    <span class="marquee-item">Moby Green SRL</span>
+    <span class="marquee-item">Last Green Mile</span>
+    <span class="marquee-item">Nassim Consult</span>
+    <span class="marquee-item">Acerty Solution</span>
+    <span class="marquee-item">SD Worx</span>
+    <span class="marquee-item">CodaBox · Peppol</span>
+    <span class="marquee-item">Dell Technologies</span>
+    <span class="marquee-item">Isara · NSI SA</span>
   </div>
 </div>
 
 <!-- =====================================================
-     SERVICES
+     SERVICES — 6 vrais services de unico-consult.be
 ===================================================== -->
-<section class="section" id="services" aria-labelledby="services-title">
+<section class="section" id="services" aria-labelledby="srv-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-header__left">
-        <div class="section-eyebrow">
-          <span class="section-eyebrow-line" aria-hidden="true"></span>
-          <span class="section-eyebrow-text">Nos expertises</span>
+        <div class="eyebrow">
+          <span class="eyebrow__line" aria-hidden="true"></span>
+          <span class="eyebrow__text">Nos expertises</span>
         </div>
-        <h2 class="section-title" id="services-title">
-          Des solutions sur mesure<br>pour chaque défi
+        <h2 class="section-title" id="srv-title">
+          Une gamme complète<br>de services sur mesure
         </h2>
         <p class="section-lead">
-          Nous intervenons là où vous avez besoin — IT, développement, RH ou comptabilité — avec une approche concrète adaptée à votre réalité.
+          Vous souhaitez externaliser une ou plusieurs missions ? Nous élaborons une solution 100&nbsp;% adaptée à vos besoins.
         </p>
       </div>
-      <a href="#contact" class="btn btn--outline-dark">
-        Tous nos services
-        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4"/>
-        </svg>
+      <a href="#contact" class="btn btn--outline">
+        En savoir plus
+        <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
       </a>
     </div>
 
-    <div class="services-grid reveal-stagger">
-      <!-- Featured: IT Infrastructure -->
-      <div class="service-item service-item--featured">
-        <div class="service-item--featured-content">
-          <svg class="service-item__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <rect x="4" y="8" width="40" height="26" rx="3"/>
-            <path d="M16 34v6M32 34v6M10 40h28"/>
-            <path d="M4 22h40"/>
-          </svg>
-          <h3 class="service-item__title">Gestion IT & Infrastructure</h3>
-          <p class="service-item__desc">
-            Parc informatique, serveurs, sécurité réseau et support technique. Nous gérons votre infrastructure de A à Z — matériel Dell, téléphonie, cloud — pour que vous puissiez vous concentrer sur votre activité.
-          </p>
-          <a href="#contact" class="service-item__link">
-            Découvrir
-            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M1 7h9M7 3l4 4-4 4"/>
-            </svg>
-          </a>
-        </div>
-        <div class="service-item--featured-photo" role="img" aria-label="Infrastructure IT"></div>
-      </div>
+    <div class="services-grid stagger">
 
-      <!-- Dev -->
-      <div class="service-item">
-        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <rect x="3" y="6" width="38" height="32" rx="3"/>
-          <path d="M3 14h38M14 20l-5 4 5 4M30 20l5 4-5 4M19 30l6-12"/>
+      <!-- 1 — RH -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M14 20a5 5 0 100-10 5 5 0 000 10zM30 20a5 5 0 100-10 5 5 0 000 10z"/>
+          <path d="M4 38c0-5.5 4.5-10 10-10h1M39 38c0-5.5-4.5-10-10-10h-4"/>
+          <path d="M16 28h12a6 6 0 010 12H16a6 6 0 010-12z" stroke-width="1.2"/>
         </svg>
-        <h3 class="service-item__title">Développement sur mesure</h3>
-        <p class="service-item__desc">Applications métier, outils internes, automatisation de flux. Du cahier des charges à la mise en production.</p>
-        <a href="#contact" class="service-item__link">
-          Découvrir
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M1 7h9M7 3l4 4-4 4"/>
-          </svg>
+        <p class="svc__num">01</p>
+        <h3 class="svc__title">Ressources humaines</h3>
+        <p class="svc__desc">Payroll, politique salariale, recrutement, absentéisme, formation et évaluation. Des ressources humaines impeccables, y compris pour les aspects les plus pointus.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
         </a>
       </div>
 
-      <!-- Digitalisation -->
-      <div class="service-item">
-        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <circle cx="22" cy="22" r="18"/>
-          <path d="M22 4v36M4 22h36M7.5 10.5a28 28 0 0029 0M7.5 33.5a28 28 0 0029 0"/>
+      <!-- 2 — Management -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <rect x="4" y="4" width="14" height="14" rx="3"/>
+          <rect x="26" y="4" width="14" height="14" rx="3"/>
+          <rect x="15" y="26" width="14" height="14" rx="3"/>
+          <path d="M11 18v5a3 3 0 003 3h1M33 18v5a3 3 0 01-3 3h-1M22 18v8"/>
         </svg>
-        <h3 class="service-item__title">Digitalisation & Consulting</h3>
-        <p class="service-item__desc">Transformation digitale, optimisation de processus et automatisation. Gagnez en efficacité sans tout changer d'un coup.</p>
-        <a href="#contact" class="service-item__link">
-          Découvrir
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M1 7h9M7 3l4 4-4 4"/>
-          </svg>
+        <p class="svc__num">02</p>
+        <h3 class="svc__title">Gestion &amp; Management</h3>
+        <p class="svc__desc">Encadrement, audits, recrutement, gestion de conflit, mise en place d'une structure, description des fonctions, procédures d'embauche et de sortie.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
         </a>
       </div>
 
-      <!-- RH -->
-      <div class="service-item">
-        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <circle cx="16" cy="14" r="6"/>
-          <circle cx="30" cy="14" r="6"/>
-          <path d="M2 38c0-7.2 6.3-13 14-13h1M28 25c7.7 0 14 5.8 14 13"/>
-          <path d="M22 30l4 4-4 4"/>
+      <!-- 3 — Conseils -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="22" cy="18" r="10"/>
+          <path d="M22 8V6M22 30v-2M8 18H6M38 18h-2M12.1 8.1l-1.4-1.4M34.3 8.1l1.4-1.4"/>
+          <path d="M18 27v5a4 4 0 008 0v-5"/>
+          <line x1="22" y1="14" x2="22" y2="22"/>
+          <circle cx="22" cy="24" r="1" fill="currentColor"/>
         </svg>
-        <h3 class="service-item__title">Gestion RH & Paie</h3>
-        <p class="service-item__desc">SD Worx, Isara, contrats, secrétariat social, C4, GRS. Gestion RH complète pour les PME belges et leurs obligations légales.</p>
-        <a href="#contact" class="service-item__link">
-          Découvrir
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M1 7h9M7 3l4 4-4 4"/>
-          </svg>
+        <p class="svc__num">03</p>
+        <h3 class="svc__title">Conseils</h3>
+        <p class="svc__desc">Conseil en stratégie commerciale, juridique, opérationnelle, logistique et de management. En phase avec les nouvelles mesures gouvernementales et sociétales.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
         </a>
       </div>
 
-      <!-- Compta -->
-      <div class="service-item">
-        <svg class="service-item__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <rect x="4" y="4" width="36" height="36" rx="3"/>
-          <path d="M4 14h36M14 4v36M22 20h10M22 26h8M22 32h6"/>
+      <!-- 4 — Back office -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <rect x="4" y="8" width="36" height="28" rx="3"/>
+          <path d="M4 16h36"/>
+          <circle cx="14" cy="26" r="4"/>
+          <path d="M20 24h12M20 28h8"/>
+          <circle cx="10" cy="12" r="1.5" fill="currentColor"/>
+          <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
+          <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
         </svg>
-        <h3 class="service-item__title">Suivi Comptable</h3>
-        <p class="service-item__desc">Facturation électronique CodaBox/Peppol, TVA, coordination comptable, suivi bancaire. Vos comptes en ordre, toujours à jour.</p>
-        <a href="#contact" class="service-item__link">
-          Découvrir
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M1 7h9M7 3l4 4-4 4"/>
-          </svg>
+        <p class="svc__num">04</p>
+        <h3 class="svc__title">Back office &amp; Outsourcing</h3>
+        <p class="svc__desc">Externalisation de votre back-office ou de tâches liées à la logistique et à la gestion administrative du personnel. Libérez vos équipes de l'administratif.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
         </a>
       </div>
+
+      <!-- 5 — Logistique -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <rect x="2" y="12" width="28" height="20" rx="2"/>
+          <path d="M30 18h8l4 8v6h-12V18z"/>
+          <circle cx="10" cy="34" r="4"/>
+          <circle cx="36" cy="34" r="4"/>
+          <path d="M14 34h18"/>
+          <path d="M8 20h16M8 25h10"/>
+        </svg>
+        <p class="svc__num">05</p>
+        <h3 class="svc__title">Logistique</h3>
+        <p class="svc__desc">Gestion des locaux, de l'informatique, de la téléphonie, des fournitures et de la flotte automobile. Concentrez-vous sur votre cœur de métier, nous gérons le reste.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <!-- 6 — Branding -->
+      <div class="svc">
+        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M22 4l4.5 9 10 1.5-7.2 7 1.7 10L22 27l-9 4.5 1.7-10L7.5 14.5l10-1.5z"/>
+          <path d="M22 16v6M22 25v2" stroke-width="1.8"/>
+          <circle cx="22" cy="29" r="1" fill="currentColor"/>
+        </svg>
+        <p class="svc__num">06</p>
+        <h3 class="svc__title">Branding</h3>
+        <p class="svc__desc">Faire la différence est la clé d'une entreprise pérenne. Création d'image de marque, identité visuelle et stratégie de différenciation pour s'ouvrir les portes de la réussite.</p>
+        <a href="#contact" class="svc__link">
+          En savoir plus
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     STATS
-===================================================== -->
+<!-- STATS -->
 <div class="stats-band" aria-label="Chiffres clés">
   <div class="container">
-    <div class="stats-grid reveal-stagger">
+    <div class="stats-grid stagger">
       <div class="stat">
-        <div class="stat__number"><span data-target="8" data-suffix="+">8+</span></div>
-        <p class="stat__label">Années d'expertise</p>
+        <div class="stat__n"><span data-target="15" data-suffix="+">15+</span></div>
+        <p class="stat__l">Années d'expérience</p>
       </div>
       <div class="stat">
-        <div class="stat__number"><span data-target="15" data-suffix="+">15+</span></div>
-        <p class="stat__label">Clients actifs</p>
+        <div class="stat__n"><span data-target="15" data-suffix="+">15+</span></div>
+        <p class="stat__l">Clients actifs</p>
       </div>
       <div class="stat">
-        <div class="stat__number"><span data-target="3">3</span></div>
-        <p class="stat__label">Pays — BE · MA · IT</p>
+        <div class="stat__n"><span data-target="3">3</span></div>
+        <p class="stat__l">Pays — BE · MA · IT</p>
       </div>
       <div class="stat">
-        <div class="stat__number"><span data-target="100" data-suffix="%">100%</span></div>
-        <p class="stat__label">Sur mesure</p>
+        <div class="stat__n"><span data-target="100" data-suffix="%">100%</span></div>
+        <p class="stat__l">Solutions sur mesure</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- =====================================================
-     À PROPOS — Split photo / texte
+     À PROPOS
 ===================================================== -->
-<section class="section" id="apropos" aria-labelledby="apropos-title">
+<section class="section" id="apropos" aria-labelledby="about-title">
   <div class="container">
     <div class="split">
-      <!-- Photo -->
       <div class="split__photo reveal">
         <img
           src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&auto=format&fit=crop"
-          alt="Équipe Unico Consult — collaboration et expertise IT"
-          loading="lazy"
-          width="900" height="675"
+          alt="Équipe Unico Consult en réunion de travail"
+          loading="lazy" width="900" height="675"
         >
-        <div class="split__photo-badge" aria-label="8 ans d'expertise">
-          8+
-          <p>ans d'expertise</p>
+        <div class="split__badge" aria-label="15 ans d'expérience">
+          15+
+          <p>ans d'expérience</p>
         </div>
       </div>
 
-      <!-- Texte -->
-      <div class="split__text reveal">
-        <div class="section-eyebrow">
-          <span class="section-eyebrow-line" aria-hidden="true"></span>
-          <span class="section-eyebrow-text">À propos</span>
+      <div class="reveal">
+        <div class="eyebrow">
+          <span class="eyebrow__line" aria-hidden="true"></span>
+          <span class="eyebrow__text">À propos</span>
         </div>
-        <h2 class="section-title" id="apropos-title">
-          Une équipe dédiée,<br>une approche unique
+        <h2 class="section-title" id="about-title">
+          Ensemble,<br>concrétisons<br>votre vision
         </h2>
         <p class="section-lead">
-          Basés à Zaventem (Bruxelles), nous accompagnons les PME belges et internationales dans leur transformation digitale. Notre équipe pluridisciplinaire — IT, RH et finance — vous offre un interlocuteur unique.
+          Forts de près de 15 années d'expérience, notamment dans des secteurs complexes comme les titres-services et le transport, nous mettons nos compétences au profit de votre entreprise.
         </p>
         <ul class="split__list">
           <li>
-            <svg class="split__list-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 10l4 4 8-8"/>
-            </svg>
-            Équipe pluridisciplinaire — IT, RH & comptabilité en un seul partenaire
+            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
+            Équipe pluridisciplinaire — RH, management, IT & finance en un seul partenaire
           </li>
           <li>
-            <svg class="split__list-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 10l4 4 8-8"/>
-            </svg>
+            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
+            Secteurs complexes — titres-services, transport, mobilité, nettoyage B2B
+          </li>
+          <li>
+            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
             Présence internationale — Belgique, Maroc, Italie, Pays-Bas
           </li>
           <li>
-            <svg class="split__list-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 10l4 4 8-8"/>
-            </svg>
-            Partenaires certifiés SD Worx, CodaBox, Peppol, Dell Technologies
-          </li>
-          <li>
-            <svg class="split__list-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 10l4 4 8-8"/>
-            </svg>
-            Disponibilité et réactivité — réponse dans les 24h, toujours
+            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
+            Réponse sous 24h — disponibilité et réactivité garanties
           </li>
         </ul>
-        <div style="margin-top: 40px;">
+        <div style="margin-top:36px">
           <a href="#contact" class="btn btn--primary">
             Travaillons ensemble
-            <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
-            </svg>
+            <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
         </div>
       </div>
@@ -1374,80 +1114,83 @@
 </section>
 
 <!-- =====================================================
-     CAS CLIENTS — Photos réelles
+     RÉALISATIONS
 ===================================================== -->
 <section class="section section--offwhite" id="realisations" aria-labelledby="cases-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-header__left">
-        <div class="section-eyebrow">
-          <span class="section-eyebrow-line" aria-hidden="true"></span>
-          <span class="section-eyebrow-text">Réalisations</span>
+        <div class="eyebrow">
+          <span class="eyebrow__line" aria-hidden="true"></span>
+          <span class="eyebrow__text">Réalisations</span>
         </div>
         <h2 class="section-title" id="cases-title">
-          Des résultats concrets<br>pour nos clients
+          Ils nous font confiance
         </h2>
+        <p class="section-lead">Des résultats concrets pour nos clients, dans des secteurs exigeants.</p>
       </div>
     </div>
 
-    <div class="cases-layout reveal">
-      <!-- Main case — Amethys -->
-      <div class="case-card case-card--main case--amethys" role="article">
-        <div class="case-card__photo"></div>
-        <div class="case-card__overlay"></div>
-        <div class="case-card__arrow" aria-hidden="true">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M1 7h12M8 3l4 4-4 4"/>
+    <div class="cases-grid reveal">
+
+      <!-- Amethys — CSS art -->
+      <div class="case case--main case--amethys" role="article">
+        <div class="case__bg"></div>
+        <div class="case__geo" aria-hidden="true">
+          <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <circle cx="80" cy="120" r="80" stroke="white" stroke-width="0.5"/>
+            <circle cx="320" cy="480" r="140" stroke="white" stroke-width="0.5"/>
+            <line x1="0" y1="0" x2="400" y2="600" stroke="white" stroke-width="0.3"/>
+            <line x1="400" y1="0" x2="0" y2="600" stroke="white" stroke-width="0.3"/>
+            <rect x="100" y="200" width="200" height="200" stroke="white" stroke-width="0.4" transform="rotate(20 200 300)"/>
+            <circle cx="200" cy="300" r="60" stroke="white" stroke-width="0.6"/>
           </svg>
         </div>
-        <div class="case-card__content">
-          <span class="case-card__tag">Nettoyage professionnel B2B</span>
-          <h3 class="case-card__title">Amethys Clean Services</h3>
-          <p class="case-card__desc">
-            Gestion RH complète depuis la création — Isara, SD Worx, contrats, secrétariat social. Filiale 100% Unico, opérationnelle en 3 mois.
-          </p>
+        <div class="case__overlay"></div>
+        <div class="case__arrow" aria-hidden="true">
+          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
+        </div>
+        <div class="case__content">
+          <span class="case__tag">Nettoyage professionnel B2B</span>
+          <h3 class="case__title">Amethys Clean Services</h3>
+          <p class="case__desc">Gestion RH complète depuis la création — Isara, SD Worx, contrats, secrétariat social. Filiale 100% Unico, opérationnelle en 3 mois.</p>
         </div>
       </div>
 
       <!-- Moby Green -->
-      <div class="case-card case-card--sm case--moby" role="article">
-        <div class="case-card__photo"></div>
-        <div class="case-card__overlay"></div>
-        <div class="case-card__arrow" aria-hidden="true">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M1 7h12M8 3l4 4-4 4"/>
-          </svg>
+      <div class="case case--sm case--moby" role="article">
+        <div class="case__bg"></div>
+        <div class="case__overlay"></div>
+        <div class="case__arrow" aria-hidden="true">
+          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
         </div>
-        <div class="case-card__content">
-          <span class="case-card__tag">Mobilité verte · Bolt NL</span>
-          <h3 class="case-card__title">Moby Green — Facturation Peppol</h3>
-          <p class="case-card__desc">Automatisation de la facturation mensuelle — +100 000 €/mois, zéro erreur.</p>
+        <div class="case__content">
+          <span class="case__tag">Mobilité verte · Bolt NL</span>
+          <h3 class="case__title">Moby Green — Facturation Peppol</h3>
+          <p class="case__desc">Automatisation facturation mensuelle — +100 000 €/mois, zéro erreur.</p>
         </div>
       </div>
 
       <!-- UNITY -->
-      <div class="case-card case-card--sm case--unity" role="article">
-        <div class="case-card__photo"></div>
-        <div class="case-card__overlay"></div>
-        <div class="case-card__arrow" aria-hidden="true">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M1 7h12M8 3l4 4-4 4"/>
-          </svg>
+      <div class="case case--sm case--unity" role="article">
+        <div class="case__bg"></div>
+        <div class="case__overlay"></div>
+        <div class="case__arrow" aria-hidden="true">
+          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
         </div>
-        <div class="case-card__content">
-          <span class="case-card__tag">Développement sur mesure</span>
-          <h3 class="case-card__title">Projet UNITY — App de gestion clients</h3>
-          <p class="case-card__desc">Application métier remplaçant Excel — dossiers, devis, KPIs, tableaux de bord.</p>
+        <div class="case__content">
+          <span class="case__tag">Développement sur mesure</span>
+          <h3 class="case__title">UNITY — Application de gestion</h3>
+          <p class="case__desc">App métier remplaçant Excel — dossiers clients, devis, KPIs, tableaux de bord.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     QUOTE — Témoignage client
-===================================================== -->
-<section class="quote-section reveal" aria-label="Témoignage client">
+<!-- QUOTE -->
+<section class="quote-section reveal" aria-label="Témoignage">
   <div class="container">
     <div class="quote-inner">
       <span class="quote__mark" aria-hidden="true">"</span>
@@ -1458,122 +1201,163 @@
       </blockquote>
       <div class="quote__divider" aria-hidden="true"></div>
       <p class="quote__author">Ilias Bakkioui</p>
-      <p class="quote__role">Directeur, Moby Green SRL &mdash; Bruxelles</p>
+      <p class="quote__role">Directeur — Moby Green SRL &middot; Bruxelles</p>
     </div>
   </div>
 </section>
 
 <!-- =====================================================
-     ÉQUIPE — Les 3 contacts réels Unico
+     ÉQUIPE — Art abstrait CSS, 0 photo de visage
 ===================================================== -->
-<section class="section" id="equipe" aria-labelledby="equipe-title">
+<section class="section" id="equipe" aria-labelledby="team-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-header__left">
-        <div class="section-eyebrow">
-          <span class="section-eyebrow-line" aria-hidden="true"></span>
-          <span class="section-eyebrow-text">L'équipe</span>
+        <div class="eyebrow">
+          <span class="eyebrow__line" aria-hidden="true"></span>
+          <span class="eyebrow__text">L'équipe</span>
         </div>
-        <h2 class="section-title" id="equipe-title">
+        <h2 class="section-title" id="team-title">
           Des experts dédiés<br>à votre succès
         </h2>
       </div>
     </div>
 
-    <div class="team-grid reveal-stagger">
-      <div class="team-card">
-        <div class="team-card__photo team-card__photo--otman" role="img" aria-label="Photo Otman Hssinoui"></div>
+    <div class="team-grid stagger">
+
+      <!-- Otman — GM — Compas / Leadership -->
+      <div class="team-card team-card--otman">
+        <div class="team-card__art" aria-label="Direction générale — Leadership et stratégie">
+          <div class="team-card__art-bg"></div>
+          <div class="team-card__art-pattern" aria-hidden="true"></div>
+          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="40" cy="40" r="34"/>
+            <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
+            <line x1="40" y1="6" x2="40" y2="20"/>
+            <line x1="40" y1="60" x2="40" y2="74"/>
+            <line x1="6" y1="40" x2="20" y2="40"/>
+            <line x1="60" y1="40" x2="74" y2="40"/>
+            <path d="M40 14l-4 10 4-2 4 2z" fill="currentColor" stroke="none"/>
+            <circle cx="40" cy="40" r="18" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
         <div class="team-card__body">
           <h3 class="team-card__name">Otman Hssinoui</h3>
           <p class="team-card__role">General Manager</p>
           <a href="mailto:ohs@unico-consult.be" class="team-card__email">ohs@unico-consult.be</a>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-card__photo team-card__photo--jamal" role="img" aria-label="Photo Jamal El Kadaoui"></div>
+
+      <!-- Jamal — Ops — Engrenages -->
+      <div class="team-card team-card--jamal">
+        <div class="team-card__art" aria-label="Gestion opérationnelle — Processus et coordination">
+          <div class="team-card__art-bg"></div>
+          <div class="team-card__art-pattern" aria-hidden="true"></div>
+          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <!-- Grand engrenage -->
+            <circle cx="32" cy="38" r="14"/>
+            <circle cx="32" cy="38" r="5"/>
+            <path d="M32 20v4M32 52v4M14 38h-4M54 38h-4M19.7 25.7l-2.8-2.8M47.1 50.3l-2.8-2.8M19.7 50.3l-2.8 2.8M47.1 25.7l2.8-2.8" stroke-width="2"/>
+            <!-- Petit engrenage -->
+            <circle cx="56" cy="28" r="9"/>
+            <circle cx="56" cy="28" r="3.5"/>
+            <path d="M56 16v3M56 37v3M44 28h-3M68 28h-3M47.8 20l2.1 2.1M62.1 33.9l2.1 2.1M47.8 36l2.1-2.1M62.1 22.1l2.1-2.1" stroke-width="1.4"/>
+          </svg>
+        </div>
         <div class="team-card__body">
           <h3 class="team-card__name">Jamal El Kadaoui</h3>
           <p class="team-card__role">Gestionnaire opérationnel</p>
           <a href="mailto:jek@unico-consult.be" class="team-card__email">jek@unico-consult.be</a>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-card__photo team-card__photo--farid" role="img" aria-label="Photo Farid Saouti"></div>
+
+      <!-- Farid — RH — Personnes connectées -->
+      <div class="team-card team-card--farid">
+        <div class="team-card__art" aria-label="Gestion RH et administrative — Personnes et équipes">
+          <div class="team-card__art-bg"></div>
+          <div class="team-card__art-pattern" aria-hidden="true"></div>
+          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <!-- Personne centrale -->
+            <circle cx="40" cy="28" r="8"/>
+            <path d="M26 54c0-7.7 6.3-14 14-14s14 6.3 14 14"/>
+            <!-- Personne gauche -->
+            <circle cx="18" cy="34" r="5.5"/>
+            <path d="M8 54c0-5.5 4.5-10 10-10"/>
+            <!-- Personne droite -->
+            <circle cx="62" cy="34" r="5.5"/>
+            <path d="M72 54c0-5.5-4.5-10-10-10"/>
+            <!-- Connexions -->
+            <line x1="22" y1="34" x2="32" y2="32" stroke-dasharray="2 2"/>
+            <line x1="58" y1="34" x2="48" y2="32" stroke-dasharray="2 2"/>
+          </svg>
+        </div>
         <div class="team-card__body">
           <h3 class="team-card__name">Farid Saouti</h3>
           <p class="team-card__role">Gestionnaire RH &amp; Administratif</p>
           <a href="mailto:fsa@unico-consult.be" class="team-card__email">fsa@unico-consult.be</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     INSIGHTS / BLOG
-===================================================== -->
+<!-- INSIGHTS -->
 <section class="section section--offwhite" aria-labelledby="insights-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-header__left">
-        <div class="section-eyebrow">
-          <span class="section-eyebrow-line" aria-hidden="true"></span>
-          <span class="section-eyebrow-text">Insights</span>
+        <div class="eyebrow">
+          <span class="eyebrow__line" aria-hidden="true"></span>
+          <span class="eyebrow__text">Insights</span>
         </div>
         <h2 class="section-title" id="insights-title">
-          Expertise & actualités IT
+          Expertise &amp; actualités
         </h2>
       </div>
     </div>
 
-    <div class="insights-grid reveal-stagger">
-      <article class="insight-card">
-        <div class="insight-card__photo insight-card__photo--1" role="img" aria-label="Article IT management"></div>
-        <div class="insight-card__body">
-          <p class="insight-card__category">Gestion IT</p>
-          <h3 class="insight-card__title">Comment externaliser votre IT sans perdre le contrôle</h3>
-          <p class="insight-card__excerpt">Les clés pour déléguer efficacement la gestion de votre parc informatique tout en restant maître de vos données.</p>
+    <div class="insights-grid stagger">
+      <article class="insight">
+        <div class="insight__img insight__img--1" role="img" aria-label="RH et management"></div>
+        <div class="insight__body">
+          <p class="insight__cat">Ressources humaines</p>
+          <h3 class="insight__title">Comment externaliser ses RH sans perdre le contrôle de son équipe</h3>
+          <p class="insight__text">Les clés pour déléguer la gestion RH efficacement tout en restant le décideur pour votre entreprise.</p>
         </div>
       </article>
-      <article class="insight-card">
-        <div class="insight-card__photo insight-card__photo--2" role="img" aria-label="Article facturation électronique"></div>
-        <div class="insight-card__body">
-          <p class="insight-card__category">Comptabilité</p>
-          <h3 class="insight-card__title">Facturation électronique obligatoire en 2026 — êtes-vous prêt ?</h3>
-          <p class="insight-card__excerpt">La directive européenne s'applique aux PME belges dès 2026. Voici comment Peppol et CodaBox simplifient la transition.</p>
+      <article class="insight">
+        <div class="insight__img insight__img--2" role="img" aria-label="Comptabilité et facturation"></div>
+        <div class="insight__body">
+          <p class="insight__cat">Back office</p>
+          <h3 class="insight__title">Facturation électronique obligatoire en 2026 — êtes-vous prêt ?</h3>
+          <p class="insight__text">La directive européenne s'applique aux PME belges. CodaBox et Peppol simplifient la transition.</p>
         </div>
       </article>
-      <article class="insight-card">
-        <div class="insight-card__photo insight-card__photo--3" role="img" aria-label="Article digitalisation PME"></div>
-        <div class="insight-card__body">
-          <p class="insight-card__category">Digitalisation</p>
-          <h3 class="insight-card__title">5 outils concrets pour digitaliser une PME sans budget colossal</h3>
-          <p class="insight-card__excerpt">Des solutions accessibles qui transforment vraiment votre façon de travailler — sans changer toute votre organisation.</p>
+      <article class="insight">
+        <div class="insight__img insight__img--3" role="img" aria-label="Stratégie et conseils"></div>
+        <div class="insight__body">
+          <p class="insight__cat">Conseils</p>
+          <h3 class="insight__title">5 outils pour digitaliser une PME sans budget colossal</h3>
+          <p class="insight__text">Des solutions accessibles qui transforment votre façon de travailler sans tout chambouler.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     CTA — Slalom "Let's solve together"
-===================================================== -->
-<section class="cta-section" aria-label="Appel à l'action">
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Appel à l'action">
   <div class="container">
-    <div class="cta-section__inner">
-      <h2>
-        Parlons de<br>
-        <em>votre projet.</em>
-      </h2>
-      <div class="cta-section__actions">
+    <div class="cta-band__inner">
+      <h2>Votre business ?<br><strong>Notre challenge.</strong></h2>
+      <div class="cta-band__btns">
         <a href="mailto:info@unico-consult.be" class="btn btn--outline-white">
           info@unico-consult.be
         </a>
         <a href="#contact" class="btn" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.25);">
           Formulaire de contact
-          <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4"/>
-          </svg>
+          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
         </a>
       </div>
     </div>
@@ -1581,104 +1365,97 @@
 </section>
 
 <!-- =====================================================
-     CONTACT — Formulaire + Coordonnées
+     CONTACT — Vraies coordonnées Unico
 ===================================================== -->
 <section class="section" id="contact" aria-labelledby="contact-title">
   <div class="container">
-    <div class="section-eyebrow reveal" style="margin-bottom:20px">
-      <span class="section-eyebrow-line" aria-hidden="true"></span>
-      <span class="section-eyebrow-text">Contact</span>
+    <div class="eyebrow reveal" style="margin-bottom:18px">
+      <span class="eyebrow__line" aria-hidden="true"></span>
+      <span class="eyebrow__text">Contact</span>
     </div>
-    <h2 class="section-title reveal" id="contact-title" style="margin-bottom:56px">
+    <h2 class="section-title reveal" id="contact-title" style="margin-bottom:52px">
       Démarrons la conversation
     </h2>
 
     <div class="contact-grid reveal">
-      <!-- Formulaire -->
       <form class="contact-form" action="mailto:info@unico-consult.be" method="post" enctype="text/plain" aria-label="Formulaire de contact">
         <div class="contact-form__group">
-          <label for="contact-name">Votre nom</label>
-          <input type="text" id="contact-name" name="nom" placeholder="Jean Dupont" required autocomplete="name">
+          <label for="c-name">Votre nom</label>
+          <input type="text" id="c-name" name="nom" placeholder="Jean Dupont" required autocomplete="name">
         </div>
         <div class="contact-form__group">
-          <label for="contact-email">Adresse email</label>
-          <input type="email" id="contact-email" name="email" placeholder="jean@entreprise.be" required autocomplete="email">
+          <label for="c-email">Adresse email</label>
+          <input type="email" id="c-email" name="email" placeholder="jean@entreprise.be" required autocomplete="email">
         </div>
         <div class="contact-form__group">
-          <label for="contact-subject">Sujet</label>
-          <select id="contact-subject" name="sujet">
+          <label for="c-subject">Sujet</label>
+          <select id="c-subject" name="sujet">
             <option value="">Sélectionner un sujet</option>
-            <option>Gestion IT &amp; Infrastructure</option>
-            <option>Développement sur mesure</option>
-            <option>Digitalisation &amp; Consulting</option>
-            <option>Gestion RH &amp; Paie</option>
-            <option>Suivi Comptable</option>
+            <option>Ressources humaines</option>
+            <option>Gestion &amp; Management</option>
+            <option>Conseils</option>
+            <option>Back office &amp; Outsourcing</option>
+            <option>Logistique</option>
+            <option>Branding</option>
             <option>Autre</option>
           </select>
         </div>
         <div class="contact-form__group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" placeholder="Décrivez votre projet ou votre besoin..." required></textarea>
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" name="message" placeholder="Décrivez votre projet ou votre besoin..." required></textarea>
         </div>
         <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
           Envoyer le message
-          <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4"/>
-          </svg>
+          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
         </button>
       </form>
 
-      <!-- Coordonnées -->
       <div class="contact-info" aria-label="Coordonnées">
-        <div class="contact-info__item">
-          <div class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M9 10.5a3 3 0 100-6 3 3 0 000 6z"/>
-              <path d="M9 17S3 12.2 3 7.5a6 6 0 0112 0C15 12.2 9 17 9 17z"/>
+        <div class="cinfo">
+          <div class="cinfo__ic" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8.5 9.5a3 3 0 100-6 3 3 0 000 6z"/>
+              <path d="M8.5 16S2.5 11.5 2.5 7a6 6 0 0112 0c0 4.5-6 9-6 9z"/>
             </svg>
           </div>
           <div>
-            <p class="contact-info__label">Adresse</p>
-            <p class="contact-info__value">Hippokrateslaan 4/001<br>1932 Zaventem, Belgique</p>
+            <p class="cinfo__l">Adresse</p>
+            <p class="cinfo__v">Avenue Hippocrate 4 boite 001<br>1932 Sint-Stevens-Woluwe, Belgique</p>
           </div>
         </div>
-        <div class="contact-info__item">
-          <div class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="4" width="14" height="10" rx="2"/>
-              <path d="M2 6l7 5 7-5"/>
+        <div class="cinfo">
+          <div class="cinfo__ic" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1.5" y="3.5" width="14" height="10" rx="2"/>
+              <path d="M1.5 6l7 5 7-5"/>
             </svg>
           </div>
           <div>
-            <p class="contact-info__label">Email général</p>
-            <p class="contact-info__value">
-              <a href="mailto:info@unico-consult.be" style="color:var(--teal);">info@unico-consult.be</a>
-            </p>
+            <p class="cinfo__l">Email</p>
+            <p class="cinfo__v"><a href="mailto:info@unico-consult.be">info@unico-consult.be</a></p>
           </div>
         </div>
-        <div class="contact-info__item">
-          <div class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M16 12.5c0 .3-.1.6-.2.9-.1.3-.3.5-.5.8-.4.4-.8.6-1.3.6-.3 0-.7-.1-1-.2A12.3 12.3 0 015.2 5.8c-.2-.3-.2-.6-.2-1 0-.4.1-.8.5-1.2.4-.4.8-.6 1.2-.6.2 0 .3 0 .5.1.2.1.3.2.5.5l1.6 2.3c.2.2.3.4.3.6 0 .3-.1.5-.3.7l-.6.6c0 .1-.1.1-.1.2 0 .1.1.3.2.4.3.5.7 1 1.1 1.4.5.5 1 .8 1.4 1.1.2.1.3.1.4.1l.2-.1.6-.6c.2-.2.5-.3.7-.3.2 0 .4.1.6.2l2.3 1.6c.3.2.4.4.5.6z"/>
+        <div class="cinfo">
+          <div class="cinfo__ic" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M15 11.7c0 .3-.1.6-.2.8-.1.3-.3.5-.5.7-.4.4-.8.6-1.2.6-.3 0-.6-.1-.9-.2a12 12 0 01-9.2-9.2c-.1-.3-.1-.6-.1-.9 0-.4.1-.8.5-1.2.4-.4.7-.6 1.1-.6.2 0 .3 0 .5.1.2.1.3.2.4.5l1.5 2.2c.2.2.3.4.3.6 0 .2-.1.4-.3.6l-.6.6-.1.2c.1.1.1.2.2.4.3.5.6 1 1 1.4.5.5 1 .8 1.4 1 .1.1.3.1.4.1l.2-.1.6-.6c.2-.2.4-.3.6-.3.2 0 .4.1.6.2l2.2 1.5c.3.1.4.3.5.5z"/>
             </svg>
           </div>
           <div>
-            <p class="contact-info__label">Otman Hssinoui — GM</p>
-            <p class="contact-info__value">
-              <a href="mailto:ohs@unico-consult.be" style="color:var(--teal);">ohs@unico-consult.be</a>
-            </p>
+            <p class="cinfo__l">Téléphone</p>
+            <p class="cinfo__v"><a href="tel:+3222905898">02 290 58 98</a></p>
           </div>
         </div>
-        <div class="contact-info__item">
-          <div class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="9" cy="9" r="7"/>
-              <path d="M9 5v4l3 2"/>
+        <div class="cinfo">
+          <div class="cinfo__ic" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="8.5" cy="8.5" r="6.5"/>
+              <path d="M8.5 5v3.5l2.5 1.5"/>
             </svg>
           </div>
           <div>
-            <p class="contact-info__label">Disponibilité</p>
-            <p class="contact-info__value">Réponse sous 24h<br>Lun — Ven, 9h – 18h</p>
+            <p class="cinfo__l">Disponibilité</p>
+            <p class="cinfo__v">Lun — Ven, 9h – 18h<br>Réponse sous 24h</p>
           </div>
         </div>
       </div>
@@ -1686,65 +1463,56 @@
   </div>
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer__grid">
-      <!-- Brand -->
       <div>
-        <a href="#" class="footer__logo">Unico<span>Consult</span></a>
+        <div class="footer__logo" aria-label="Unico Consult">
+          <span class="footer__logo-unico">unico</span>
+          <span class="footer__logo-consult">Consult</span>
+        </div>
         <p class="footer__desc">
-          Votre partenaire IT unique — gestion informatique, développement sur mesure, RH et comptabilité pour les PME belges et internationales.
+          Expert en accompagnement de gestion d'entreprise. RH, management, conseils, back office, logistique et branding pour les PME belges et internationales.
         </p>
-        <address class="footer__address" style="font-style:normal;">
-          Hippokrateslaan 4/001<br>
-          1932 Zaventem, Belgique<br>
-          <a href="mailto:info@unico-consult.be" style="color:rgba(255,255,255,0.45);transition:color 200ms;" onmouseover="this.style.color='#5DCAA5'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
-            info@unico-consult.be
-          </a>
+        <address class="footer__address" style="font-style:normal">
+          Avenue Hippocrate 4 boite 001<br>
+          1932 Sint-Stevens-Woluwe<br>
+          <a href="tel:+3222905898" style="color:rgba(255,255,255,0.4);transition:color 200ms" onmouseover="this.style.color='#5DCAA5'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">02 290 58 98</a><br>
+          <a href="mailto:info@unico-consult.be" style="color:rgba(255,255,255,0.4);transition:color 200ms" onmouseover="this.style.color='#5DCAA5'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">info@unico-consult.be</a>
         </address>
         <div class="footer__socials">
-          <a href="https://www.linkedin.com/company/unico-consult" class="footer__social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
+          <a href="https://www.linkedin.com/company/unico-consult" class="footer__soc" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
-          <a href="https://unico-consult.be" class="footer__social" aria-label="Site web" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-            </svg>
+          <a href="https://www.unico-consult.be" class="footer__soc" aria-label="Site officiel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Services -->
       <div class="footer__col">
-        <h3 class="footer__col-title">Services</h3>
-        <a href="#services">Gestion IT</a>
-        <a href="#services">Développement</a>
-        <a href="#services">Digitalisation</a>
-        <a href="#services">RH &amp; Paie</a>
-        <a href="#services">Comptabilité</a>
+        <h4>Services</h4>
+        <a href="#services">Ressources humaines</a>
+        <a href="#services">Gestion &amp; Management</a>
+        <a href="#services">Conseils</a>
+        <a href="#services">Back office</a>
+        <a href="#services">Logistique</a>
+        <a href="#services">Branding</a>
       </div>
 
-      <!-- Entreprise -->
       <div class="footer__col">
-        <h3 class="footer__col-title">Entreprise</h3>
+        <h4>Entreprise</h4>
         <a href="#apropos">À propos</a>
         <a href="#equipe">L'équipe</a>
         <a href="#realisations">Réalisations</a>
-        <a href="#insights">Insights</a>
-        <a href="https://unico-consult.be" target="_blank" rel="noopener">unico-consult.be</a>
+        <a href="https://www.unico-consult.be" target="_blank" rel="noopener">Site officiel</a>
       </div>
 
-      <!-- Contact -->
       <div class="footer__col">
-        <h3 class="footer__col-title">Contact</h3>
-        <a href="#contact">Formulaire</a>
+        <h4>Contact</h4>
         <a href="mailto:info@unico-consult.be">Email général</a>
+        <a href="tel:+3222905898">02 290 58 98</a>
         <a href="mailto:ohs@unico-consult.be">Otman Hssinoui</a>
         <a href="mailto:jek@unico-consult.be">Jamal El Kadaoui</a>
         <a href="mailto:fsa@unico-consult.be">Farid Saouti</a>
@@ -1753,42 +1521,31 @@
 
     <div class="footer__bottom">
       <span>&copy; 2026 Unico Consult — Tous droits réservés</span>
-      <span>Hippokrateslaan 4/001 &middot; 1932 Zaventem &middot; Belgique</span>
+      <span>Avenue Hippocrate 4/001 &middot; 1932 Sint-Stevens-Woluwe &middot; Belgique</span>
     </div>
   </div>
 </footer>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Hero photo zoom on load ---
-  const heroBg = document.getElementById('heroBg');
-  if (heroBg) setTimeout(() => heroBg.classList.add('loaded'), 100);
-
-  // --- Navbar: transparent → white on scroll ---
-  const navbar = document.getElementById('navbar');
-  const onScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  };
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // --- Mobile menu ---
+  // Mobile menu
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
-
   burger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    burger.classList.toggle('open', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const open = mobileMenu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
-
-  document.querySelectorAll('.mobile-menu__link, .mobile-menu .navbar__cta').forEach(el => {
-    el.addEventListener('click', () => {
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
@@ -1796,76 +1553,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Smooth scroll ---
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const id = link.getAttribute('href');
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
       if (id === '#') return;
-      const target = document.querySelector(id);
-      if (target) {
+      const el = document.querySelector(id);
+      if (el) {
         e.preventDefault();
-        window.scrollTo({
-          top: target.getBoundingClientRect().top + window.scrollY - 80,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
       }
     });
   });
 
-  // --- Scroll reveal (IntersectionObserver) ---
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObs.unobserve(entry.target);
-      }
+  // Scroll reveal
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .stagger').forEach(el => revObs.observe(el));
 
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObs.observe(el));
-
-  // --- Animated counters ---
-  const counterObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
+  // Counters
+  const cntObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
       const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const startTime = performance.now();
-
+      const start = performance.now();
+      const dur = 1800;
       const tick = now => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(target * eased) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(target * ease) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
-      counterObs.unobserve(el);
+      cntObs.unobserve(el);
     });
   }, { threshold: 0.6 });
-
-  document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
-
-  // --- Navbar active link highlight ---
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('.navbar__links a');
-
-  const sectionObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => {
-          const isActive = link.getAttribute('href') === '#' + id;
-          link.style.color = isActive
-            ? (navbar.classList.contains('scrolled') ? 'var(--teal)' : 'var(--white)')
-            : '';
-        });
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-
-  sections.forEach(s => sectionObs.observe(s));
+  document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
 
 });
 </script>
