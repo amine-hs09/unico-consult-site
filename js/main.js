@@ -41,3 +41,20 @@ const numObs = new IntersectionObserver((entries) => {
   })
 }, { threshold: 0.5 })
 document.querySelectorAll('[data-animate-num]').forEach(el => numObs.observe(el))
+
+// Hamburger menu
+const burger = document.querySelector('.nav__burger')
+const mobileNav = document.querySelector('.nav__mobile')
+if (burger && mobileNav) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active')
+    mobileNav.classList.toggle('open')
+  })
+  // Close on link click
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('active')
+      mobileNav.classList.remove('open')
+    })
+  })
+}
