@@ -17,9 +17,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/pages.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,6 +33,270 @@
     "sameAs": ["https://www.linkedin.com/company/unico-consult"]
   }
   </script>
+  <style>
+    :root {
+      --purple: #7C3AED; --purple-deep: #6D28D9; --purple-dark: #5B21B6;
+      --purple-light: #A78BFA; --purple-pale: #EDE9FE; --purple-ghost: #F5F3FF;
+      --amber: #F59E0B; --amber-light: #FDE68A; --amber-pale: #FFFBEB;
+      --indigo: #818CF8; --navy: #1E1B4B; --navy-soft: #312E81;
+      --text: #1E1B4B; --text-2: #4B5563; --text-3: #9CA3AF;
+      --bg: #FEFEFE; --bg-warm: #FDFCFB; --bg-lav: #FAF9FD;
+      --border: #E5E7EB; --border-l: #F3F4F6;
+      --font-d: 'Plus Jakarta Sans', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-b); color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .ctn { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
+    .ctn-w { max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
+
+    /* ═══ NAV ═══ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; background: rgba(254,254,254,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid transparent; transition: all .4s var(--ease); }
+    .nav.s { border-color: var(--border-l); box-shadow: 0 1px 24px rgba(30,27,75,0.04); }
+    .nav__i { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
+    .nav__logo { display: flex; align-items: center; gap: 10px; }
+    .nav__logo svg { height: 34px; width: auto; }
+    .nav__links { display: flex; gap: 32px; list-style: none; }
+    .nav__links a { font-family: var(--font-b); font-size: 14px; font-weight: 500; color: var(--text-2); transition: color .2s; }
+    .nav__links a:hover { color: var(--purple); }
+    .nav__cta { font-family: var(--font-d); font-size: 13.5px; font-weight: 600; color: #fff; background: var(--purple); padding: 9px 22px; border-radius: 8px; transition: all .3s var(--ease); }
+    .nav__cta:hover { background: var(--purple-deep); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
+
+    /* ═══ HERO — Editorial asymmetric ═══ */
+    .hero { padding: 140px 0 0; overflow: hidden; }
+    .hero__row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+    .hero__left { padding-bottom: 80px; }
+    .hero__tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-d); font-size: 12.5px; font-weight: 600; color: var(--purple); margin-bottom: 28px; letter-spacing: 0.04em; }
+    .hero__tag::before { content: ''; width: 32px; height: 2px; background: var(--purple); }
+    .hero__title { font-family: var(--font-d); font-size: clamp(40px, 5vw, 64px); font-weight: 800; line-height: 1.04; letter-spacing: -0.04em; color: var(--navy); margin-bottom: 28px; }
+    .hero__title em { font-style: normal; color: var(--purple); }
+    .hero__sub { font-size: 17.5px; line-height: 1.75; color: var(--text-2); max-width: 460px; margin-bottom: 40px; }
+    .hero__btns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+    /* Hero image column */
+    .hero__right { position: relative; }
+    .hero__img { width: 100%; height: 480px; border-radius: 24px 24px 0 0; overflow: hidden; position: relative; }
+    .hero__img-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--purple-pale) 0%, var(--bg-lav) 40%, var(--amber-pale) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* Abstract shapes inside hero image */
+    .hero__shapes { position: relative; width: 280px; height: 280px; }
+    .hero__shape {
+      position: absolute; border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero__shape--1 { width: 200px; height: 200px; background: rgba(124,58,237,0.12); top: 0; left: 40px; }
+    .hero__shape--2 { width: 140px; height: 140px; background: rgba(245,158,11,0.15); top: 80px; left: 120px; animation-delay: -2s; }
+    .hero__shape--3 { width: 100px; height: 100px; background: rgba(129,140,248,0.18); top: 30px; left: 10px; animation-delay: -4s; }
+    .hero__shape-line {
+      position: absolute; width: 180px; height: 3px;
+      background: var(--amber); border-radius: 2px;
+      top: 160px; left: 60px; transform: rotate(-12deg);
+    }
+    .hero__shape-line--2 {
+      width: 120px; background: var(--purple-light);
+      top: 200px; left: 100px; transform: rotate(8deg);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* ═══ STATS — Accent lines behind numbers ═══ */
+    .stats { padding: 80px 0; background: var(--bg); position: relative; }
+    .stats::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border-l); }
+    .stats__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .stat { position: relative; padding: 24px 0; }
+    .stat__num {
+      font-family: var(--font-d); font-size: clamp(36px, 3.5vw, 52px);
+      font-weight: 800; color: var(--navy); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 8px; position: relative; display: inline-block;
+    }
+    /* The decorative line behind the number */
+    .stat__num::after {
+      content: ''; position: absolute; bottom: 4px; left: -4px;
+      width: calc(100% + 8px); height: 10px;
+      border-radius: 5px; z-index: -1; opacity: 0.6;
+    }
+    .stat--purple .stat__num::after { background: var(--purple-pale); }
+    .stat--amber .stat__num::after { background: var(--amber-light); }
+    .stat--indigo .stat__num::after { background: #C7D2FE; }
+    .stat__label { font-size: 14px; color: var(--text-2); }
+    .stat__divider {
+      position: absolute; right: 0; top: 20%; height: 60%; width: 1px;
+      background: var(--border-l);
+    }
+
+    /* ═══ BUTTONS ═══ */
+    .btn { font-family: var(--font-d); font-weight: 600; font-size: 14.5px; padding: 13px 28px; border-radius: 10px; transition: all .35s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .btn--p { background: var(--purple); color: #fff; }
+    .btn--p:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.3); }
+    .btn--o { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+    .btn--o:hover { border-color: var(--purple-light); color: var(--purple); background: var(--purple-ghost); }
+    .btn--w { background: #fff; color: var(--purple); font-weight: 700; }
+    .btn--w:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.25); }
+    .btn svg { transition: transform .3s var(--ease); }
+    .btn:hover svg { transform: translateX(3px); }
+
+    /* ═══ SECTION HEADERS ═══ */
+    .sh { margin-bottom: 52px; }
+    .sh__over { font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+    .sh__over::before { content: ''; width: 24px; height: 2px; background: var(--purple); }
+    .sh__title { font-family: var(--font-d); font-size: clamp(28px, 3.2vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--navy); margin-bottom: 14px; }
+    .sh__desc { font-size: 16.5px; color: var(--text-2); max-width: 500px; line-height: 1.65; }
+
+    /* ═══ MARQUEE ═══ */
+    .marquee-section { padding: 40px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); overflow: hidden; }
+    .marquee-section__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+    .marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
+    .marquee:hover { animation-play-state: paused; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .marquee__item { display: flex; align-items: center; padding: 0 32px; font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--text-3); opacity: .4; white-space: nowrap; transition: all .3s; cursor: default; }
+    .marquee__item::after { content: ''; width: 5px; height: 5px; background: var(--purple-light); border-radius: 50%; margin-left: 32px; }
+    .marquee__item:hover { opacity: 1; color: var(--purple); }
+
+    /* ═══ SERVICES — Asymmetric layout ═══ */
+    .services { padding: 100px 0; }
+    .services__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .services__featured { padding: 48px 40px; border-radius: 20px; background: var(--purple-ghost); border: 1px solid var(--purple-pale); }
+    .services__featured-tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-d); font-size: 11px; font-weight: 700; color: var(--purple); background: var(--purple-pale); padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; }
+    .services__featured-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--purple); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .services__featured-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .services__featured h3 { font-family: var(--font-d); font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.02em; }
+    .services__featured p { font-size: 15.5px; line-height: 1.7; color: var(--text-2); margin-bottom: 24px; }
+    .services__list { display: flex; flex-direction: column; gap: 16px; }
+    .svc-item { display: flex; gap: 20px; padding: 28px; border-radius: 16px; border: 1px solid var(--border-l); background: var(--bg); transition: all .4s var(--ease); align-items: flex-start; }
+    .svc-item:hover { border-color: var(--purple-pale); transform: translateX(6px); box-shadow: 0 8px 32px rgba(124,58,237,0.06); }
+    .svc-item__icon { width: 44px; height: 44px; border-radius: 12px; background: var(--purple-ghost); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .svc-item__icon svg { width: 22px; height: 22px; stroke: var(--purple); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .svc-item h3 { font-family: var(--font-d); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .svc-item p { font-size: 13.5px; color: var(--text-2); line-height: 1.55; }
+    .svc-link { font-family: var(--font-d); font-size: 13px; font-weight: 600; color: var(--purple); display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; transition: gap .3s var(--ease); }
+    .svc-link:hover { gap: 10px; }
+
+    /* ═══ SECTORS — Numbered list with accent lines ═══ */
+    .sectors { padding: 100px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); }
+    .sec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .sec { padding: 36px 32px; border-radius: 18px; background: var(--bg); border: 1px solid var(--border-l); transition: all .4s var(--ease); position: relative; overflow: hidden; }
+    .sec:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(124,58,237,0.06); border-color: var(--purple-pale); }
+    .sec__num { font-family: var(--font-d); font-size: 48px; font-weight: 800; color: var(--border-l); letter-spacing: -0.04em; line-height: 1; margin-bottom: 12px; transition: color .3s; }
+    .sec:hover .sec__num { color: var(--purple-pale); }
+    .sec h3 { font-family: var(--font-d); font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .sec p { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 14px; }
+    .sec__clients { font-size: 12px; color: var(--text-3); padding-top: 14px; border-top: 1px solid var(--border-l); }
+    .sec__clients strong { color: var(--text-2); }
+
+    /* ═══ TESTIMONIALS ═══ */
+    .testi { padding: 100px 0; overflow: hidden; }
+    .testi__track { display: flex; gap: 20px; animation: scroll-testi 45s linear infinite; width: max-content; }
+    .testi__track:hover { animation-play-state: paused; }
+    @keyframes scroll-testi { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .testi__card { width: 400px; flex-shrink: 0; padding: 36px; border-radius: 18px; background: var(--bg); border: 1px solid var(--border-l); transition: all .4s var(--ease); }
+    .testi__card:hover { border-color: var(--purple-pale); box-shadow: 0 16px 48px rgba(124,58,237,0.07); transform: translateY(-3px); }
+    .testi__stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .testi__star { width: 16px; height: 16px; fill: var(--amber); }
+    .testi__text { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 24px; font-style: italic; }
+    .testi__author { display: flex; align-items: center; gap: 14px; }
+    .testi__avatar { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--purple-pale), #C7D2FE); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-weight: 800; font-size: 15px; color: var(--purple); }
+    .testi__name { font-family: var(--font-d); font-weight: 700; font-size: 14.5px; color: var(--navy); }
+    .testi__role { font-size: 12.5px; color: var(--text-3); }
+    .testi__sector { display: inline-block; font-size: 10.5px; font-weight: 600; color: var(--purple); background: var(--purple-pale); padding: 2px 8px; border-radius: 100px; margin-top: 4px; }
+
+    /* ═══ WHY UNICO ═══ */
+    .why { padding: 100px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); }
+    .why__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .why__list { display: flex; flex-direction: column; gap: 20px; }
+    .why__item { display: flex; gap: 16px; align-items: flex-start; }
+    .why__check { width: 28px; height: 28px; border-radius: 8px; background: var(--purple-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .why__check svg { width: 14px; height: 14px; stroke: var(--purple); fill: none; stroke-width: 2.5; }
+    .why__item h4 { font-family: var(--font-d); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .why__item p { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+    /* ═══ TEAM ═══ */
+    .team { padding: 100px 0; }
+    .team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .team__card { padding: 44px 32px; border-radius: 18px; border: 1px solid var(--border-l); background: var(--bg); text-align: center; transition: all .5s var(--ease); }
+    .team__card:hover { border-color: var(--purple-pale); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(124,58,237,0.07); }
+    .team__avatar { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, var(--purple-pale), #C7D2FE); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: var(--font-d); font-weight: 800; font-size: 24px; color: var(--purple); transition: all .5s var(--ease); }
+    .team__card:hover .team__avatar { background: linear-gradient(135deg, var(--purple), var(--indigo)); color: #fff; transform: scale(1.05); }
+    .team__name { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .team__role { font-family: var(--font-d); font-size: 13px; font-weight: 600; color: var(--purple); margin-bottom: 14px; }
+    .team__desc { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+    .team__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
+    .team__tag { font-size: 11px; font-weight: 600; color: var(--purple); background: var(--purple-ghost); padding: 4px 10px; border-radius: 100px; }
+
+    /* ═══ PARTNERS ═══ */
+    .partners { padding: 56px 0; border-top: 1px solid var(--border-l); overflow: hidden; }
+    .partners__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
+    .partners__track { display: flex; width: max-content; animation: float-p 22s linear infinite; }
+    .partners__track:hover { animation-play-state: paused; }
+    @keyframes float-p { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .partner-pill { display: flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 0 8px; border-radius: 10px; border: 1px solid var(--border-l); background: var(--bg); font-family: var(--font-d); font-weight: 700; font-size: 14px; color: var(--navy); white-space: nowrap; transition: all .3s var(--ease); }
+    .partner-pill:hover { border-color: var(--purple-pale); box-shadow: 0 6px 20px rgba(124,58,237,0.05); transform: translateY(-2px); }
+    .partner-pill__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-light); }
+    .partner-pill__sub { font-size: 11.5px; font-weight: 400; color: var(--text-3); margin-left: 4px; }
+
+    /* ═══ CTA ═══ */
+    .cta { padding: 80px 0; background: var(--purple); position: relative; overflow: hidden; }
+    .cta__bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(129,140,248,0.2) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(167,139,250,0.15) 0%, transparent 60%); }
+    .cta__inner { position: relative; z-index: 2; text-align: center; }
+    .cta__title { font-family: var(--font-d); font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .cta__sub { font-size: 16.5px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .cta__actions { display: flex; justify-content: center; gap: 14px; }
+
+    /* ═══ FOOTER ═══ */
+    .footer { padding: 60px 0 28px; background: var(--navy); color: rgba(255,255,255,0.6); }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer__brand { margin-bottom: 14px; }
+    .footer__brand svg { height: 36px; width: auto; }
+    .footer__desc { font-size: 14px; line-height: 1.7; margin-bottom: 18px; max-width: 300px; }
+    .footer__contact { font-size: 13px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .footer__contact svg { width: 13px; height: 13px; stroke: var(--purple-light); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .footer__col-t { font-family: var(--font-d); font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; }
+    .footer__link { display: block; font-size: 13.5px; color: rgba(255,255,255,0.45); margin-bottom: 10px; transition: color .2s; }
+    .footer__link:hover { color: var(--purple-light); }
+    .footer__bot { padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer__legal { display: flex; gap: 20px; }
+    .footer__legal a { color: rgba(255,255,255,0.3); transition: color .2s; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ═══ ANIMATIONS ═══ */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+    .reveal.v { opacity: 1; transform: translateY(0); }
+    .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 1024px) {
+      .hero__row { grid-template-columns: 1fr; }
+      .hero__right { display: none; }
+      .hero__left { padding-bottom: 40px; }
+      .stats__grid { grid-template-columns: repeat(3, 1fr); }
+      .stat:nth-child(3) .stat__divider { display: none; }
+      .services__layout { grid-template-columns: 1fr; }
+      .sec-grid { grid-template-columns: 1fr; }
+      .why__grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .hero { padding: 120px 0 0; }
+      .hero__btns { flex-direction: column; align-items: flex-start; }
+      .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .stat__divider { display: none; }
+      .team__grid { grid-template-columns: 1fr; }
+      .testi__card { width: 320px; }
+      .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer__bot { flex-direction: column; gap: 10px; text-align: center; }
+      .cta__actions { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,11 +304,11 @@
   <nav class="nav" id="nav">
     <div class="nav__i">
       <a href="/" class="nav__logo">
-        <svg class="nav__mark" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#7C3AED">UN</text>
-          <text x="42" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#5B21B6">I</text>
-          <text x="52" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#7C3AED">CO</text>
-          <text x="0" y="47" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="14" letter-spacing="4" fill="#6B7280">CONSULT</text>
+        <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#7C3AED">UN</text>
+          <text x="46" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#5B21B6">I</text>
+          <text x="56" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#7C3AED">CO</text>
+          <text x="0" y="49" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="13" letter-spacing="4.5" fill="#6B7280">CONSULT</text>
         </svg>
       </a>
       <ul class="nav__links">
@@ -61,44 +322,63 @@
     </div>
   </nav>
 
-  <!-- HERO — Centered, clean, unitedhr-inspired -->
+  <!-- HERO — Editorial asymmetric -->
   <section class="hero">
-    <div class="ctn">
-      <div class="hero__content reveal">
-        <div class="hero__badge"><span class="hero__badge-dot"></span>Consulting en gestion d'entreprise depuis 2019</div>
-        <h1 class="hero__title">Concentrez-vous<br>sur <em>votre passion</em></h1>
-        <p class="hero__sub">Nous prenons en charge la gestion de votre entreprise — RH, management, back-office, logistique — pour que vous puissiez vous consacrer a ce que vous faites de mieux.</p>
-        <div class="hero__btns">
-          <a href="/expertise" class="btn btn--p">Decouvrir nos services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="/contact" class="btn btn--o">Nous contacter</a>
+    <div class="ctn-w">
+      <div class="hero__row">
+        <div class="hero__left">
+          <div class="hero__tag">Consulting en gestion d'entreprise</div>
+          <h1 class="hero__title">Votre business,<br>notre <em>challenge</em></h1>
+          <p class="hero__sub">Nous prenons en charge la gestion de votre entreprise — RH, management, back-office, logistique — pour que vous puissiez vous consacrer a ce que vous faites de mieux.</p>
+          <div class="hero__btns">
+            <a href="/expertise" class="btn btn--p">Decouvrir nos services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="/contact" class="btn btn--o">Nous contacter</a>
+          </div>
+        </div>
+        <div class="hero__right">
+          <div class="hero__img">
+            <div class="hero__img-bg">
+              <div class="hero__shapes">
+                <div class="hero__shape hero__shape--1"></div>
+                <div class="hero__shape hero__shape--2"></div>
+                <div class="hero__shape hero__shape--3"></div>
+                <div class="hero__shape-line"></div>
+                <div class="hero__shape-line hero__shape-line--2"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Stats strip -->
-    <div class="stats-strip">
-      <div class="ctn-w">
-        <div class="stats-strip__grid reveal stagger">
-          <div class="stats-strip__item" style="--i:0">
-            <div class="stats-strip__num" data-animate-num>15+</div>
-            <div class="stats-strip__label">Clients accompagnes</div>
-          </div>
-          <div class="stats-strip__item" style="--i:1">
-            <div class="stats-strip__num" data-animate-num>~15</div>
-            <div class="stats-strip__label">Annees d'experience</div>
-          </div>
-          <div class="stats-strip__item" style="--i:2">
-            <div class="stats-strip__num" data-animate-num>5</div>
-            <div class="stats-strip__label">Poles de services</div>
-          </div>
-          <div class="stats-strip__item" style="--i:3">
-            <div class="stats-strip__num" data-animate-num>4</div>
-            <div class="stats-strip__label">Secteurs d'expertise</div>
-          </div>
-          <div class="stats-strip__item" style="--i:4">
-            <div class="stats-strip__num">100%</div>
-            <div class="stats-strip__label">Solutions sur mesure</div>
-          </div>
+  <!-- STATS — Numbers with accent lines -->
+  <section class="stats">
+    <div class="ctn-w">
+      <div class="stats__grid reveal stagger">
+        <div class="stat stat--purple" style="--i:0">
+          <div class="stat__num" data-animate-num>15+</div>
+          <div class="stat__label">Clients accompagnes</div>
+          <div class="stat__divider"></div>
+        </div>
+        <div class="stat stat--amber" style="--i:1">
+          <div class="stat__num" data-animate-num>~15</div>
+          <div class="stat__label">Annees d'experience</div>
+          <div class="stat__divider"></div>
+        </div>
+        <div class="stat stat--indigo" style="--i:2">
+          <div class="stat__num" data-animate-num>5</div>
+          <div class="stat__label">Poles de services</div>
+          <div class="stat__divider"></div>
+        </div>
+        <div class="stat stat--amber" style="--i:3">
+          <div class="stat__num" data-animate-num>4</div>
+          <div class="stat__label">Secteurs d'expertise</div>
+          <div class="stat__divider"></div>
+        </div>
+        <div class="stat stat--purple" style="--i:4">
+          <div class="stat__num">100%</div>
+          <div class="stat__label">Solutions sur mesure</div>
         </div>
       </div>
     </div>
@@ -107,303 +387,141 @@
   <!-- MARQUEE CLIENTS -->
   <section class="marquee-section">
     <div class="marquee-section__title">Ils nous font confiance</div>
-    <div class="marquee" id="marquee">
-      <span class="marquee__item">Maison'Net</span>
-      <span class="marquee__item">La Cense</span>
-      <span class="marquee__item">Nassim Consult</span>
-      <span class="marquee__item">CI&T Group</span>
-      <span class="marquee__item">Moby Green</span>
-      <span class="marquee__item">Last Green Mile</span>
-      <span class="marquee__item">Hermes Lines</span>
-      <span class="marquee__item">The Kitchen 1</span>
-      <span class="marquee__item">DYMA Services</span>
-      <span class="marquee__item">Logicon</span>
-      <span class="marquee__item">Corner Building</span>
-      <span class="marquee__item">1st Belgium</span>
-      <span class="marquee__item">ASBL Voltaire</span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee__item">Maison'Net</span>
-      <span class="marquee__item">La Cense</span>
-      <span class="marquee__item">Nassim Consult</span>
-      <span class="marquee__item">CI&T Group</span>
-      <span class="marquee__item">Moby Green</span>
-      <span class="marquee__item">Last Green Mile</span>
-      <span class="marquee__item">Hermes Lines</span>
-      <span class="marquee__item">The Kitchen 1</span>
-      <span class="marquee__item">DYMA Services</span>
-      <span class="marquee__item">Logicon</span>
-      <span class="marquee__item">Corner Building</span>
-      <span class="marquee__item">1st Belgium</span>
-      <span class="marquee__item">ASBL Voltaire</span>
+    <div class="marquee" data-marquee="35">
+      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span>
+      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span>
     </div>
   </section>
 
-  <!-- SERVICES — Bento Grid -->
+  <!-- SERVICES — Featured left + list right -->
   <section class="services" id="services">
     <div class="ctn-w">
       <div class="sh reveal">
         <div class="sh__over">Nos poles d'expertise</div>
         <h2 class="sh__title">Un accompagnement complet<br>pour votre entreprise</h2>
-        <p class="sh__desc">Cinq poles de competences complementaires pour couvrir tous les aspects de votre gestion.</p>
       </div>
-      <div class="svc-grid reveal stagger">
-        <!-- Featured: RH -->
-        <div class="svc svc--featured" style="--i:0">
-          <div class="svc__tag">Expertise phare</div>
-          <div class="svc__icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3 class="svc__title">Ressources Humaines</h3>
-          <p class="svc__desc">De la gestion des paies au recrutement, en passant par la formation et l'evaluation, nous prenons en charge l'ensemble de vos ressources humaines. Notre expertise dans les secteurs reglementes comme les titres-services nous permet de gerer les aspects les plus complexes.</p>
-          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+      <div class="services__layout reveal">
+        <div class="services__featured">
+          <div class="services__featured-tag">Expertise phare</div>
+          <div class="services__featured-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Ressources Humaines</h3>
+          <p>De la gestion des paies au recrutement, en passant par la formation et l'evaluation, nous prenons en charge l'ensemble de vos ressources humaines. Notre expertise dans les secteurs reglementes comme les titres-services nous permet de gerer les aspects les plus complexes.</p>
+          <a href="/expertise" class="svc-link">En savoir plus <span>&rarr;</span></a>
         </div>
-        <!-- Management -->
-        <div class="svc" style="--i:1">
-          <div class="svc__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <h3 class="svc__title">Gestion & Management</h3>
-          <p class="svc__desc">Conseil en strategie commerciale, juridique et operationnelle. Veille permanente sur les evolutions legales.</p>
-          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
-        </div>
-        <!-- Outsourcing -->
-        <div class="svc" style="--i:2">
-          <div class="svc__icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <h3 class="svc__title">Back-office & Outsourcing</h3>
-          <p class="svc__desc">Facturation, paiements fournisseurs, suivi comptable. Concentrez-vous sur votre coeur de metier.</p>
-          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
-        </div>
-        <!-- Logistique -->
-        <div class="svc" style="--i:3">
-          <div class="svc__icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h3 class="svc__title">Logistique</h3>
-          <p class="svc__desc">Locaux, informatique, telephonie, fournitures et flotte automobile. Partenaires Dell & Reposa.</p>
-          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
-        </div>
-        <!-- Branding -->
-        <div class="svc" style="--i:4">
-          <div class="svc__icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <h3 class="svc__title">Image de marque</h3>
-          <p class="svc__desc">Identite visuelle forte et coherente qui vous differencie sur votre marche.</p>
-          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+        <div class="services__list">
+          <div class="svc-item">
+            <div class="svc-item__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <div><h3>Gestion & Management</h3><p>Conseil en strategie commerciale, juridique et operationnelle. Veille permanente sur les evolutions legales.</p><a href="/expertise" class="svc-link">En savoir plus &rarr;</a></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item__icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div><h3>Back-office & Outsourcing</h3><p>Facturation, paiements fournisseurs, suivi comptable. Concentrez-vous sur votre coeur de metier.</p><a href="/expertise" class="svc-link">En savoir plus &rarr;</a></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item__icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div><h3>Logistique</h3><p>Locaux, informatique, telephonie, fournitures et flotte automobile. Partenaires Dell & Reposa.</p><a href="/expertise" class="svc-link">En savoir plus &rarr;</a></div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item__icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><h3>Image de marque</h3><p>Identite visuelle forte et coherente qui vous differencie sur votre marche.</p><a href="/expertise" class="svc-link">En savoir plus &rarr;</a></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SECTORS -->
-  <section class="sectors" id="sectors">
+  <section class="sectors">
     <div class="ctn-w">
       <div class="sh reveal">
         <div class="sh__over">Nos secteurs</div>
         <h2 class="sh__title">Une expertise sectorielle<br>qui fait la difference</h2>
       </div>
       <div class="sec-grid reveal stagger">
-        <div class="sec" style="--i:0">
-          <div class="sec__num">01</div>
-          <h3 class="sec__title">Titres-services</h3>
-          <p class="sec__desc">Gestion integrale dans ce secteur reglemente : contrats, agences, pointage, conge, conformite.</p>
-          <div class="sec__clients"><strong>Clients :</strong> Maison'Net, La Cense — 6 agences</div>
-        </div>
-        <div class="sec" style="--i:1">
-          <div class="sec__num">02</div>
-          <h3 class="sec__title">Transport & Logistique</h3>
-          <p class="sec__desc">Facturation, legalite chauffeurs, plateformes de livraison, sous-traitants.</p>
-          <div class="sec__clients"><strong>Clients :</strong> Nassim, CI&T, Moby Green, LGM, Hermes</div>
-        </div>
-        <div class="sec" style="--i:2">
-          <div class="sec__num">03</div>
-          <h3 class="sec__title">Independants & PME</h3>
-          <p class="sec__desc">Accompagnement sur mesure adapte a chaque entrepreneur et chaque besoin.</p>
-          <div class="sec__clients"><strong>Clients :</strong> Kinesitherapeutes, DYMA, CR Project</div>
-        </div>
-        <div class="sec" style="--i:3">
-          <div class="sec__num">04</div>
-          <h3 class="sec__title">Restauration & Franchise</h3>
-          <p class="sec__desc">Administration, facturation franchises, coordination, audit organisationnel.</p>
-          <div class="sec__clients"><strong>Clients :</strong> The Kitchen 1, Dark Kitchen, Logicon</div>
-        </div>
+        <div class="sec" style="--i:0"><div class="sec__num">01</div><h3>Titres-services</h3><p>Gestion integrale dans ce secteur reglemente : contrats, agences, pointage, conge, conformite.</p><div class="sec__clients"><strong>Clients :</strong> Maison'Net, La Cense — 6 agences</div></div>
+        <div class="sec" style="--i:1"><div class="sec__num">02</div><h3>Transport & Logistique</h3><p>Facturation, legalite chauffeurs, plateformes de livraison, sous-traitants.</p><div class="sec__clients"><strong>Clients :</strong> Nassim, CI&T, Moby Green, LGM, Hermes</div></div>
+        <div class="sec" style="--i:2"><div class="sec__num">03</div><h3>Independants & PME</h3><p>Accompagnement sur mesure adapte a chaque entrepreneur et chaque besoin.</p><div class="sec__clients"><strong>Clients :</strong> Kinesitherapeutes, DYMA, CR Project</div></div>
+        <div class="sec" style="--i:3"><div class="sec__num">04</div><h3>Restauration & Franchise</h3><p>Administration, facturation franchises, coordination, audit organisationnel.</p><div class="sec__clients"><strong>Clients :</strong> The Kitchen 1, Dark Kitchen, Logicon</div></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS — Infinite Scroll -->
-  <section class="testi" id="clients">
-    <div class="ctn-w">
-      <div class="sh reveal">
-        <div class="sh__over">Temoignages</div>
-        <h2 class="sh__title">Ce que disent nos clients</h2>
-        <p class="sh__desc">Des entreprises de secteurs differents, un point commun : la confiance.</p>
-      </div>
-    </div>
-    <div class="testi__track" id="testiTrack">
-      <!-- Card 1 -->
+  <!-- TESTIMONIALS -->
+  <section class="testi">
+    <div class="ctn-w"><div class="sh reveal"><div class="sh__over">Temoignages</div><h2 class="sh__title">Ce que disent nos clients</h2></div></div>
+    <div class="testi__track">
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences et de notre personnel est devenue beaucoup plus fluide. Leur maitrise du secteur des titres-services nous permet de nous concentrer sur notre activite principale en toute serenite."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">S</div>
-          <div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"Unico Consult gere l'ensemble de notre administration : facturation, legalite des chauffeurs, coordination avec nos sous-traitants. Leur reactivite et leur rigueur sont un atout majeur pour nos societes de transport."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">IB</div>
-          <div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult / Moby Green</div><span class="testi__sector">Transport</span></div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"En tant qu'independante, je n'avais ni le temps ni les competences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">MH</div>
-          <div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"L'equipe d'Unico Consult connait parfaitement les specificites du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite avec une reglementation en constante evolution."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">LC</div>
-          <div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult s'occupe de notre facturation et de notre administration, ce qui nous laisse le temps de nous concentrer sur la qualite de nos restaurants."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">TK</div>
-          <div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div>
-        </div>
-      </div>
-      <!-- Duplicates for loop -->
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences et de notre personnel est devenue beaucoup plus fluide. Leur maitrise du secteur des titres-services nous permet de nous concentrer sur notre activite principale en toute serenite."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">S</div>
-          <div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div>
-        </div>
+        <p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences et de notre personnel est devenue beaucoup plus fluide. Leur maitrise du secteur des titres-services nous permet de nous concentrer sur notre activite principale."</p>
+        <div class="testi__author"><div class="testi__avatar">S</div><div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div></div>
       </div>
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"Unico Consult gere l'ensemble de notre administration : facturation, legalite des chauffeurs, coordination avec nos sous-traitants. Leur reactivite et leur rigueur sont un atout majeur pour nos societes de transport."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">IB</div>
-          <div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult / Moby Green</div><span class="testi__sector">Transport</span></div>
-        </div>
+        <p class="testi__text">"Unico Consult gere l'ensemble de notre administration : facturation, legalite des chauffeurs, coordination avec nos sous-traitants. Leur reactivite et leur rigueur sont un atout majeur."</p>
+        <div class="testi__author"><div class="testi__avatar">IB</div><div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult / Moby Green</div><span class="testi__sector">Transport</span></div></div>
       </div>
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"En tant qu'independante, je n'avais ni le temps ni les competences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">MH</div>
-          <div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div>
-        </div>
+        <p class="testi__text">"En tant qu'independante, je n'avais ni le temps ni les competences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises."</p>
+        <div class="testi__author"><div class="testi__avatar">MH</div><div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div></div>
       </div>
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
         <p class="testi__text">"L'equipe d'Unico Consult connait parfaitement les specificites du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">LC</div>
-          <div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div>
-        </div>
+        <div class="testi__author"><div class="testi__avatar">LC</div><div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div></div>
       </div>
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
         <p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult s'occupe de notre facturation et administration, ce qui nous laisse le temps de nous concentrer sur nos restaurants."</p>
-        <div class="testi__author">
-          <div class="testi__avatar">TK</div>
-          <div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div>
-        </div>
+        <div class="testi__author"><div class="testi__avatar">TK</div><div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div></div>
       </div>
+      <!-- duplicates for loop -->
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences est devenue beaucoup plus fluide. Leur maitrise des titres-services nous permet de nous concentrer sur notre activite."</p><div class="testi__author"><div class="testi__avatar">S</div><div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div></div></div>
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Unico Consult gere l'ensemble de notre administration. Leur reactivite et rigueur sont un atout majeur pour nos societes de transport."</p><div class="testi__author"><div class="testi__avatar">IB</div><div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult</div><span class="testi__sector">Transport</span></div></div></div>
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"En tant qu'independante, Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p><div class="testi__author"><div class="testi__avatar">MH</div><div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div></div></div>
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"L'equipe connait parfaitement les specificites du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion."</p><div class="testi__author"><div class="testi__avatar">LC</div><div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div></div></div>
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult nous laisse le temps de nous concentrer sur nos restaurants."</p><div class="testi__author"><div class="testi__avatar">TK</div><div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div></div></div>
     </div>
   </section>
 
   <!-- WHY UNICO -->
-  <section class="impact">
+  <section class="why">
     <div class="ctn-w">
-      <div class="impact__grid">
-        <div class="reveal">
-          <div class="sh">
-            <div class="sh__over">Pourquoi Unico Consult</div>
-            <h2 class="sh__title">Ce qui nous differencie</h2>
-            <p class="sh__desc">Plus qu'un cabinet de conseil — un partenaire qui s'integre dans votre quotidien.</p>
-          </div>
-        </div>
-        <div class="impact__list reveal stagger">
-          <div class="impact__item" style="--i:0">
-            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><div class="impact__item-title">Expertise multi-sectorielle</div><p class="impact__item-desc">Titres-services, transport, restauration, PME — on connait les specificites de chaque secteur.</p></div>
-          </div>
-          <div class="impact__item" style="--i:1">
-            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><div class="impact__item-title">Equipe stable et dediee</div><p class="impact__item-desc">3 consultants seniors qui connaissent vos dossiers. Pas de turnover, pas de remise a zero.</p></div>
-          </div>
-          <div class="impact__item" style="--i:2">
-            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><div class="impact__item-title">Accompagnement 360</div><p class="impact__item-desc">RH + management + back-office + logistique + branding, tout sous un meme toit.</p></div>
-          </div>
-          <div class="impact__item" style="--i:3">
-            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><div class="impact__item-title">Ancrage belge</div><p class="impact__item-desc">Basees a Bruxelles depuis 2019. On connait les regles, la legislation et les interlocuteurs.</p></div>
-          </div>
-          <div class="impact__item" style="--i:4">
-            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><div class="impact__item-title">Partenaires de reference</div><p class="impact__item-desc">Dell Technologies, Reposa Italy, SD Worx — un reseau de partenaires solides a votre service.</p></div>
-          </div>
+      <div class="why__grid">
+        <div class="reveal"><div class="sh"><div class="sh__over">Pourquoi Unico Consult</div><h2 class="sh__title">Ce qui nous differencie</h2><p class="sh__desc">Plus qu'un cabinet de conseil — un partenaire integre dans votre quotidien.</p></div></div>
+        <div class="why__list reveal stagger">
+          <div class="why__item" style="--i:0"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Expertise multi-sectorielle</h4><p>Titres-services, transport, restauration, PME — on connait les specificites de chaque secteur.</p></div></div>
+          <div class="why__item" style="--i:1"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Equipe stable et dediee</h4><p>3 consultants seniors qui connaissent vos dossiers. Pas de turnover, pas de remise a zero.</p></div></div>
+          <div class="why__item" style="--i:2"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Accompagnement 360</h4><p>RH + management + back-office + logistique + branding, tout sous un meme toit.</p></div></div>
+          <div class="why__item" style="--i:3"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Ancrage belge</h4><p>Basees a Bruxelles depuis 2019. On connait les regles, la legislation et les interlocuteurs.</p></div></div>
+          <div class="why__item" style="--i:4"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Partenaires de reference</h4><p>Dell Technologies, Reposa Italy, SD Worx — un reseau solide a votre service.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="team" id="team">
+  <section class="team">
     <div class="ctn-w">
-      <div class="sh reveal">
-        <div class="sh__over">Notre equipe</div>
-        <h2 class="sh__title">3 experts complementaires</h2>
-        <p class="sh__desc">Une equipe stable, chaque membre apporte une expertise unique et complementaire.</p>
-      </div>
+      <div class="sh reveal"><div class="sh__over">Notre equipe</div><h2 class="sh__title">3 experts complementaires</h2></div>
       <div class="team__grid reveal stagger">
-        <div class="team__card" style="--i:0">
-          <div class="team__avatar">OH</div>
-          <div class="team__name">Otman Hssinoui</div>
-          <div class="team__role">Co-fondateur & General Manager</div>
-          <p class="team__desc">Pilote la vision strategique du groupe. Gestion financiere, comptes d'exploitation, developpement.</p>
-          <div class="team__tags"><span class="team__tag">Finance</span><span class="team__tag">Strategie</span><span class="team__tag">Developpement</span></div>
-        </div>
-        <div class="team__card" style="--i:1">
-          <div class="team__avatar">FS</div>
-          <div class="team__name">Farid Saouti</div>
-          <div class="team__role">Co-fondateur & Directeur</div>
-          <p class="team__desc">Le garant de la rigueur. Relations clients, gestion RH, coordination juridique et conformite.</p>
-          <div class="team__tags"><span class="team__tag">RH</span><span class="team__tag">Juridique</span><span class="team__tag">Conformite</span></div>
-        </div>
-        <div class="team__card" style="--i:2">
-          <div class="team__avatar">JK</div>
-          <div class="team__name">Jamal El Kadaoui</div>
-          <div class="team__role">Responsable operationnel</div>
-          <p class="team__desc">L'homme de terrain. Logistique, informatique interne, gestion des sous-traitants et operations.</p>
-          <div class="team__tags"><span class="team__tag">Logistique</span><span class="team__tag">Operations</span><span class="team__tag">IT</span></div>
-        </div>
+        <div class="team__card" style="--i:0"><div class="team__avatar">OH</div><div class="team__name">Otman Hssinoui</div><div class="team__role">Co-fondateur & General Manager</div><p class="team__desc">Pilote la vision strategique. Gestion financiere, comptes d'exploitation, developpement.</p><div class="team__tags"><span class="team__tag">Finance</span><span class="team__tag">Strategie</span><span class="team__tag">Developpement</span></div></div>
+        <div class="team__card" style="--i:1"><div class="team__avatar">FS</div><div class="team__name">Farid Saouti</div><div class="team__role">Co-fondateur & Directeur</div><p class="team__desc">Le garant de la rigueur. Relations clients, gestion RH, coordination juridique.</p><div class="team__tags"><span class="team__tag">RH</span><span class="team__tag">Juridique</span><span class="team__tag">Conformite</span></div></div>
+        <div class="team__card" style="--i:2"><div class="team__avatar">JK</div><div class="team__name">Jamal El Kadaoui</div><div class="team__role">Responsable operationnel</div><p class="team__desc">L'homme de terrain. Logistique, informatique, sous-traitants et operations.</p><div class="team__tags"><span class="team__tag">Logistique</span><span class="team__tag">Operations</span><span class="team__tag">IT</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS FLOAT -->
+  <!-- PARTNERS -->
   <section class="partners">
     <div class="partners__title">Nos partenaires strategiques</div>
-    <div class="partners__track" id="partnerTrack">
+    <div class="partners__track">
       <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>Simply Accounts<span class="partner-pill__sub">Comptabilite</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>Kodefisc / Axxon<span class="partner-pill__sub">Comptabilite BE</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>NSI SA<span class="partner-pill__sub">Infrastructure IT</span></div>
-      <!-- Duplicates -->
       <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
       <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
@@ -414,13 +532,13 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contact">
+  <section class="cta">
     <div class="cta__bg"></div>
     <div class="ctn cta__inner reveal">
       <h2 class="cta__title">Pret a vous concentrer sur votre passion ?</h2>
       <p class="cta__sub">Premier echange sans engagement — parlons de vos besoins</p>
       <div class="cta__actions">
-        <a href="mailto:info@unico-consult.be" class="btn btn--w">Contactez-nous <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/contact" class="btn btn--w">Contactez-nous <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:022905898" class="btn btn--w" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25)">02 290 58 98</a>
       </div>
     </div>
@@ -432,11 +550,11 @@
       <div class="footer__grid">
         <div>
           <div class="footer__brand">
-            <svg viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:auto">
-              <text x="0" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#A78BFA">UN</text>
-              <text x="42" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#C4B5FD">I</text>
-              <text x="52" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#A78BFA">CO</text>
-              <text x="0" y="47" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="14" letter-spacing="4" fill="rgba(255,255,255,0.5)">CONSULT</text>
+            <svg viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#A78BFA">UN</text>
+              <text x="46" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#C4B5FD">I</text>
+              <text x="56" y="32" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#A78BFA">CO</text>
+              <text x="0" y="49" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="13" letter-spacing="4.5" fill="rgba(255,255,255,0.5)">CONSULT</text>
             </svg>
           </div>
           <p class="footer__desc">Expert en accompagnement de gestion d'entreprise. Nous permettons aux entrepreneurs de se concentrer sur leur coeur de metier.</p>
@@ -455,34 +573,38 @@
         </div>
         <div>
           <h4 class="footer__col-t">Services</h4>
-          <a href="/" class="footer__link">Ressources Humaines</a>
-          <a href="/" class="footer__link">Gestion & Management</a>
-          <a href="/" class="footer__link">Back-office</a>
-          <a href="/" class="footer__link">Logistique</a>
-          <a href="/" class="footer__link">Image de marque</a>
+          <a href="/expertise" class="footer__link">Ressources Humaines</a>
+          <a href="/expertise" class="footer__link">Gestion &amp; Management</a>
+          <a href="/expertise" class="footer__link">Back-office</a>
+          <a href="/expertise" class="footer__link">Logistique</a>
+          <a href="/expertise" class="footer__link">Image de marque</a>
         </div>
         <div>
           <h4 class="footer__col-t">Horaires</h4>
-          <a class="footer__link">Lun — Ven : 9h — 18h</a>
-          <a class="footer__link">Sam — Dim : Ferme</a>
-          <div style="margin-top:20px">
-            <h4 class="footer__col-t">Suivez-nous</h4>
-            <a href="/" class="footer__link">LinkedIn</a>
-          </div>
+          <span class="footer__link">Lun — Ven : 9h — 18h</span>
+          <span class="footer__link">Sam — Dim : Ferme</span>
+          <div style="margin-top:20px"><h4 class="footer__col-t">Suivez-nous</h4><a href="#" class="footer__link">LinkedIn</a></div>
         </div>
       </div>
       <div class="footer__bot">
-        <span>&copy; 2019–2026 Unico Consult SRL &middot; TVA BE 0735.798.943</span>
-        <div class="footer__legal">
-          <a href="/">Mentions legales</a>
-          <a href="/">Vie privee</a>
-          <a href="/">Cookies</a>
-        </div>
+        <span>&copy; 2019&ndash;2026 Unico Consult SRL &middot; TVA BE 0735.798.943</span>
+        <div class="footer__legal"><a href="/mentions-legales">Mentions legales</a><a href="/vie-privee">Vie privee</a><a href="/cookies">Cookies</a></div>
       </div>
     </div>
   </footer>
 
-  <script src="/js/main.js" defer></script>
-  <script src="/js/marquee.js" defer></script>
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('s', scrollY > 30), { passive: true });
+
+    // Reveal
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('v'); obs.unobserve(x.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Animate numbers
+    const numObs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { const el = x.target, txt = el.textContent, m = txt.match(/(\d+)/); if (m) { const t = +m[0], p = txt.slice(0, txt.indexOf(m[0])), s = txt.slice(txt.indexOf(m[0]) + m[0].length); let c = 0; const step = Math.max(1, Math.floor(t / 35)), iv = setInterval(() => { c = Math.min(c + step, t); el.textContent = p + c + s; if (c >= t) clearInterval(iv); }, 25); } numObs.unobserve(x.target); } }), { threshold: 0.5 });
+    document.querySelectorAll('[data-animate-num]').forEach(el => numObs.observe(el));
+  </script>
 </body>
 </html>
