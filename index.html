@@ -149,9 +149,10 @@
     .marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
     .marquee:hover { animation-play-state: paused; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .marquee__item { display: flex; align-items: center; padding: 0 32px; font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--text-3); opacity: .4; white-space: nowrap; transition: all .3s; cursor: default; }
-    .marquee__item::after { content: ''; width: 5px; height: 5px; background: var(--purple-light); border-radius: 50%; margin-left: 32px; }
-    .marquee__item:hover { opacity: 1; color: var(--purple); }
+    .marquee__item { display: flex; align-items: center; padding: 0 28px; white-space: nowrap; transition: all .4s var(--ease); cursor: default; }
+    .marquee__item img, .marquee__item svg { height: 32px; width: auto; filter: grayscale(100%) opacity(0.4); transition: all .4s var(--ease); }
+    .marquee__item:hover img, .marquee__item:hover svg { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+    .marquee__item::after { content: ''; width: 4px; height: 4px; background: var(--purple-light); border-radius: 50%; margin-left: 28px; flex-shrink: 0; }
 
     /* ═══ SERVICES — Asymmetric layout ═══ */
     .services { padding: 100px 0; }
@@ -415,9 +416,46 @@
   <!-- MARQUEE CLIENTS -->
   <section class="marquee-section">
     <div class="marquee-section__title">Ils nous font confiance</div>
-    <div class="marquee" data-marquee="35">
-      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span><span class="marquee__item">Infratech</span><span class="marquee__item">Mooveo Services</span><span class="marquee__item">TS Clean</span><span class="marquee__item">ISI Life Services</span><span class="marquee__item">Nanou</span><span class="marquee__item">CR Project</span>
-      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span><span class="marquee__item">Infratech</span><span class="marquee__item">Mooveo Services</span><span class="marquee__item">TS Clean</span><span class="marquee__item">ISI Life Services</span><span class="marquee__item">Nanou</span><span class="marquee__item">CR Project</span>
+    <div class="marquee" data-marquee="40">
+      <span class="marquee__item"><img src="/assets/logos/clients/maisonnet.svg" alt="Maison'Net"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/lacense.svg" alt="La Cense"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/cit.svg" alt="CI&T Group"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/mobygreen.svg" alt="Moby Green"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/lgm.svg" alt="Last Green Mile"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/hermes.svg" alt="Hermes Lines"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/kitchen.svg" alt="The Kitchen 1"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/dyma.svg" alt="DYMA Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/logicon.svg" alt="Logicon"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/corner.svg" alt="Corner Building"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/1stbelgium.svg" alt="1st Belgium"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/voltaire.svg" alt="ASBL Voltaire"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/infratech.svg" alt="Infratech"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/mooveo.svg" alt="Mooveo Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/tsclean.svg" alt="TS Clean"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/isilife.svg" alt="ISI Life Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/nanou.svg" alt="Nanou"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/crproject.svg" alt="CR Project"></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee__item"><img src="/assets/logos/clients/maisonnet.svg" alt="Maison'Net"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/lacense.svg" alt="La Cense"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/cit.svg" alt="CI&T Group"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/mobygreen.svg" alt="Moby Green"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/lgm.svg" alt="Last Green Mile"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/hermes.svg" alt="Hermes Lines"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/kitchen.svg" alt="The Kitchen 1"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/dyma.svg" alt="DYMA Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/logicon.svg" alt="Logicon"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/corner.svg" alt="Corner Building"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/1stbelgium.svg" alt="1st Belgium"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/voltaire.svg" alt="ASBL Voltaire"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/infratech.svg" alt="Infratech"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/mooveo.svg" alt="Mooveo Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/tsclean.svg" alt="TS Clean"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/isilife.svg" alt="ISI Life Services"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/nanou.svg" alt="Nanou"></span>
+      <span class="marquee__item"><img src="/assets/logos/clients/crproject.svg" alt="CR Project"></span>
     </div>
   </section>
 
