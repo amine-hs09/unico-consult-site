@@ -3,1599 +3,484 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Unico Consult — Expert en accompagnement de gestion d'entreprise. RH, Management, Conseils, Back office, Logistique, Branding. Sint-Stevens-Woluwe, Belgique.">
-  <meta property="og:title" content="Unico Consult — Votre business, notre challenge">
-  <meta property="og:description" content="Expert en accompagnement de gestion d'entreprise. RH, Management, Conseils, Logistique, Branding. 15 ans d'expérience, Belgique.">
-  <meta property="og:type" content="website">
   <title>Unico Consult — Votre business, notre challenge</title>
-
+  <meta name="description" content="Expert en accompagnement de gestion d'entreprise. RH, management, back-office, logistique, branding. Bruxelles, Belgique.">
+  <meta property="og:title" content="Unico Consult — Votre business, notre challenge">
+  <meta property="og:description" content="Expert en accompagnement de gestion d'entreprise depuis 2019. RH, management, back-office, logistique, branding.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unico Consult">
+  <meta property="og:locale" content="fr_BE">
+  <link rel="canonical" href="https://www.unico-consult.be/">
+  <link rel="alternate" hreflang="fr-be" href="https://www.unico-consult.be/">
+  <link rel="alternate" hreflang="x-default" href="https://www.unico-consult.be/">
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* =====================================================
-       DESIGN SYSTEM — Unico Consult v3
-       Brand: Purple (#7C3AED) + Teal (#0F9E78)
-    ===================================================== */
-    :root {
-      /* Brand */
-      --purple:       #7C3AED;
-      --purple-dark:  #5B21B6;
-      --purple-mid:   #6D28D9;
-      --purple-glow:  rgba(124, 58, 237, 0.22);
-      --teal:         #0F9E78;
-      --teal-light:   #5DCAA5;
-      --teal-glow:    rgba(15, 158, 120, 0.2);
-      --logo-cyan:    #06B6D4;
-
-      /* Neutrals */
-      --dark:         #0A0812;
-      --dark-mid:     #120E22;
-      --charcoal:     #1A1430;
-      --white:        #FFFFFF;
-      --offwhite:     #F8F7FC;
-      --gray-50:      #F3F2F8;
-      --gray-100:     #E4E2EF;
-      --gray-200:     #C8C5DC;
-      --gray-400:     #8B87A8;
-      --gray-500:     #6B6789;
-      --gray-600:     #4A4766;
-      --text:         #120E22;
-
-      /* Fonts */
-      --font-display: 'Plus Jakarta Sans', sans-serif;
-      --font-body:    'Heebo', sans-serif;
-
-      /* Easing */
-      --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-std:     cubic-bezier(0.4, 0, 0.2, 1);
-
-      /* Shape */
-      --radius:       12px;
-      --radius-lg:    20px;
-      --radius-pill:  100px;
-    }
-
-    /* ── Reset ── */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      font: 400 17px/1.65 var(--font-body);
-      color: var(--text);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
-    h1,h2,h3,h4,h5 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.025em; }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; }
-
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 80px); }
-
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; height: 72px;
-      z-index: 1000; display: flex; align-items: center;
-      padding: 0 clamp(20px, 4vw, 80px);
-      transition: background 350ms var(--ease-std), border-color 350ms, backdrop-filter 350ms;
-      border-bottom: 1px solid transparent;
-    }
-    .navbar.scrolled {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-color: var(--gray-100);
-    }
-    .navbar__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-
-    /* Logo SVG — reproduit le vrai logo Unico Consult */
-    .navbar__logo { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; gap: 2px; }
-    .navbar__logo-unico {
-      font: 800 22px/1 var(--font-display);
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #9333EA 0%, #7C3AED 45%, #5B21B6 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .navbar.scrolled .navbar__logo-unico {
-      background: linear-gradient(135deg, #9333EA 0%, #7C3AED 45%, #5B21B6 100%);
-      -webkit-background-clip: text; background-clip: text;
-    }
-    /* On dark hero: override with white */
-    .navbar:not(.scrolled) .navbar__logo-unico {
-      background: none; -webkit-text-fill-color: white;
-    }
-    .navbar__logo-consult {
-      display: flex; align-items: center; gap: 5px;
-      font: 600 9px/1 var(--font-body);
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--logo-cyan);
-    }
-    .navbar:not(.scrolled) .navbar__logo-consult { color: rgba(255,255,255,0.5); }
-    .navbar__logo-consult::before,
-    .navbar__logo-consult::after {
-      content: ''; display: block; height: 1px; width: 14px;
-      background: currentColor; flex-shrink: 0;
-    }
-
-    /* Nav links */
-    .navbar__links {
-      display: flex; gap: 36px; list-style: none;
-      position: absolute; left: 50%; transform: translateX(-50%);
-    }
-    .navbar__links a {
-      font: 500 13px/1 var(--font-body);
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.01em;
-      transition: color 200ms;
-    }
-    .navbar.scrolled .navbar__links a { color: var(--gray-500); }
-    .navbar__links a:hover { color: var(--white); }
-    .navbar.scrolled .navbar__links a:hover { color: var(--purple); }
-
-    /* CTA button */
-    .navbar__cta {
-      font: 600 13px/1 var(--font-body);
-      background: var(--purple); color: var(--white);
-      border-radius: var(--radius-pill); padding: 10px 22px;
-      transition: all 250ms var(--ease-out);
-    }
-    .navbar__cta:hover { transform: scale(1.04); box-shadow: 0 4px 20px var(--purple-glow); }
-
-    /* Hamburger */
-    .navbar__burger {
-      display: none; background: none; border: none;
-      width: 24px; height: 18px; position: relative;
-    }
-    .navbar__burger span {
-      display: block; width: 100%; height: 1.5px;
-      background: var(--white); border-radius: 2px;
-      position: absolute; left: 0;
-      transition: all 300ms var(--ease-out);
-    }
-    .navbar.scrolled .navbar__burger span { background: var(--text); }
-    .navbar__burger span:nth-child(1) { top: 0; }
-    .navbar__burger span:nth-child(2) { top: 8px; }
-    .navbar__burger span:nth-child(3) { top: 16px; }
-    .navbar__burger.open span:nth-child(1) { transform: rotate(45deg); top: 8px; }
-    .navbar__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .navbar__burger.open span:nth-child(3) { transform: rotate(-45deg); top: 8px; }
-
-    .mobile-menu {
-      display: none; position: fixed; top: 72px; left: 0; right: 0;
-      height: calc(100dvh - 72px);
-      background: var(--dark); flex-direction: column;
-      align-items: flex-start; justify-content: center;
-      padding: 0 clamp(20px, 4vw, 80px); gap: 8px; z-index: 999;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font: 300 clamp(28px, 6vw, 44px)/1.2 var(--font-display);
-      color: rgba(255,255,255,0.8); letter-spacing: -0.02em;
-      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-      width: 100%; transition: color 200ms;
-    }
-    .mobile-menu a:hover { color: var(--teal-light); }
-    .mobile-menu .navbar__cta { font-size: 15px; padding: 14px 32px; margin-top: 24px; border-bottom: none; }
-
-    @media (max-width: 1024px) {
-      .navbar__links, .navbar__cta { display: none; }
-      .navbar__burger { display: block; }
-    }
-
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font: 600 14px/1 var(--font-body); letter-spacing: 0.01em;
-      border-radius: var(--radius-pill); padding: 14px 28px;
-      border: 1.5px solid transparent;
-      transition: all 250ms var(--ease-out);
-    }
-    .btn--primary   { background: var(--purple); color: var(--white); border-color: var(--purple); }
-    .btn--primary:hover { transform: scale(1.03); box-shadow: 0 0 28px var(--purple-glow); }
-    .btn--teal      { background: var(--teal); color: var(--white); border-color: var(--teal); }
-    .btn--teal:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--teal-glow); }
-    .btn--outline   { background: transparent; color: var(--text); border-color: var(--gray-200); }
-    .btn--outline:hover { border-color: var(--purple); color: var(--purple); }
-    .btn--outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
-    .btn--outline-white:hover { background: var(--white); color: var(--dark); }
-    .btn__arr { width: 14px; height: 14px; flex-shrink: 0; transition: transform 200ms var(--ease-out); }
-    .btn:hover .btn__arr { transform: translateX(4px); }
-
-    /* =====================================================
-       HERO — CSS-ONLY, brand gradient, 100vh
-    ===================================================== */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center;
-      color: var(--white); overflow: hidden;
-      background: var(--dark);
-    }
-
-    /* Deep gradient background */
-    .hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse at 15% 55%, rgba(124,58,237,0.28) 0%, transparent 55%),
-        radial-gradient(ellipse at 80% 30%, rgba(15,158,120,0.14) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 80%, rgba(124,58,237,0.1) 0%, transparent 40%),
-        linear-gradient(160deg, #0A0812 0%, #120E22 40%, #1A0E35 70%, #0A1420 100%);
-    }
-
-    /* Dot grid */
-    .hero__dots {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* Vertical accent line */
-    .hero__line {
-      position: absolute; top: 0; left: clamp(20px, 4vw, 80px);
-      width: 1px; height: 0;
-      background: linear-gradient(to bottom, transparent, var(--purple), var(--teal), transparent);
-      animation: line-grow 1.6s var(--ease-out) 0.4s forwards;
-    }
-    @keyframes line-grow { to { height: 100%; } }
-
-    /* Floating orbs */
-    .hero__orb {
-      position: absolute; border-radius: 50%; pointer-events: none;
-      filter: blur(80px); opacity: 0;
-      animation: orb-fade 2s ease forwards;
-    }
-    .hero__orb--1 {
-      width: 500px; height: 500px; top: -100px; right: -80px;
-      background: radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%);
-      animation-delay: 0.2s;
-    }
-    .hero__orb--2 {
-      width: 400px; height: 400px; bottom: -60px; left: 30%;
-      background: radial-gradient(circle, rgba(15,158,120,0.12), transparent 70%);
-      animation-delay: 0.6s;
-    }
-    @keyframes orb-fade { to { opacity: 1; } }
-
-    .hero__content {
-      position: relative; z-index: 2;
-      padding: 140px 0 100px; max-width: 780px;
-    }
-    .hero__eyebrow {
-      display: flex; align-items: center; gap: 14px; margin-bottom: 36px;
-    }
-    .hero__eyebrow-line { width: 36px; height: 1.5px; background: var(--purple); border-radius: 2px; }
-    .hero__eyebrow-text {
-      font: 600 11px/1 var(--font-body); text-transform: uppercase;
-      letter-spacing: 0.14em; color: rgba(255,255,255,0.45);
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 5.8vw, 80px);
-      font-weight: 300; line-height: 1.04; letter-spacing: -0.03em;
-      margin-bottom: 12px; color: var(--white);
-    }
-    .hero h1 strong { font-weight: 800; display: block; }
-    .hero__tagline {
-      font-size: clamp(42px, 5.8vw, 80px);
-      font-weight: 800; line-height: 1.04; letter-spacing: -0.03em;
-      margin-bottom: 36px;
-      background: linear-gradient(135deg, #A78BFA 0%, var(--purple) 50%, var(--teal-light) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero__sub {
-      font: 400 clamp(16px, 1.5vw, 19px)/1.7 var(--font-body);
-      color: rgba(255,255,255,0.52); max-width: 520px; margin-bottom: 52px;
-    }
-    .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
-
-    /* Scroll indicator */
-    .hero__scroll {
-      position: absolute; bottom: 40px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      font: 500 10px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.25); z-index: 2;
-      animation: scroll-pulse 2.8s ease-in-out infinite;
-    }
-    .hero__scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent); }
-    @keyframes scroll-pulse {
-      0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-      50%      { transform: translateX(-50%) translateY(8px); opacity: 1; }
-    }
-
-    @media (max-width: 768px) {
-      .hero__content { padding: 120px 0 80px; }
-      .hero__scroll, .hero__line { display: none; }
-    }
-
-    /* =====================================================
-       MARQUEE
-    ===================================================== */
-    .marquee-wrap {
-      background: var(--white); overflow: hidden;
-      border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100);
-    }
-    .marquee-track {
-      display: flex; width: max-content;
-      animation: marquee 48s linear infinite;
-    }
-    .marquee-item {
-      flex-shrink: 0; padding: 26px 44px;
-      font: 500 12px/1 var(--font-body); letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--gray-200); border-right: 1px solid var(--gray-100);
-      transition: color 300ms; white-space: nowrap;
-    }
-    .marquee-item:hover { color: var(--purple); }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
-
-    /* =====================================================
-       SECTION HELPERS
-    ===================================================== */
-    .section { padding: clamp(80px, 10vw, 140px) 0; }
-    .section--offwhite { background: var(--offwhite); }
-    .section--dark     { background: var(--dark);     color: var(--white); }
-
-    .eyebrow {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
-    }
-    .eyebrow__line { width: 26px; height: 1.5px; background: var(--purple); border-radius: 2px; }
-    .eyebrow__text {
-      font: 600 11px/1 var(--font-body); text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--purple);
-    }
-    .section--dark .eyebrow__line { background: var(--teal-light); }
-    .section--dark .eyebrow__text { color: var(--teal-light); }
-
-    .section-title {
-      font: 700 clamp(30px, 3.5vw, 50px)/1.08 var(--font-display);
-      letter-spacing: -0.025em; margin-bottom: 20px;
-    }
-    .section-lead {
-      font: 400 17px/1.7 var(--font-body);
-      color: var(--gray-500); max-width: 540px;
-    }
-    .section--dark .section-lead { color: rgba(255,255,255,0.48); }
-
-    .section-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 40px; margin-bottom: 60px; flex-wrap: wrap;
-    }
-    .section-header__left { max-width: 580px; }
-
-    /* =====================================================
-       SERVICES — grille 3×2, vrais services
-    ===================================================== */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--gray-100);
-      border: 1px solid var(--gray-100); border-radius: var(--radius-lg); overflow: hidden;
-    }
-
-    .svc {
-      background: var(--white); padding: 40px 32px 36px;
-      position: relative; transition: background 250ms;
-    }
-    .svc::after {
-      content: ''; position: absolute; bottom: 0; left: 32px; right: 32px;
-      height: 2px; background: linear-gradient(90deg, var(--purple), var(--teal));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 400ms var(--ease-out);
-    }
-    .svc:hover { background: var(--offwhite); }
-    .svc:hover::after { transform: scaleX(1); }
-
-    .svc__icon {
-      width: 44px; height: 44px; margin-bottom: 26px;
-      color: var(--purple);
-    }
-    .svc__num {
-      font: 600 10px/1 var(--font-body); text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--gray-200); margin-bottom: 10px;
-    }
-    .svc__title {
-      font: 700 18px/1.2 var(--font-display); letter-spacing: -0.01em;
-      margin-bottom: 10px; color: var(--text);
-    }
-    .svc__desc {
-      font: 400 13px/1.65 var(--font-body); color: var(--gray-500);
-    }
-    .svc__link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 22px; font: 600 12px/1 var(--font-body);
-      color: var(--purple); letter-spacing: 0.02em;
-      transition: gap 200ms;
-    }
-    .svc:hover .svc__link { gap: 10px; }
-    .svc__link svg { width: 12px; height: 12px; }
-
-    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px)  { .services-grid { grid-template-columns: 1fr; } }
-
-    /* =====================================================
-       STATS BAND
-    ===================================================== */
-    .stats-band { background: var(--dark-mid); padding: 72px 0; }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-    }
-    .stat {
-      padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.07);
-    }
-    .stat:first-child { padding-left: 0; }
-    .stat:last-child  { border-right: none; }
-    .stat__n {
-      font: 300 clamp(44px, 5vw, 68px)/1 var(--font-display);
-      letter-spacing: -0.04em; color: var(--white); margin-bottom: 8px;
-    }
-    .stat__n span { color: var(--teal-light); font-weight: 700; }
-    .stat__l {
-      font: 400 12px/1.5 var(--font-body); color: rgba(255,255,255,0.35);
-      text-transform: uppercase; letter-spacing: 0.07em;
-    }
-    @media (max-width: 900px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .stat { border-right: none; padding: 0; }
-    }
-
-    /* =====================================================
-       À PROPOS — Split
-    ===================================================== */
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 6vw, 96px); align-items: center; }
-    .split__photo {
-      position: relative; border-radius: var(--radius-lg);
-      overflow: hidden; aspect-ratio: 4/3;
-    }
-    .split__photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 600ms var(--ease-out);
-    }
-    .split:hover .split__photo img { transform: scale(1.03); }
-    .split__badge {
-      position: absolute; bottom: 24px; left: 24px;
-      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color: var(--white); border-radius: var(--radius);
-      padding: 18px 24px;
-      font: 700 28px/1 var(--font-display);
-    }
-    .split__badge p { font: 400 11px/1 var(--font-body); opacity: 0.8; margin-top: 5px; }
-
-    .split__list { list-style: none; margin-top: 32px; }
-    .split__list li {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 14px 0; border-bottom: 1px solid var(--gray-100);
-      font: 400 14px/1.55 var(--font-body); color: var(--gray-600);
-    }
-    .split__list li:first-child { border-top: 1px solid var(--gray-100); }
-    .split__list-ic { width: 18px; height: 18px; flex-shrink: 0; color: var(--teal); margin-top: 2px; }
-
-    @media (max-width: 900px) {
-      .split { grid-template-columns: 1fr; }
-      .split__photo { aspect-ratio: 16/9; }
-    }
-
-    /* =====================================================
-       CAS CLIENTS — grille photo
-    ===================================================== */
-    .cases-grid {
-      display: grid; grid-template-columns: 3fr 2fr;
-      grid-template-rows: 1fr 1fr; gap: 2px;
-      background: var(--gray-100); border-radius: var(--radius-lg); overflow: hidden;
-      min-height: 520px;
-    }
-    .case {
-      position: relative; overflow: hidden; cursor: pointer;
-      background: var(--charcoal);
-    }
-    .case--main { grid-row: span 2; }
-
-    .case__bg {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      transition: transform 600ms var(--ease-out);
-    }
-    .case:hover .case__bg { transform: scale(1.05); }
-
-    /* CSS-only backgrounds for Amethys (no stock photo) */
-    .case--amethys .case__bg {
-      background:
-        radial-gradient(ellipse at 20% 80%, rgba(15,158,120,0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.3) 0%, transparent 50%),
-        linear-gradient(135deg, #0A1A16 0%, #061A2A 100%);
-    }
-    .case--amethys .case__geo {
-      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-    }
-    .case--amethys .case__geo svg { width: 100%; height: 100%; opacity: 0.08; }
-
-    .case--moby .case__bg {
-      background-image: url('https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=800&q=80&auto=format&fit=crop');
-    }
-    .case--unity .case__bg {
-      background-image: url('https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=700&q=80&auto=format&fit=crop');
-    }
-
-    .case__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,8,18,0.92) 0%, rgba(10,8,18,0.4) 50%, transparent 100%);
-      transition: background 300ms;
-    }
-    .case:hover .case__overlay {
-      background: linear-gradient(to top, rgba(10,8,18,0.96) 0%, rgba(10,8,18,0.55) 65%, transparent 100%);
-    }
-    .case__arrow {
-      position: absolute; top: 20px; right: 20px;
-      width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center; color: white;
-      transition: background 250ms, border-color 250ms;
-    }
-    .case:hover .case__arrow { background: var(--purple); border-color: var(--purple); }
-    .case__arrow svg { width: 13px; height: 13px; }
-    .case__content {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 28px;
-    }
-    .case__tag {
-      font: 600 10px/1 var(--font-body); text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--teal-light); margin-bottom: 8px;
-    }
-    .case__title {
-      font: 600 clamp(16px, 1.8vw, 21px)/1.2 var(--font-display);
-      color: var(--white); margin-bottom: 6px; letter-spacing: -0.01em;
-    }
-    .case__desc {
-      font: 400 13px/1.55 var(--font-body); color: rgba(255,255,255,0.48);
-      opacity: 0; transform: translateY(6px);
-      transition: opacity 300ms, transform 300ms var(--ease-out);
-    }
-    .case:hover .case__desc { opacity: 1; transform: none; }
-
-    @media (max-width: 900px) {
-      .cases-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
-      .case--main { grid-row: span 1; aspect-ratio: 4/3; }
-      .case--sm { aspect-ratio: 16/9; }
-      .case__desc { opacity: 1; transform: none; }
-    }
-
-    /* =====================================================
-       QUOTE
-    ===================================================== */
-    .quote-section { background: var(--dark); padding: clamp(80px, 10vw, 130px) 0; }
-    .quote-inner { max-width: 820px; margin: 0 auto; text-align: center; }
-    .quote__mark {
-      font: 300 72px/1 var(--font-display);
-      background: linear-gradient(135deg, var(--purple), var(--teal));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: -16px; display: block;
-    }
-    .quote__text {
-      font: 300 clamp(20px, 2.6vw, 34px)/1.5 var(--font-display);
-      color: rgba(255,255,255,0.88); letter-spacing: -0.015em; margin-bottom: 44px;
-    }
-    .quote__divider { width: 44px; height: 1.5px; background: linear-gradient(90deg, var(--purple), var(--teal)); margin: 0 auto 26px; }
-    .quote__author { font: 600 15px/1 var(--font-body); color: var(--white); margin-bottom: 6px; }
-    .quote__role { font: 400 12px/1 var(--font-body); color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; }
-
-    /* =====================================================
-       ÉQUIPE — Abstract CSS art (pas de photos de visages)
-    ===================================================== */
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-
-    .team-card {
-      background: var(--white); border: 1px solid var(--gray-100);
-      border-radius: var(--radius-lg); overflow: hidden;
-      transition: transform 300ms var(--ease-out), box-shadow 300ms;
-    }
-    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
-
-    /* Abstract art zone — CSS gradient + SVG illustration */
-    .team-card__art {
-      height: 220px; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .team-card__art-bg {
-      position: absolute; inset: 0;
-      transition: transform 600ms var(--ease-out);
-    }
-    .team-card:hover .team-card__art-bg { transform: scale(1.04); }
-    .team-card__art-pattern {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-    .team-card__art-icon {
-      position: relative; z-index: 2;
-      width: 80px; height: 80px; color: rgba(255,255,255,0.9);
-      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.3));
-    }
-
-    /* Otman — GM — gradient violet */
-    .team-card--otman .team-card__art-bg {
-      background:
-        radial-gradient(ellipse at 30% 40%, rgba(167,139,250,0.4) 0%, transparent 55%),
-        linear-gradient(145deg, #2d1b4e 0%, #4c1d95 50%, #5B21B6 100%);
-    }
-    /* Jamal — Ops — gradient teal */
-    .team-card--jamal .team-card__art-bg {
-      background:
-        radial-gradient(ellipse at 70% 30%, rgba(92,213,163,0.3) 0%, transparent 55%),
-        linear-gradient(145deg, #0F1923 0%, #064e3b 50%, #065f46 100%);
-    }
-    /* Farid — RH — gradient indigo */
-    .team-card--farid .team-card__art-bg {
-      background:
-        radial-gradient(ellipse at 50% 30%, rgba(129,140,248,0.35) 0%, transparent 55%),
-        linear-gradient(145deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%);
-    }
-
-    .team-card__body { padding: 24px 26px 28px; }
-    .team-card__name { font: 700 17px/1.2 var(--font-display); margin-bottom: 4px; letter-spacing: -0.01em; }
-    .team-card__role { font: 400 13px/1.4 var(--font-body); color: var(--gray-500); margin-bottom: 16px; }
-    .team-card__email { font: 500 12px/1 var(--font-body); color: var(--purple); }
-    .team-card__email:hover { color: var(--purple-mid); text-decoration: underline; }
-
-    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
-
-    /* =====================================================
-       INSIGHTS
-    ===================================================== */
-    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .insight {
-      border-radius: var(--radius-lg); overflow: hidden;
-      background: var(--white); border: 1px solid var(--gray-100);
-      transition: transform 300ms var(--ease-out), box-shadow 300ms;
-    }
-    .insight:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
-    .insight__img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
-    .insight__img--1 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop'); }
-    .insight__img--2 { background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&auto=format&fit=crop'); }
-    .insight__img--3 { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80&auto=format&fit=crop'); }
-    .insight__body { padding: 26px; }
-    .insight__cat {
-      font: 600 10px/1 var(--font-body); text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--purple); margin-bottom: 10px;
-    }
-    .insight__title { font: 600 16px/1.3 var(--font-display); letter-spacing: -0.01em; margin-bottom: 8px; }
-    .insight__text { font: 400 13px/1.6 var(--font-body); color: var(--gray-500); }
-    @media (max-width: 900px) { .insights-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 580px) { .insights-grid { grid-template-columns: 1fr; } }
-
-    /* =====================================================
-       CTA BAND
-    ===================================================== */
-    .cta-band {
-      background: linear-gradient(110deg, var(--purple-dark) 0%, var(--purple) 50%, #5B21B6 100%);
-      padding: clamp(72px, 9vw, 110px) 0; position: relative; overflow: hidden;
-    }
-    .cta-band::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.07) 0%, transparent 60%);
-    }
-    .cta-band__inner {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 44px; flex-wrap: wrap; position: relative; z-index: 1;
-    }
-    .cta-band h2 {
-      font: 300 clamp(26px, 3.2vw, 48px)/1.12 var(--font-display);
-      color: var(--white); letter-spacing: -0.02em;
-    }
-    .cta-band h2 strong { font-weight: 800; }
-    .cta-band__btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
-
-    /* =====================================================
-       CONTACT
-    ===================================================== */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-
-    .contact-form__group { margin-bottom: 18px; }
-    .contact-form label {
-      display: block; font: 600 11px/1 var(--font-body);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--gray-400); margin-bottom: 8px;
-    }
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      width: 100%; font: 400 15px/1.5 var(--font-body); color: var(--text);
-      background: var(--white); border: 1.5px solid var(--gray-100);
-      border-radius: var(--radius); padding: 13px 15px;
-      transition: border-color 200ms; outline: none; -webkit-appearance: none;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus { border-color: var(--purple); }
-    .contact-form textarea { height: 130px; resize: vertical; }
-
-    .contact-info { display: flex; flex-direction: column; }
-    .cinfo {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 20px 0; border-bottom: 1px solid var(--gray-100);
-    }
-    .cinfo:first-child { padding-top: 0; border-top: 1px solid var(--gray-100); }
-    .cinfo__ic {
-      width: 38px; height: 38px; flex-shrink: 0;
-      border-radius: 10px; background: rgba(124,58,237,0.07);
-      display: flex; align-items: center; justify-content: center; color: var(--purple);
-    }
-    .cinfo__ic svg { width: 17px; height: 17px; }
-    .cinfo__l { font: 600 10px/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-200); margin-bottom: 5px; }
-    .cinfo__v { font: 500 14px/1.4 var(--font-body); color: var(--text); }
-    .cinfo__v a { color: var(--purple); transition: color 150ms; }
-    .cinfo__v a:hover { color: var(--purple-mid); }
-
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-    .footer { background: var(--dark); color: rgba(255,255,255,0.4); padding: 72px 0 36px; }
-    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-
-    .footer__logo { display: flex; flex-direction: column; gap: 2px; margin-bottom: 18px; }
-    .footer__logo-unico {
-      font: 800 20px/1 var(--font-display); letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #A78BFA, #7C3AED, #5B21B6);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .footer__logo-consult {
-      display: flex; align-items: center; gap: 5px;
-      font: 600 8px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--logo-cyan);
-    }
-    .footer__logo-consult::before, .footer__logo-consult::after {
-      content: ''; display: block; height: 1px; width: 12px; background: currentColor; flex-shrink: 0;
-    }
-    .footer__desc { font: 400 13px/1.7 var(--font-body); max-width: 240px; margin-bottom: 28px; }
-    .footer__address { font: 400 12px/1.9 var(--font-body); }
-
-    .footer__col h4 { font: 600 10px/1 var(--font-body); color: var(--white); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
-    .footer__col a { display: block; font: 400 13px/1 var(--font-body); margin-bottom: 13px; transition: color 200ms; }
-    .footer__col a:hover { color: var(--teal-light); }
-
-    .footer__socials { display: flex; gap: 8px; margin-top: 20px; }
-    .footer__soc {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.35); transition: all 200ms;
-    }
-    .footer__soc:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
-    .footer__soc svg { width: 14px; height: 14px; }
-
-    .footer__bottom {
-      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 10px; font: 400 12px/1 var(--font-body);
-    }
-
-    @media (max-width: 900px) { .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-    @media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } .footer__bottom { flex-direction: column; gap: 8px; } }
-
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
-    .reveal.visible { opacity: 1; transform: none; }
-    .stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
-    .stagger.visible > * { opacity: 1; transform: none; }
-    .stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
-    .stagger.visible > *:nth-child(2) { transition-delay: 70ms; }
-    .stagger.visible > *:nth-child(3) { transition-delay: 140ms; }
-    .stagger.visible > *:nth-child(4) { transition-delay: 210ms; }
-    .stagger.visible > *:nth-child(5) { transition-delay: 280ms; }
-    .stagger.visible > *:nth-child(6) { transition-delay: 350ms; }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Unico Consult",
+    "url": "https://www.unico-consult.be",
+    "telephone": "+3222905898",
+    "email": "info@unico-consult.be",
+    "address": {"@type": "PostalAddress", "streetAddress": "Hippokrateslaan 4 bus 001", "addressLocality": "Sint-Stevens-Woluwe", "postalCode": "1932", "addressCountry": "BE"},
+    "geo": {"@type": "GeoCoordinates", "latitude": "50.875", "longitude": "4.462"},
+    "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00"}],
+    "foundingDate": "2019-10-07",
+    "vatID": "BE0735798943",
+    "sameAs": ["https://www.linkedin.com/company/unico-consult"]
+  }
+  </script>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="nav" aria-label="Navigation principale">
-  <div class="navbar__inner">
-    <a href="#" class="navbar__logo" aria-label="Unico Consult — Accueil">
-      <span class="navbar__logo-unico">unico</span>
-      <span class="navbar__logo-consult">Consult</span>
-    </a>
-
-    <ul class="navbar__links" role="list">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#realisations">Réalisations</a></li>
-      <li><a href="#equipe">Équipe</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <a href="#contact" class="navbar__cta">Parlons de votre projet</a>
-
-    <button class="navbar__burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
-  <a href="#services">Services</a>
-  <a href="#apropos">À propos</a>
-  <a href="#realisations">Réalisations</a>
-  <a href="#equipe">Équipe</a>
-  <a href="#contact">Contact</a>
-  <a href="#contact" class="navbar__cta">Parlons de votre projet</a>
-</div>
-
-<!-- =====================================================
-     HERO — CSS-only, brand gradient
-===================================================== -->
-<section class="hero" id="home" aria-label="Accueil">
-  <div class="hero__bg" aria-hidden="true"></div>
-  <div class="hero__dots" aria-hidden="true"></div>
-  <div class="hero__line" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-
-  <div class="container">
-    <div class="hero__content">
-      <div class="hero__eyebrow">
-        <span class="hero__eyebrow-line" aria-hidden="true"></span>
-        <span class="hero__eyebrow-text">Sint-Stevens-Woluwe · Belgique · depuis 2010</span>
-      </div>
-
-      <h1>Votre business ?</h1>
-      <p class="hero__tagline" aria-label="Notre challenge">Notre challenge.</p>
-
-      <p class="hero__sub">
-        Expert en accompagnement de gestion d'entreprise — RH, management, conseils, back office, logistique et branding. Concentrez-vous sur votre cœur de métier, nous veillons au reste.
-      </p>
-
-      <div class="hero__actions">
-        <a href="#services" class="btn btn--primary">
-          Découvrir nos services
-          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </a>
-        <a href="#contact" class="btn btn--outline-white">Prendre contact</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero__scroll" aria-hidden="true">
-    <div class="hero__scroll-line"></div>
-    Scroll
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-label="Clients et partenaires">
-  <div class="marquee-track" aria-hidden="true">
-    <span class="marquee-item">Amethys Clean Services</span>
-    <span class="marquee-item">Moby Green SRL</span>
-    <span class="marquee-item">Last Green Mile</span>
-    <span class="marquee-item">Nassim Consult</span>
-    <span class="marquee-item">Acerty Solution</span>
-    <span class="marquee-item">SD Worx</span>
-    <span class="marquee-item">CodaBox · Peppol</span>
-    <span class="marquee-item">Dell Technologies</span>
-    <span class="marquee-item">Isara · NSI SA</span>
-    <span class="marquee-item">Amethys Clean Services</span>
-    <span class="marquee-item">Moby Green SRL</span>
-    <span class="marquee-item">Last Green Mile</span>
-    <span class="marquee-item">Nassim Consult</span>
-    <span class="marquee-item">Acerty Solution</span>
-    <span class="marquee-item">SD Worx</span>
-    <span class="marquee-item">CodaBox · Peppol</span>
-    <span class="marquee-item">Dell Technologies</span>
-    <span class="marquee-item">Isara · NSI SA</span>
-  </div>
-</div>
-
-<!-- =====================================================
-     SERVICES — 6 vrais services de unico-consult.be
-===================================================== -->
-<section class="section" id="services" aria-labelledby="srv-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-header__left">
-        <div class="eyebrow">
-          <span class="eyebrow__line" aria-hidden="true"></span>
-          <span class="eyebrow__text">Nos expertises</span>
-        </div>
-        <h2 class="section-title" id="srv-title">
-          Une gamme complète<br>de services sur mesure
-        </h2>
-        <p class="section-lead">
-          Vous souhaitez externaliser une ou plusieurs missions ? Nous élaborons une solution 100&nbsp;% adaptée à vos besoins.
-        </p>
-      </div>
-      <a href="#contact" class="btn btn--outline">
-        En savoir plus
-        <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__i">
+      <a href="/" class="nav__logo">
+        <svg class="nav__mark" viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#7C3AED">UN</text>
+          <text x="42" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#5B21B6">I</text>
+          <text x="52" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#7C3AED">CO</text>
+          <text x="0" y="47" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="14" letter-spacing="4" fill="#6B7280">CONSULT</text>
+        </svg>
       </a>
+      <ul class="nav__links">
+        <li><a href="/expertise">Expertise</a></li>
+        <li><a href="/secteurs">Secteurs</a></li>
+        <li><a href="/clients">Clients</a></li>
+        <li><a href="/equipe">Equipe</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <a href="/contact" class="nav__cta">Nous contacter</a>
     </div>
+  </nav>
 
-    <div class="services-grid stagger">
-
-      <!-- 1 — RH -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <path d="M14 20a5 5 0 100-10 5 5 0 000 10zM30 20a5 5 0 100-10 5 5 0 000 10z"/>
-          <path d="M4 38c0-5.5 4.5-10 10-10h1M39 38c0-5.5-4.5-10-10-10h-4"/>
-          <path d="M16 28h12a6 6 0 010 12H16a6 6 0 010-12z" stroke-width="1.2"/>
-        </svg>
-        <p class="svc__num">01</p>
-        <h3 class="svc__title">Ressources humaines</h3>
-        <p class="svc__desc">Payroll, politique salariale, recrutement, absentéisme, formation et évaluation. Des ressources humaines impeccables, y compris pour les aspects les plus pointus.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-      <!-- 2 — Management -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <rect x="4" y="4" width="14" height="14" rx="3"/>
-          <rect x="26" y="4" width="14" height="14" rx="3"/>
-          <rect x="15" y="26" width="14" height="14" rx="3"/>
-          <path d="M11 18v5a3 3 0 003 3h1M33 18v5a3 3 0 01-3 3h-1M22 18v8"/>
-        </svg>
-        <p class="svc__num">02</p>
-        <h3 class="svc__title">Gestion &amp; Management</h3>
-        <p class="svc__desc">Encadrement, audits, recrutement, gestion de conflit, mise en place d'une structure, description des fonctions, procédures d'embauche et de sortie.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-      <!-- 3 — Conseils -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <circle cx="22" cy="18" r="10"/>
-          <path d="M22 8V6M22 30v-2M8 18H6M38 18h-2M12.1 8.1l-1.4-1.4M34.3 8.1l1.4-1.4"/>
-          <path d="M18 27v5a4 4 0 008 0v-5"/>
-          <line x1="22" y1="14" x2="22" y2="22"/>
-          <circle cx="22" cy="24" r="1" fill="currentColor"/>
-        </svg>
-        <p class="svc__num">03</p>
-        <h3 class="svc__title">Conseils</h3>
-        <p class="svc__desc">Conseil en stratégie commerciale, juridique, opérationnelle, logistique et de management. En phase avec les nouvelles mesures gouvernementales et sociétales.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-      <!-- 4 — Back office -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <rect x="4" y="8" width="36" height="28" rx="3"/>
-          <path d="M4 16h36"/>
-          <circle cx="14" cy="26" r="4"/>
-          <path d="M20 24h12M20 28h8"/>
-          <circle cx="10" cy="12" r="1.5" fill="currentColor"/>
-          <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
-          <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
-        </svg>
-        <p class="svc__num">04</p>
-        <h3 class="svc__title">Back office &amp; Outsourcing</h3>
-        <p class="svc__desc">Externalisation de votre back-office ou de tâches liées à la logistique et à la gestion administrative du personnel. Libérez vos équipes de l'administratif.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-      <!-- 5 — Logistique -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <rect x="2" y="12" width="28" height="20" rx="2"/>
-          <path d="M30 18h8l4 8v6h-12V18z"/>
-          <circle cx="10" cy="34" r="4"/>
-          <circle cx="36" cy="34" r="4"/>
-          <path d="M14 34h18"/>
-          <path d="M8 20h16M8 25h10"/>
-        </svg>
-        <p class="svc__num">05</p>
-        <h3 class="svc__title">Logistique</h3>
-        <p class="svc__desc">Gestion des locaux, de l'informatique, de la téléphonie, des fournitures et de la flotte automobile. Concentrez-vous sur votre cœur de métier, nous gérons le reste.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-      <!-- 6 — Branding -->
-      <div class="svc">
-        <svg class="svc__icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-          <path d="M22 4l4.5 9 10 1.5-7.2 7 1.7 10L22 27l-9 4.5 1.7-10L7.5 14.5l10-1.5z"/>
-          <path d="M22 16v6M22 25v2" stroke-width="1.8"/>
-          <circle cx="22" cy="29" r="1" fill="currentColor"/>
-        </svg>
-        <p class="svc__num">06</p>
-        <h3 class="svc__title">Branding</h3>
-        <p class="svc__desc">Faire la différence est la clé d'une entreprise pérenne. Création d'image de marque, identité visuelle et stratégie de différenciation pour s'ouvrir les portes de la réussite.</p>
-        <a href="#contact" class="svc__link">
-          En savoir plus
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 6h9M7 2l4 4-4 4"/></svg>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-band" aria-label="Chiffres clés">
-  <div class="container">
-    <div class="stats-grid stagger">
-      <div class="stat">
-        <div class="stat__n"><span data-target="15" data-suffix="+">15+</span></div>
-        <p class="stat__l">Années d'expérience</p>
-      </div>
-      <div class="stat">
-        <div class="stat__n"><span data-target="15" data-suffix="+">15+</span></div>
-        <p class="stat__l">Clients actifs</p>
-      </div>
-      <div class="stat">
-        <div class="stat__n"><span data-target="3">3</span></div>
-        <p class="stat__l">Pays — BE · MA · IT</p>
-      </div>
-      <div class="stat">
-        <div class="stat__n"><span data-target="100" data-suffix="%">100%</span></div>
-        <p class="stat__l">Solutions sur mesure</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- =====================================================
-     À PROPOS
-===================================================== -->
-<section class="section" id="apropos" aria-labelledby="about-title">
-  <div class="container">
-    <div class="split">
-      <div class="split__photo reveal">
-        <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&auto=format&fit=crop"
-          alt="Équipe Unico Consult en réunion de travail"
-          loading="lazy" width="900" height="675"
-        >
-        <div class="split__badge" aria-label="15 ans d'expérience">
-          15+
-          <p>ans d'expérience</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="ctn-w">
+      <div class="hero__grid">
+        <div>
+          <div class="hero__badge"><span class="hero__badge-dot"></span>Consulting en gestion d'entreprise</div>
+          <h1 class="hero__title">Concentrez-vous<br>sur <em>votre passion</em></h1>
+          <p class="hero__sub">Nous prenons en charge la gestion de votre entreprise — RH, management, back-office, logistique — pour que vous puissiez vous consacrer a ce que vous faites de mieux.</p>
+          <div class="hero__btns">
+            <a href="/expertise" class="btn btn--p">Decouvrir nos services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="/contact" class="btn btn--o">Nous contacter</a>
+          </div>
         </div>
-      </div>
-
-      <div class="reveal">
-        <div class="eyebrow">
-          <span class="eyebrow__line" aria-hidden="true"></span>
-          <span class="eyebrow__text">À propos</span>
-        </div>
-        <h2 class="section-title" id="about-title">
-          Ensemble,<br>concrétisons<br>votre vision
-        </h2>
-        <p class="section-lead">
-          Forts de près de 15 années d'expérience, notamment dans des secteurs complexes comme les titres-services et le transport, nous mettons nos compétences au profit de votre entreprise.
-        </p>
-        <ul class="split__list">
-          <li>
-            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
-            Équipe pluridisciplinaire — RH, management, IT & finance en un seul partenaire
-          </li>
-          <li>
-            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
-            Secteurs complexes — titres-services, transport, mobilité, nettoyage B2B
-          </li>
-          <li>
-            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
-            Présence internationale — Belgique, Maroc, Italie, Pays-Bas
-          </li>
-          <li>
-            <svg class="split__list-ic" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l4 4 8-8"/></svg>
-            Réponse sous 24h — disponibilité et réactivité garanties
-          </li>
-        </ul>
-        <div style="margin-top:36px">
-          <a href="#contact" class="btn btn--primary">
-            Travaillons ensemble
-            <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-          </a>
+        <div class="hero__visual">
+          <div class="hero__bento reveal stagger">
+            <div class="bento bento--accent" style="--i:0">
+              <div class="bento__num">15+</div>
+              <div class="bento__label">Clients accompagnes activement</div>
+            </div>
+            <div class="bento" style="--i:1">
+              <div class="bento__num">~15</div>
+              <div class="bento__label">Annees d'experience cumulees</div>
+            </div>
+            <div class="bento" style="--i:2">
+              <div class="bento__num">5</div>
+              <div class="bento__label">Poles de services complementaires</div>
+            </div>
+            <div class="bento bento--accent" style="--i:3">
+              <div class="bento__num">4+</div>
+              <div class="bento__label">Secteurs d'expertise</div>
+            </div>
+            <div class="bento bento--wide" style="--i:4">
+              <div class="bento__label" style="font-weight:600;color:var(--navy)">Solutions sur mesure</div>
+              <div class="bento__num" style="color:var(--purple)">100%</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =====================================================
-     RÉALISATIONS
-===================================================== -->
-<section class="section section--offwhite" id="realisations" aria-labelledby="cases-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-header__left">
-        <div class="eyebrow">
-          <span class="eyebrow__line" aria-hidden="true"></span>
-          <span class="eyebrow__text">Réalisations</span>
+  <!-- MARQUEE CLIENTS -->
+  <section class="marquee-section">
+    <div class="marquee-section__title">Ils nous font confiance</div>
+    <div class="marquee" id="marquee">
+      <span class="marquee__item">Maison'Net</span>
+      <span class="marquee__item">La Cense</span>
+      <span class="marquee__item">Nassim Consult</span>
+      <span class="marquee__item">CI&T Group</span>
+      <span class="marquee__item">Moby Green</span>
+      <span class="marquee__item">Last Green Mile</span>
+      <span class="marquee__item">Hermes Lines</span>
+      <span class="marquee__item">The Kitchen 1</span>
+      <span class="marquee__item">DYMA Services</span>
+      <span class="marquee__item">Logicon</span>
+      <span class="marquee__item">Corner Building</span>
+      <span class="marquee__item">1st Belgium</span>
+      <span class="marquee__item">ASBL Voltaire</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee__item">Maison'Net</span>
+      <span class="marquee__item">La Cense</span>
+      <span class="marquee__item">Nassim Consult</span>
+      <span class="marquee__item">CI&T Group</span>
+      <span class="marquee__item">Moby Green</span>
+      <span class="marquee__item">Last Green Mile</span>
+      <span class="marquee__item">Hermes Lines</span>
+      <span class="marquee__item">The Kitchen 1</span>
+      <span class="marquee__item">DYMA Services</span>
+      <span class="marquee__item">Logicon</span>
+      <span class="marquee__item">Corner Building</span>
+      <span class="marquee__item">1st Belgium</span>
+      <span class="marquee__item">ASBL Voltaire</span>
+    </div>
+  </section>
+
+  <!-- SERVICES — Bento Grid -->
+  <section class="services" id="services">
+    <div class="ctn-w">
+      <div class="sh reveal">
+        <div class="sh__over">Nos poles d'expertise</div>
+        <h2 class="sh__title">Un accompagnement complet<br>pour votre entreprise</h2>
+        <p class="sh__desc">Cinq poles de competences complementaires pour couvrir tous les aspects de votre gestion.</p>
+      </div>
+      <div class="svc-grid reveal stagger">
+        <!-- Featured: RH -->
+        <div class="svc svc--featured" style="--i:0">
+          <div class="svc__tag">Expertise phare</div>
+          <div class="svc__icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="svc__title">Ressources Humaines</h3>
+          <p class="svc__desc">De la gestion des paies au recrutement, en passant par la formation et l'evaluation, nous prenons en charge l'ensemble de vos ressources humaines. Notre expertise dans les secteurs reglementes comme les titres-services nous permet de gerer les aspects les plus complexes.</p>
+          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
         </div>
-        <h2 class="section-title" id="cases-title">
-          Ils nous font confiance
-        </h2>
-        <p class="section-lead">Des résultats concrets pour nos clients, dans des secteurs exigeants.</p>
+        <!-- Management -->
+        <div class="svc" style="--i:1">
+          <div class="svc__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3 class="svc__title">Gestion & Management</h3>
+          <p class="svc__desc">Conseil en strategie commerciale, juridique et operationnelle. Veille permanente sur les evolutions legales.</p>
+          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+        </div>
+        <!-- Outsourcing -->
+        <div class="svc" style="--i:2">
+          <div class="svc__icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3 class="svc__title">Back-office & Outsourcing</h3>
+          <p class="svc__desc">Facturation, paiements fournisseurs, suivi comptable. Concentrez-vous sur votre coeur de metier.</p>
+          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+        </div>
+        <!-- Logistique -->
+        <div class="svc" style="--i:3">
+          <div class="svc__icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3 class="svc__title">Logistique</h3>
+          <p class="svc__desc">Locaux, informatique, telephonie, fournitures et flotte automobile. Partenaires Dell & Reposa.</p>
+          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+        </div>
+        <!-- Branding -->
+        <div class="svc" style="--i:4">
+          <div class="svc__icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3 class="svc__title">Image de marque</h3>
+          <p class="svc__desc">Identite visuelle forte et coherente qui vous differencie sur votre marche.</p>
+          <a href="/" class="svc__link">En savoir plus <span>&rarr;</span></a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="cases-grid reveal">
-
-      <!-- Amethys — CSS art -->
-      <div class="case case--main case--amethys" role="article">
-        <div class="case__bg"></div>
-        <div class="case__geo" aria-hidden="true">
-          <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <circle cx="80" cy="120" r="80" stroke="white" stroke-width="0.5"/>
-            <circle cx="320" cy="480" r="140" stroke="white" stroke-width="0.5"/>
-            <line x1="0" y1="0" x2="400" y2="600" stroke="white" stroke-width="0.3"/>
-            <line x1="400" y1="0" x2="0" y2="600" stroke="white" stroke-width="0.3"/>
-            <rect x="100" y="200" width="200" height="200" stroke="white" stroke-width="0.4" transform="rotate(20 200 300)"/>
-            <circle cx="200" cy="300" r="60" stroke="white" stroke-width="0.6"/>
-          </svg>
-        </div>
-        <div class="case__overlay"></div>
-        <div class="case__arrow" aria-hidden="true">
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
-        </div>
-        <div class="case__content">
-          <span class="case__tag">Nettoyage professionnel B2B</span>
-          <h3 class="case__title">Amethys Clean Services</h3>
-          <p class="case__desc">Gestion RH complète depuis la création — Isara, SD Worx, contrats, secrétariat social. Filiale 100% Unico, opérationnelle en 3 mois.</p>
-        </div>
+  <!-- SECTORS -->
+  <section class="sectors" id="sectors">
+    <div class="ctn-w">
+      <div class="sh reveal">
+        <div class="sh__over">Nos secteurs</div>
+        <h2 class="sh__title">Une expertise sectorielle<br>qui fait la difference</h2>
       </div>
-
-      <!-- Moby Green -->
-      <div class="case case--sm case--moby" role="article">
-        <div class="case__bg"></div>
-        <div class="case__overlay"></div>
-        <div class="case__arrow" aria-hidden="true">
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
+      <div class="sec-grid reveal stagger">
+        <div class="sec" style="--i:0">
+          <div class="sec__num">01</div>
+          <h3 class="sec__title">Titres-services</h3>
+          <p class="sec__desc">Gestion integrale dans ce secteur reglemente : contrats, agences, pointage, conge, conformite.</p>
+          <div class="sec__clients"><strong>Clients :</strong> Maison'Net, La Cense — 6 agences</div>
         </div>
-        <div class="case__content">
-          <span class="case__tag">Mobilité verte · Bolt NL</span>
-          <h3 class="case__title">Moby Green — Facturation Peppol</h3>
-          <p class="case__desc">Automatisation facturation mensuelle — +100 000 €/mois, zéro erreur.</p>
+        <div class="sec" style="--i:1">
+          <div class="sec__num">02</div>
+          <h3 class="sec__title">Transport & Logistique</h3>
+          <p class="sec__desc">Facturation, legalite chauffeurs, plateformes de livraison, sous-traitants.</p>
+          <div class="sec__clients"><strong>Clients :</strong> Nassim, CI&T, Moby Green, LGM, Hermes</div>
         </div>
-      </div>
-
-      <!-- UNITY -->
-      <div class="case case--sm case--unity" role="article">
-        <div class="case__bg"></div>
-        <div class="case__overlay"></div>
-        <div class="case__arrow" aria-hidden="true">
-          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h11M7 2l5 4-5 5"/></svg>
+        <div class="sec" style="--i:2">
+          <div class="sec__num">03</div>
+          <h3 class="sec__title">Independants & PME</h3>
+          <p class="sec__desc">Accompagnement sur mesure adapte a chaque entrepreneur et chaque besoin.</p>
+          <div class="sec__clients"><strong>Clients :</strong> Kinesitherapeutes, DYMA, CR Project</div>
         </div>
-        <div class="case__content">
-          <span class="case__tag">Développement sur mesure</span>
-          <h3 class="case__title">UNITY — Application de gestion</h3>
-          <p class="case__desc">App métier remplaçant Excel — dossiers clients, devis, KPIs, tableaux de bord.</p>
+        <div class="sec" style="--i:3">
+          <div class="sec__num">04</div>
+          <h3 class="sec__title">Restauration & Franchise</h3>
+          <p class="sec__desc">Administration, facturation franchises, coordination, audit organisationnel.</p>
+          <div class="sec__clients"><strong>Clients :</strong> The Kitchen 1, Dark Kitchen, Logicon</div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section class="quote-section reveal" aria-label="Témoignage">
-  <div class="container">
-    <div class="quote-inner">
-      <span class="quote__mark" aria-hidden="true">"</span>
-      <blockquote>
-        <p class="quote__text">
-          Unico Consult n'est pas un simple prestataire — ils font partie intégrante de notre organisation. Réactivité, expertise et vrai sens du service au quotidien.
-        </p>
-      </blockquote>
-      <div class="quote__divider" aria-hidden="true"></div>
-      <p class="quote__author">Ilias Bakkioui</p>
-      <p class="quote__role">Directeur — Moby Green SRL &middot; Bruxelles</p>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================
-     ÉQUIPE — Art abstrait CSS, 0 photo de visage
-===================================================== -->
-<section class="section" id="equipe" aria-labelledby="team-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-header__left">
-        <div class="eyebrow">
-          <span class="eyebrow__line" aria-hidden="true"></span>
-          <span class="eyebrow__text">L'équipe</span>
-        </div>
-        <h2 class="section-title" id="team-title">
-          Des experts dédiés<br>à votre succès
-        </h2>
       </div>
     </div>
+  </section>
 
-    <div class="team-grid stagger">
-
-      <!-- Otman — GM — Compas / Leadership -->
-      <div class="team-card team-card--otman">
-        <div class="team-card__art" aria-label="Direction générale — Leadership et stratégie">
-          <div class="team-card__art-bg"></div>
-          <div class="team-card__art-pattern" aria-hidden="true"></div>
-          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <circle cx="40" cy="40" r="34"/>
-            <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
-            <line x1="40" y1="6" x2="40" y2="20"/>
-            <line x1="40" y1="60" x2="40" y2="74"/>
-            <line x1="6" y1="40" x2="20" y2="40"/>
-            <line x1="60" y1="40" x2="74" y2="40"/>
-            <path d="M40 14l-4 10 4-2 4 2z" fill="currentColor" stroke="none"/>
-            <circle cx="40" cy="40" r="18" stroke-dasharray="4 4"/>
-          </svg>
-        </div>
-        <div class="team-card__body">
-          <h3 class="team-card__name">Otman Hssinoui</h3>
-          <p class="team-card__role">General Manager</p>
-          <a href="mailto:ohs@unico-consult.be" class="team-card__email">ohs@unico-consult.be</a>
-        </div>
-      </div>
-
-      <!-- Jamal — Ops — Engrenages -->
-      <div class="team-card team-card--jamal">
-        <div class="team-card__art" aria-label="Gestion opérationnelle — Processus et coordination">
-          <div class="team-card__art-bg"></div>
-          <div class="team-card__art-pattern" aria-hidden="true"></div>
-          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <!-- Grand engrenage -->
-            <circle cx="32" cy="38" r="14"/>
-            <circle cx="32" cy="38" r="5"/>
-            <path d="M32 20v4M32 52v4M14 38h-4M54 38h-4M19.7 25.7l-2.8-2.8M47.1 50.3l-2.8-2.8M19.7 50.3l-2.8 2.8M47.1 25.7l2.8-2.8" stroke-width="2"/>
-            <!-- Petit engrenage -->
-            <circle cx="56" cy="28" r="9"/>
-            <circle cx="56" cy="28" r="3.5"/>
-            <path d="M56 16v3M56 37v3M44 28h-3M68 28h-3M47.8 20l2.1 2.1M62.1 33.9l2.1 2.1M47.8 36l2.1-2.1M62.1 22.1l2.1-2.1" stroke-width="1.4"/>
-          </svg>
-        </div>
-        <div class="team-card__body">
-          <h3 class="team-card__name">Jamal El Kadaoui</h3>
-          <p class="team-card__role">Gestionnaire opérationnel</p>
-          <a href="mailto:jek@unico-consult.be" class="team-card__email">jek@unico-consult.be</a>
-        </div>
-      </div>
-
-      <!-- Farid — RH — Personnes connectées -->
-      <div class="team-card team-card--farid">
-        <div class="team-card__art" aria-label="Gestion RH et administrative — Personnes et équipes">
-          <div class="team-card__art-bg"></div>
-          <div class="team-card__art-pattern" aria-hidden="true"></div>
-          <svg class="team-card__art-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <!-- Personne centrale -->
-            <circle cx="40" cy="28" r="8"/>
-            <path d="M26 54c0-7.7 6.3-14 14-14s14 6.3 14 14"/>
-            <!-- Personne gauche -->
-            <circle cx="18" cy="34" r="5.5"/>
-            <path d="M8 54c0-5.5 4.5-10 10-10"/>
-            <!-- Personne droite -->
-            <circle cx="62" cy="34" r="5.5"/>
-            <path d="M72 54c0-5.5-4.5-10-10-10"/>
-            <!-- Connexions -->
-            <line x1="22" y1="34" x2="32" y2="32" stroke-dasharray="2 2"/>
-            <line x1="58" y1="34" x2="48" y2="32" stroke-dasharray="2 2"/>
-          </svg>
-        </div>
-        <div class="team-card__body">
-          <h3 class="team-card__name">Farid Saouti</h3>
-          <p class="team-card__role">Gestionnaire RH &amp; Administratif</p>
-          <a href="mailto:fsa@unico-consult.be" class="team-card__email">fsa@unico-consult.be</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- INSIGHTS -->
-<section class="section section--offwhite" aria-labelledby="insights-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-header__left">
-        <div class="eyebrow">
-          <span class="eyebrow__line" aria-hidden="true"></span>
-          <span class="eyebrow__text">Insights</span>
-        </div>
-        <h2 class="section-title" id="insights-title">
-          Expertise &amp; actualités
-        </h2>
+  <!-- TESTIMONIALS — Infinite Scroll -->
+  <section class="testi" id="clients">
+    <div class="ctn-w">
+      <div class="sh reveal">
+        <div class="sh__over">Temoignages</div>
+        <h2 class="sh__title">Ce que disent nos clients</h2>
+        <p class="sh__desc">Des entreprises de secteurs differents, un point commun : la confiance.</p>
       </div>
     </div>
-
-    <div class="insights-grid stagger">
-      <article class="insight">
-        <div class="insight__img insight__img--1" role="img" aria-label="RH et management"></div>
-        <div class="insight__body">
-          <p class="insight__cat">Ressources humaines</p>
-          <h3 class="insight__title">Comment externaliser ses RH sans perdre le contrôle de son équipe</h3>
-          <p class="insight__text">Les clés pour déléguer la gestion RH efficacement tout en restant le décideur pour votre entreprise.</p>
+    <div class="testi__track" id="testiTrack">
+      <!-- Card 1 -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences et de notre personnel est devenue beaucoup plus fluide. Leur maitrise du secteur des titres-services nous permet de nous concentrer sur notre activite principale en toute serenite."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">S</div>
+          <div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div>
         </div>
-      </article>
-      <article class="insight">
-        <div class="insight__img insight__img--2" role="img" aria-label="Comptabilité et facturation"></div>
-        <div class="insight__body">
-          <p class="insight__cat">Back office</p>
-          <h3 class="insight__title">Facturation électronique obligatoire en 2026 — êtes-vous prêt ?</h3>
-          <p class="insight__text">La directive européenne s'applique aux PME belges. CodaBox et Peppol simplifient la transition.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Unico Consult gere l'ensemble de notre administration : facturation, legalite des chauffeurs, coordination avec nos sous-traitants. Leur reactivite et leur rigueur sont un atout majeur pour nos societes de transport."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">IB</div>
+          <div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult / Moby Green</div><span class="testi__sector">Transport</span></div>
         </div>
-      </article>
-      <article class="insight">
-        <div class="insight__img insight__img--3" role="img" aria-label="Stratégie et conseils"></div>
-        <div class="insight__body">
-          <p class="insight__cat">Conseils</p>
-          <h3 class="insight__title">5 outils pour digitaliser une PME sans budget colossal</h3>
-          <p class="insight__text">Des solutions accessibles qui transforment votre façon de travailler sans tout chambouler.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"En tant qu'independante, je n'avais ni le temps ni les competences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">MH</div>
+          <div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<section class="cta-band" aria-label="Appel à l'action">
-  <div class="container">
-    <div class="cta-band__inner">
-      <h2>Votre business ?<br><strong>Notre challenge.</strong></h2>
-      <div class="cta-band__btns">
-        <a href="mailto:info@unico-consult.be" class="btn btn--outline-white">
-          info@unico-consult.be
-        </a>
-        <a href="#contact" class="btn" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.25);">
-          Formulaire de contact
-          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </a>
+      </div>
+      <!-- Card 4 -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"L'equipe d'Unico Consult connait parfaitement les specificites du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite avec une reglementation en constante evolution."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">LC</div>
+          <div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult s'occupe de notre facturation et de notre administration, ce qui nous laisse le temps de nous concentrer sur la qualite de nos restaurants."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">TK</div>
+          <div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div>
+        </div>
+      </div>
+      <!-- Duplicates for loop -->
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences et de notre personnel est devenue beaucoup plus fluide. Leur maitrise du secteur des titres-services nous permet de nous concentrer sur notre activite principale en toute serenite."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">S</div>
+          <div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div>
+        </div>
+      </div>
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Unico Consult gere l'ensemble de notre administration : facturation, legalite des chauffeurs, coordination avec nos sous-traitants. Leur reactivite et leur rigueur sont un atout majeur pour nos societes de transport."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">IB</div>
+          <div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult / Moby Green</div><span class="testi__sector">Transport</span></div>
+        </div>
+      </div>
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"En tant qu'independante, je n'avais ni le temps ni les competences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">MH</div>
+          <div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinesitherapeute</div><span class="testi__sector">Independante</span></div>
+        </div>
+      </div>
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"L'equipe d'Unico Consult connait parfaitement les specificites du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">LC</div>
+          <div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div>
+        </div>
+      </div>
+      <div class="testi__card">
+        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
+        <p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult s'occupe de notre facturation et administration, ce qui nous laisse le temps de nous concentrer sur nos restaurants."</p>
+        <div class="testi__author">
+          <div class="testi__avatar">TK</div>
+          <div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =====================================================
-     CONTACT — Vraies coordonnées Unico
-===================================================== -->
-<section class="section" id="contact" aria-labelledby="contact-title">
-  <div class="container">
-    <div class="eyebrow reveal" style="margin-bottom:18px">
-      <span class="eyebrow__line" aria-hidden="true"></span>
-      <span class="eyebrow__text">Contact</span>
+  <!-- WHY UNICO -->
+  <section class="impact">
+    <div class="ctn-w">
+      <div class="impact__grid">
+        <div class="reveal">
+          <div class="sh">
+            <div class="sh__over">Pourquoi Unico Consult</div>
+            <h2 class="sh__title">Ce qui nous differencie</h2>
+            <p class="sh__desc">Plus qu'un cabinet de conseil — un partenaire qui s'integre dans votre quotidien.</p>
+          </div>
+        </div>
+        <div class="impact__list reveal stagger">
+          <div class="impact__item" style="--i:0">
+            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><div class="impact__item-title">Expertise multi-sectorielle</div><p class="impact__item-desc">Titres-services, transport, restauration, PME — on connait les specificites de chaque secteur.</p></div>
+          </div>
+          <div class="impact__item" style="--i:1">
+            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><div class="impact__item-title">Equipe stable et dediee</div><p class="impact__item-desc">3 consultants seniors qui connaissent vos dossiers. Pas de turnover, pas de remise a zero.</p></div>
+          </div>
+          <div class="impact__item" style="--i:2">
+            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><div class="impact__item-title">Accompagnement 360</div><p class="impact__item-desc">RH + management + back-office + logistique + branding, tout sous un meme toit.</p></div>
+          </div>
+          <div class="impact__item" style="--i:3">
+            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><div class="impact__item-title">Ancrage belge</div><p class="impact__item-desc">Basees a Bruxelles depuis 2019. On connait les regles, la legislation et les interlocuteurs.</p></div>
+          </div>
+          <div class="impact__item" style="--i:4">
+            <div class="impact__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div><div class="impact__item-title">Partenaires de reference</div><p class="impact__item-desc">Dell Technologies, Reposa Italy, SD Worx — un reseau de partenaires solides a votre service.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <h2 class="section-title reveal" id="contact-title" style="margin-bottom:52px">
-      Démarrons la conversation
-    </h2>
+  </section>
 
-    <div class="contact-grid reveal">
-      <form class="contact-form" action="mailto:info@unico-consult.be" method="post" enctype="text/plain" aria-label="Formulaire de contact">
-        <div class="contact-form__group">
-          <label for="c-name">Votre nom</label>
-          <input type="text" id="c-name" name="nom" placeholder="Jean Dupont" required autocomplete="name">
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <div class="ctn-w">
+      <div class="sh reveal">
+        <div class="sh__over">Notre equipe</div>
+        <h2 class="sh__title">3 experts complementaires</h2>
+        <p class="sh__desc">Une equipe stable, chaque membre apporte une expertise unique et complementaire.</p>
+      </div>
+      <div class="team__grid reveal stagger">
+        <div class="team__card" style="--i:0">
+          <div class="team__avatar">OH</div>
+          <div class="team__name">Otman Hssinoui</div>
+          <div class="team__role">Co-fondateur & General Manager</div>
+          <p class="team__desc">Pilote la vision strategique du groupe. Gestion financiere, comptes d'exploitation, developpement.</p>
+          <div class="team__tags"><span class="team__tag">Finance</span><span class="team__tag">Strategie</span><span class="team__tag">Developpement</span></div>
         </div>
-        <div class="contact-form__group">
-          <label for="c-email">Adresse email</label>
-          <input type="email" id="c-email" name="email" placeholder="jean@entreprise.be" required autocomplete="email">
+        <div class="team__card" style="--i:1">
+          <div class="team__avatar">FS</div>
+          <div class="team__name">Farid Saouti</div>
+          <div class="team__role">Co-fondateur & Directeur</div>
+          <p class="team__desc">Le garant de la rigueur. Relations clients, gestion RH, coordination juridique et conformite.</p>
+          <div class="team__tags"><span class="team__tag">RH</span><span class="team__tag">Juridique</span><span class="team__tag">Conformite</span></div>
         </div>
-        <div class="contact-form__group">
-          <label for="c-subject">Sujet</label>
-          <select id="c-subject" name="sujet">
-            <option value="">Sélectionner un sujet</option>
-            <option>Ressources humaines</option>
-            <option>Gestion &amp; Management</option>
-            <option>Conseils</option>
-            <option>Back office &amp; Outsourcing</option>
-            <option>Logistique</option>
-            <option>Branding</option>
-            <option>Autre</option>
-          </select>
+        <div class="team__card" style="--i:2">
+          <div class="team__avatar">JK</div>
+          <div class="team__name">Jamal El Kadaoui</div>
+          <div class="team__role">Responsable operationnel</div>
+          <p class="team__desc">L'homme de terrain. Logistique, informatique interne, gestion des sous-traitants et operations.</p>
+          <div class="team__tags"><span class="team__tag">Logistique</span><span class="team__tag">Operations</span><span class="team__tag">IT</span></div>
         </div>
-        <div class="contact-form__group">
-          <label for="c-msg">Message</label>
-          <textarea id="c-msg" name="message" placeholder="Décrivez votre projet ou votre besoin..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
-          Envoyer le message
-          <svg class="btn__arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </button>
-      </form>
+      </div>
+    </div>
+  </section>
 
-      <div class="contact-info" aria-label="Coordonnées">
-        <div class="cinfo">
-          <div class="cinfo__ic" aria-hidden="true">
-            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M8.5 9.5a3 3 0 100-6 3 3 0 000 6z"/>
-              <path d="M8.5 16S2.5 11.5 2.5 7a6 6 0 0112 0c0 4.5-6 9-6 9z"/>
+  <!-- PARTNERS FLOAT -->
+  <section class="partners">
+    <div class="partners__title">Nos partenaires strategiques</div>
+    <div class="partners__track" id="partnerTrack">
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Simply Accounts<span class="partner-pill__sub">Comptabilite</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Kodefisc / Axxon<span class="partner-pill__sub">Comptabilite BE</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>NSI SA<span class="partner-pill__sub">Infrastructure IT</span></div>
+      <!-- Duplicates -->
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Simply Accounts<span class="partner-pill__sub">Comptabilite</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>Kodefisc / Axxon<span class="partner-pill__sub">Comptabilite BE</span></div>
+      <div class="partner-pill"><span class="partner-pill__dot"></span>NSI SA<span class="partner-pill__sub">Infrastructure IT</span></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta__bg"></div>
+    <div class="ctn cta__inner reveal">
+      <h2 class="cta__title">Pret a vous concentrer sur votre passion ?</h2>
+      <p class="cta__sub">Premier echange sans engagement — parlons de vos besoins</p>
+      <div class="cta__actions">
+        <a href="mailto:info@unico-consult.be" class="btn btn--w">Contactez-nous <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="tel:022905898" class="btn btn--w" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25)">02 290 58 98</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="ctn-w">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <svg viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:auto">
+              <text x="0" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#A78BFA">UN</text>
+              <text x="42" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#C4B5FD">I</text>
+              <text x="52" y="30" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="32" letter-spacing="-1.5" fill="#A78BFA">CO</text>
+              <text x="0" y="47" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="14" letter-spacing="4" fill="rgba(255,255,255,0.5)">CONSULT</text>
             </svg>
           </div>
-          <div>
-            <p class="cinfo__l">Adresse</p>
-            <p class="cinfo__v">Avenue Hippocrate 4 boite 001<br>1932 Sint-Stevens-Woluwe, Belgique</p>
+          <p class="footer__desc">Expert en accompagnement de gestion d'entreprise. Nous permettons aux entrepreneurs de se concentrer sur leur coeur de metier.</p>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avenue Hippocrate 4 bte 001, 1932 Zaventem</div>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>02 290 58 98</div>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@unico-consult.be</div>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Navigation</h4>
+          <a href="/" class="footer__link">Accueil</a>
+          <a href="/expertise" class="footer__link">Notre expertise</a>
+          <a href="/secteurs" class="footer__link">Nos secteurs</a>
+          <a href="/clients" class="footer__link">Nos clients</a>
+          <a href="/equipe" class="footer__link">L'equipe</a>
+          <a href="/contact" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Services</h4>
+          <a href="/" class="footer__link">Ressources Humaines</a>
+          <a href="/" class="footer__link">Gestion & Management</a>
+          <a href="/" class="footer__link">Back-office</a>
+          <a href="/" class="footer__link">Logistique</a>
+          <a href="/" class="footer__link">Image de marque</a>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Horaires</h4>
+          <a class="footer__link">Lun — Ven : 9h — 18h</a>
+          <a class="footer__link">Sam — Dim : Ferme</a>
+          <div style="margin-top:20px">
+            <h4 class="footer__col-t">Suivez-nous</h4>
+            <a href="/" class="footer__link">LinkedIn</a>
           </div>
         </div>
-        <div class="cinfo">
-          <div class="cinfo__ic" aria-hidden="true">
-            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="1.5" y="3.5" width="14" height="10" rx="2"/>
-              <path d="M1.5 6l7 5 7-5"/>
-            </svg>
-          </div>
-          <div>
-            <p class="cinfo__l">Email</p>
-            <p class="cinfo__v"><a href="mailto:info@unico-consult.be">info@unico-consult.be</a></p>
-          </div>
-        </div>
-        <div class="cinfo">
-          <div class="cinfo__ic" aria-hidden="true">
-            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M15 11.7c0 .3-.1.6-.2.8-.1.3-.3.5-.5.7-.4.4-.8.6-1.2.6-.3 0-.6-.1-.9-.2a12 12 0 01-9.2-9.2c-.1-.3-.1-.6-.1-.9 0-.4.1-.8.5-1.2.4-.4.7-.6 1.1-.6.2 0 .3 0 .5.1.2.1.3.2.4.5l1.5 2.2c.2.2.3.4.3.6 0 .2-.1.4-.3.6l-.6.6-.1.2c.1.1.1.2.2.4.3.5.6 1 1 1.4.5.5 1 .8 1.4 1 .1.1.3.1.4.1l.2-.1.6-.6c.2-.2.4-.3.6-.3.2 0 .4.1.6.2l2.2 1.5c.3.1.4.3.5.5z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="cinfo__l">Téléphone</p>
-            <p class="cinfo__v"><a href="tel:+3222905898">02 290 58 98</a></p>
-          </div>
-        </div>
-        <div class="cinfo">
-          <div class="cinfo__ic" aria-hidden="true">
-            <svg viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="8.5" cy="8.5" r="6.5"/>
-              <path d="M8.5 5v3.5l2.5 1.5"/>
-            </svg>
-          </div>
-          <div>
-            <p class="cinfo__l">Disponibilité</p>
-            <p class="cinfo__v">Lun — Ven, 9h – 18h<br>Réponse sous 24h</p>
-          </div>
+      </div>
+      <div class="footer__bot">
+        <span>&copy; 2019–2026 Unico Consult SRL &middot; TVA BE 0735.798.943</span>
+        <div class="footer__legal">
+          <a href="/">Mentions legales</a>
+          <a href="/">Vie privee</a>
+          <a href="/">Cookies</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- FOOTER -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo" aria-label="Unico Consult">
-          <span class="footer__logo-unico">unico</span>
-          <span class="footer__logo-consult">Consult</span>
-        </div>
-        <p class="footer__desc">
-          Expert en accompagnement de gestion d'entreprise. RH, management, conseils, back office, logistique et branding pour les PME belges et internationales.
-        </p>
-        <address class="footer__address" style="font-style:normal">
-          Avenue Hippocrate 4 boite 001<br>
-          1932 Sint-Stevens-Woluwe<br>
-          <a href="tel:+3222905898" style="color:rgba(255,255,255,0.4);transition:color 200ms" onmouseover="this.style.color='#5DCAA5'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">02 290 58 98</a><br>
-          <a href="mailto:info@unico-consult.be" style="color:rgba(255,255,255,0.4);transition:color 200ms" onmouseover="this.style.color='#5DCAA5'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">info@unico-consult.be</a>
-        </address>
-        <div class="footer__socials">
-          <a href="https://www.linkedin.com/company/unico-consult" class="footer__soc" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://www.unico-consult.be" class="footer__soc" aria-label="Site officiel" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <h4>Services</h4>
-        <a href="#services">Ressources humaines</a>
-        <a href="#services">Gestion &amp; Management</a>
-        <a href="#services">Conseils</a>
-        <a href="#services">Back office</a>
-        <a href="#services">Logistique</a>
-        <a href="#services">Branding</a>
-      </div>
-
-      <div class="footer__col">
-        <h4>Entreprise</h4>
-        <a href="#apropos">À propos</a>
-        <a href="#equipe">L'équipe</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="https://www.unico-consult.be" target="_blank" rel="noopener">Site officiel</a>
-      </div>
-
-      <div class="footer__col">
-        <h4>Contact</h4>
-        <a href="mailto:info@unico-consult.be">Email général</a>
-        <a href="tel:+3222905898">02 290 58 98</a>
-        <a href="mailto:ohs@unico-consult.be">Otman Hssinoui</a>
-        <a href="mailto:jek@unico-consult.be">Jamal El Kadaoui</a>
-        <a href="mailto:fsa@unico-consult.be">Farid Saouti</a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>&copy; 2026 Unico Consult — Tous droits réservés</span>
-      <span>Avenue Hippocrate 4/001 &middot; 1932 Sint-Stevens-Woluwe &middot; Belgique</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Navbar scroll
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Mobile menu
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    burger.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id === '#') return;
-      const el = document.querySelector(id);
-      if (el) {
-        e.preventDefault();
-        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Scroll reveal
-  const revObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .stagger').forEach(el => revObs.observe(el));
-
-  // Counters
-  const cntObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = +el.dataset.target;
-      const suffix = el.dataset.suffix || '';
-      const start = performance.now();
-      const dur = 1800;
-      const tick = now => {
-        const p = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.floor(target * ease) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      cntObs.unobserve(el);
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
-
-});
-</script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/marquee.js" defer></script>
 </body>
 </html>

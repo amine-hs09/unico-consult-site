@@ -1,32 +1,42 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    },
-    {
-      "source": "/(.+\\.html)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
+        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"},
+        {"key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload"}
       ]
     }
+  ],
+  "rewrites": [
+    {"source": "/expertise", "destination": "/expertise.html"},
+    {"source": "/secteurs", "destination": "/secteurs.html"},
+    {"source": "/clients", "destination": "/clients.html"},
+    {"source": "/equipe", "destination": "/equipe.html"},
+    {"source": "/partenaires", "destination": "/partenaires.html"},
+    {"source": "/contact", "destination": "/contact.html"},
+    {"source": "/mentions-legales", "destination": "/mentions-legales.html"},
+    {"source": "/vie-privee", "destination": "/vie-privee.html"},
+    {"source": "/cookies", "destination": "/cookies.html"}
+  ],
+  "redirects": [
+    {"source": "/rh", "destination": "/expertise", "statusCode": 301},
+    {"source": "/management", "destination": "/expertise", "statusCode": 301},
+    {"source": "/outsourcing", "destination": "/expertise", "statusCode": 301},
+    {"source": "/logistique", "destination": "/expertise", "statusCode": 301},
+    {"source": "/branding", "destination": "/expertise", "statusCode": 301},
+    {"source": "/services", "destination": "/expertise", "statusCode": 301},
+    {"source": "/notre-expertise", "destination": "/expertise", "statusCode": 301},
+    {"source": "/copie-de-global-services", "destination": "/expertise", "statusCode": 301},
+    {"source": "/blank", "destination": "/", "statusCode": 301},
+    {"source": "/contactez-nous", "destination": "/contact", "statusCode": 301},
+    {"source": "/unicoworking", "destination": "/contact", "statusCode": 301},
+    {"source": "/reserver-unicoworking", "destination": "/contact", "statusCode": 301},
+    {"source": "/conseils", "destination": "/expertise", "statusCode": 301}
   ]
 }
