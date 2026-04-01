@@ -229,6 +229,16 @@
   .nav__burger { display: flex; }
 }
 
+/* Sticky mobile CTA */
+.mobile-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+  padding: 12px 20px; background: rgba(254,254,254,0.95);
+  backdrop-filter: blur(16px); border-top: 1px solid var(--border-l);
+  box-shadow: 0 -4px 20px rgba(30,27,75,0.06);
+}
+.mobile-cta a { display: block; width: 100%; text-align: center; }
+@media (max-width: 768px) { .mobile-cta { display: block; } body { padding-bottom: 72px; } }
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

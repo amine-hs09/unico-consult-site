@@ -15,6 +15,8 @@ export default defineConfig({
         mentions: resolve(__dirname, 'mentions-legales.html'),
         privacy: resolve(__dirname, 'vie-privee.html'),
         cookies: resolve(__dirname, 'cookies.html'),
+        faq: resolve(__dirname, 'faq.html'),
+        apropos: resolve(__dirname, 'a-propos.html'),
       }
     }
   }

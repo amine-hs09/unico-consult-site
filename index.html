@@ -94,6 +94,7 @@
     .hero__tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-d); font-size: 13px; font-weight: 600; color: var(--purple); background: rgba(237,233,254,0.85); padding: 7px 18px; border-radius: 100px; margin-bottom: 28px; backdrop-filter: blur(8px); }
     .hero__tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.4 } }
+    @keyframes scrollDot { 0%,100% { top:8px; opacity:1 } 50% { top:22px; opacity:0.3 } }
     .hero__title { font-family: var(--font-d); font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; line-height: 1.04; letter-spacing: -0.04em; color: var(--navy); margin-bottom: 24px; }
     .hero__title em { font-style: normal; color: var(--purple); position: relative; }
     .hero__title em::after { content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 10px; background: var(--purple-pale); border-radius: 5px; z-index: -1; }
@@ -371,6 +372,12 @@
         </div>
       </div>
     </div>
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;text-align:center">
+      <div style="width:28px;height:44px;border:2px solid var(--purple-light);border-radius:14px;margin:0 auto 8px;position:relative">
+        <div style="width:4px;height:10px;background:var(--purple);border-radius:2px;position:absolute;top:8px;left:50%;transform:translateX(-50%);animation:scrollDot 2s ease-in-out infinite"></div>
+      </div>
+      <span style="font-size:11px;color:var(--text-3);font-family:var(--font-d);letter-spacing:0.05em">Decouvrir</span>
+    </div>
   </section>
 
   <!-- STATS — Numbers with accent lines -->
@@ -409,8 +416,8 @@
   <section class="marquee-section">
     <div class="marquee-section__title">Ils nous font confiance</div>
     <div class="marquee" data-marquee="35">
-      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span>
-      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span>
+      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span><span class="marquee__item">Infratech</span><span class="marquee__item">Mooveo Services</span><span class="marquee__item">TS Clean</span><span class="marquee__item">ISI Life Services</span><span class="marquee__item">Nanou</span><span class="marquee__item">CR Project</span>
+      <span class="marquee__item">Maison'Net</span><span class="marquee__item">La Cense</span><span class="marquee__item">Nassim Consult</span><span class="marquee__item">CI&T Group</span><span class="marquee__item">Moby Green</span><span class="marquee__item">Last Green Mile</span><span class="marquee__item">Hermes Lines</span><span class="marquee__item">The Kitchen 1</span><span class="marquee__item">DYMA Services</span><span class="marquee__item">Logicon</span><span class="marquee__item">Corner Building</span><span class="marquee__item">1st Belgium</span><span class="marquee__item">ASBL Voltaire</span><span class="marquee__item">Infratech</span><span class="marquee__item">Mooveo Services</span><span class="marquee__item">TS Clean</span><span class="marquee__item">ISI Life Services</span><span class="marquee__item">Nanou</span><span class="marquee__item">CR Project</span>
     </div>
   </section>
 
@@ -583,6 +590,27 @@
           <span class="plogo__name">NSI SA</span>
           <span class="plogo__desc">Infrastructure IT</span>
         </a>
+        <a href="#" class="plogo" style="--i:6">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 120 32" fill="none"><text x="5" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#D4A017">ARVAL</text><text x="75" y="22" font-family="Arial,sans-serif" font-weight="400" font-size="12" fill="#6B7280">Fleet</text></svg>
+          </div>
+          <span class="plogo__name">Arval / Toyota FS</span>
+          <span class="plogo__desc">Leasing vehicules</span>
+        </a>
+        <a href="#" class="plogo" style="--i:7">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 120 32" fill="none"><text x="5" y="24" font-family="Arial,sans-serif" font-weight="800" font-size="24" fill="#E63946">BOMA</text></svg>
+          </div>
+          <span class="plogo__name">Boma</span>
+          <span class="plogo__desc">Equipements nettoyage pro</span>
+        </a>
+        <a href="#" class="plogo" style="--i:8">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 140 32" fill="none"><text x="5" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#00A3E0">Sodexo</text></svg>
+          </div>
+          <span class="plogo__name">Sodexo</span>
+          <span class="plogo__desc">Titres-services electroniques</span>
+        </a>
       </div>
     </div>
   </section>
@@ -626,6 +654,8 @@
           <a href="/clients" class="footer__link">Nos clients</a>
           <a href="/equipe" class="footer__link">L'equipe</a>
           <a href="/contact" class="footer__link">Contact</a>
+          <a href="/faq" class="footer__link">FAQ</a>
+          <a href="/a-propos" class="footer__link">A propos</a>
         </div>
         <div>
           <h4 class="footer__col-t">Services</h4>
@@ -648,6 +678,8 @@
       </div>
     </div>
   </footer>
+
+  <div class="mobile-cta"><a href="/contact" class="btn btn--p" style="width:100%;justify-content:center">Nous contacter</a></div>
 
   <script>
     // Nav scroll

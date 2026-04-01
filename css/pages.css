@@ -181,6 +181,27 @@
   .partner-grid { grid-template-columns: 1fr; }
 }
 
+/* FAQ accordion */
+.faq-item { border-bottom: 1px solid var(--border-l); }
+.faq-q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 0; background: none; border: none; cursor: pointer;
+  font-family: var(--font-d); font-size: 17px; font-weight: 600;
+  color: var(--navy); text-align: left; transition: color 0.2s;
+}
+.faq-q:hover { color: var(--purple); }
+.faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--purple); }
+.faq-q.active svg { transform: rotate(180deg); }
+.faq-a {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-a.open { grid-template-rows: 1fr; }
+.faq-a > p {
+  overflow: hidden; font-size: 15px; line-height: 1.7;
+  color: var(--text-2); padding: 0 0 24px; margin: 0;
+}
+
 @media (max-width: 480px) {
   .client-grid { grid-template-columns: 1fr; }
   .page-hero--img { min-height: 260px; padding: 120px 0 40px; }
