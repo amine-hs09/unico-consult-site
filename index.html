@@ -222,16 +222,30 @@
     .team__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
     .team__tag { font-size: 11px; font-weight: 600; color: var(--purple); background: var(--purple-ghost); padding: 4px 10px; border-radius: 100px; }
 
-    /* ═══ PARTNERS ═══ */
-    .partners { padding: 56px 0; border-top: 1px solid var(--border-l); overflow: hidden; }
-    .partners__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
-    .partners__track { display: flex; width: max-content; animation: float-p 22s linear infinite; }
-    .partners__track:hover { animation-play-state: paused; }
-    @keyframes float-p { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .partner-pill { display: flex; align-items: center; gap: 10px; padding: 12px 24px; margin: 0 8px; border-radius: 10px; border: 1px solid var(--border-l); background: var(--bg); font-family: var(--font-d); font-weight: 700; font-size: 14px; color: var(--navy); white-space: nowrap; transition: all .3s var(--ease); }
-    .partner-pill:hover { border-color: var(--purple-pale); box-shadow: 0 6px 20px rgba(124,58,237,0.05); transform: translateY(-2px); }
-    .partner-pill__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-light); }
-    .partner-pill__sub { font-size: 11.5px; font-weight: 400; color: var(--text-3); margin-left: 4px; }
+    /* old partner pills removed — replaced by .partners-logos grid */
+
+    /* ═══ PARTNERS LOGOS — Grid with grayscale hover ═══ */
+    .partners-logos { padding: 100px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); }
+    .partners-logos__header { margin-bottom: 48px; }
+    .partners-logos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .plogo {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 36px 24px; border-radius: 16px; border: 1px solid var(--border-l);
+      background: var(--bg); transition: all 0.4s var(--ease); text-decoration: none;
+    }
+    .plogo:hover {
+      border-color: var(--purple-pale); transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(124,58,237,0.07);
+    }
+    .plogo__visual {
+      height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; filter: grayscale(100%) opacity(0.5);
+      transition: all 0.4s var(--ease);
+    }
+    .plogo__visual svg { height: 32px; width: auto; }
+    .plogo:hover .plogo__visual { filter: grayscale(0%) opacity(1); transform: scale(1.08); }
+    .plogo__name { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .plogo__desc { font-size: 12.5px; color: var(--text-3); }
 
     /* ═══ CTA ═══ */
     .cta { padding: 80px 0; background: var(--purple); position: relative; overflow: hidden; }
@@ -270,12 +284,15 @@
       .services__layout { grid-template-columns: 1fr; }
       .sec-grid { grid-template-columns: 1fr; }
       .why__grid { grid-template-columns: 1fr; gap: 40px; }
+      .partners-logos__grid { grid-template-columns: repeat(2, 1fr); }
       .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
     }
     @media (max-width: 768px) {
       .nav__links { display: none; }
+      .nav__burger { display: flex; }
       .hero { min-height: 60vh; padding: 120px 0 60px; }
       .hero__btns { flex-direction: column; align-items: flex-start; }
+      .partners-logos__grid { grid-template-columns: 1fr; }
       .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
       .stat__divider { display: none; }
       .team__grid { grid-template-columns: 1fr; }
@@ -510,28 +527,63 @@
       <div class="sh reveal"><div class="sh__over">Notre equipe</div><h2 class="sh__title">3 experts complementaires</h2></div>
       <div class="team__grid reveal stagger">
         <div class="team__card" style="--i:0"><div class="team__avatar">OH</div><div class="team__name">Otman Hssinoui</div><div class="team__role">Co-fondateur & General Manager</div><p class="team__desc">Pilote la vision strategique. Gestion financiere, comptes d'exploitation, developpement.</p><div class="team__tags"><span class="team__tag">Finance</span><span class="team__tag">Strategie</span><span class="team__tag">Developpement</span></div></div>
-        <div class="team__card" style="--i:1"><div class="team__avatar">FS</div><div class="team__name">Farid Saouti</div><div class="team__role">Co-fondateur & Directeur</div><p class="team__desc">Le garant de la rigueur. Relations clients, gestion RH, coordination juridique.</p><div class="team__tags"><span class="team__tag">RH</span><span class="team__tag">Juridique</span><span class="team__tag">Conformite</span></div></div>
+        <div class="team__card" style="--i:1"><div class="team__avatar">FS</div><div class="team__name">Farid Saouti</div><div class="team__role">Co-fondateur & Associe</div><p class="team__desc">Le garant de la rigueur. Relations clients, gestion RH, coordination juridique.</p><div class="team__tags"><span class="team__tag">RH</span><span class="team__tag">Juridique</span><span class="team__tag">Conformite</span></div></div>
         <div class="team__card" style="--i:2"><div class="team__avatar">JK</div><div class="team__name">Jamal El Kadaoui</div><div class="team__role">Responsable operationnel</div><p class="team__desc">L'homme de terrain. Logistique, informatique, sous-traitants et operations.</p><div class="team__tags"><span class="team__tag">Logistique</span><span class="team__tag">Operations</span><span class="team__tag">IT</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS -->
-  <section class="partners">
-    <div class="partners__title">Nos partenaires strategiques</div>
-    <div class="partners__track">
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Simply Accounts<span class="partner-pill__sub">Comptabilite</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Kodefisc / Axxon<span class="partner-pill__sub">Comptabilite BE</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>NSI SA<span class="partner-pill__sub">Infrastructure IT</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Dell Technologies<span class="partner-pill__sub">Equipements IT</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Reposa Italy<span class="partner-pill__sub">Mobilier pro</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>SD Worx<span class="partner-pill__sub">Secretariat social</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Simply Accounts<span class="partner-pill__sub">Comptabilite</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>Kodefisc / Axxon<span class="partner-pill__sub">Comptabilite BE</span></div>
-      <div class="partner-pill"><span class="partner-pill__dot"></span>NSI SA<span class="partner-pill__sub">Infrastructure IT</span></div>
+  <!-- PARTNERS — Logos with grayscale → color hover -->
+  <section class="partners-logos">
+    <div class="ctn-w">
+      <div class="partners-logos__header reveal">
+        <div class="sh__over">Partenaires strategiques</div>
+        <h2 class="sh__title">Ils soutiennent nos missions</h2>
+      </div>
+      <div class="partners-logos__grid reveal stagger">
+        <a href="#" class="plogo" style="--i:0">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 120 32" fill="none"><text x="10" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5" fill="#007DB8">DELL</text></svg>
+          </div>
+          <span class="plogo__name">Dell Technologies</span>
+          <span class="plogo__desc">Equipements informatiques</span>
+        </a>
+        <a href="#" class="plogo" style="--i:1">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 130 32" fill="none"><text x="5" y="23" font-family="Arial,sans-serif" font-weight="700" font-size="22" fill="#E4002B">SD</text><text x="38" y="23" font-family="Arial,sans-serif" font-weight="400" font-size="22" fill="#1D1D1B">Worx</text></svg>
+          </div>
+          <span class="plogo__name">SD Worx</span>
+          <span class="plogo__desc">Secretariat social & paies</span>
+        </a>
+        <a href="#" class="plogo" style="--i:2">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 140 32" fill="none"><text x="5" y="24" font-family="Georgia,serif" font-weight="700" font-size="24" letter-spacing="2" fill="#1B4332">REPOSA</text></svg>
+          </div>
+          <span class="plogo__name">Reposa Italy</span>
+          <span class="plogo__desc">Mobilier professionnel</span>
+        </a>
+        <a href="#" class="plogo" style="--i:3">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 160 32" fill="none"><text x="5" y="22" font-family="Plus Jakarta Sans,sans-serif" font-weight="600" font-size="18" fill="#4338CA">Simply</text><text x="75" y="22" font-family="Plus Jakarta Sans,sans-serif" font-weight="300" font-size="18" fill="#6B7280">Accounts</text></svg>
+          </div>
+          <span class="plogo__name">Simply Accounts</span>
+          <span class="plogo__desc">Comptabilite & fiscal</span>
+        </a>
+        <a href="#" class="plogo" style="--i:4">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 140 32" fill="none"><text x="5" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#1E3A5F">KODEFISC</text><text x="5" y="30" font-family="Arial,sans-serif" font-weight="400" font-size="8" fill="#6B7280">AXXON ACCOUNTANTS</text></svg>
+          </div>
+          <span class="plogo__name">Kodefisc / Axxon</span>
+          <span class="plogo__desc">Comptabilite Belgique</span>
+        </a>
+        <a href="#" class="plogo" style="--i:5">
+          <div class="plogo__visual">
+            <svg viewBox="0 0 100 32" fill="none"><text x="5" y="24" font-family="Arial,sans-serif" font-weight="800" font-size="26" fill="#2563EB">NSI</text><text x="60" y="24" font-family="Arial,sans-serif" font-weight="400" font-size="14" fill="#6B7280">SA</text></svg>
+          </div>
+          <span class="plogo__name">NSI SA</span>
+          <span class="plogo__desc">Infrastructure IT</span>
+        </a>
+      </div>
     </div>
   </section>
 
