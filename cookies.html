@@ -21,8 +21,19 @@
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.unico-consult.be/"},
+      {"@type": "ListItem", "position": 2, "name": "Cookies", "item": "https://www.unico-consult.be/cookies"}
+    ]
+  }
+  </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
@@ -50,7 +61,7 @@
   </div>
 
   <!-- HERO -->
-  <section style="padding:140px 0 60px;background:var(--bg-lav);border-bottom:1px solid var(--border-l)">
+  <section id="main" style="padding:140px 0 60px;background:var(--bg-lav);border-bottom:1px solid var(--border-l)">
     <div class="ctn">
       <nav style="font-size:13px;color:var(--text-3);margin-bottom:20px"><a href="/" style="color:var(--purple)">Accueil</a> <span style="margin:0 8px">/</span> Politique de cookies</nav>
       <h1 style="font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:12px">Politique de cookies</h1>

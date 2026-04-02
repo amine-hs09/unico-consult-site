@@ -21,8 +21,19 @@
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.unico-consult.be/"},
+      {"@type": "ListItem", "position": 2, "name": "Nos secteurs", "item": "https://www.unico-consult.be/secteurs"}
+    ]
+  }
+  </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
@@ -50,7 +61,7 @@
   </div>
 
   <!-- HERO -->
-  <section class="page-hero--img">
+  <section class="page-hero--img" id="main">
     <div class="page-hero--img__bg"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80" alt="Reunion d affaires"></div>
     <div class="ctn">
       <nav style="font-size:13px;color:var(--text-3);margin-bottom:20px"><a href="/" style="color:var(--purple)">Accueil</a> <span style="margin:0 8px">/</span> Nos secteurs</nav>
