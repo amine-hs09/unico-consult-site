@@ -14,8 +14,7 @@
   <link rel="alternate" hreflang="fr-be" href="https://www.unico-consult.be/">
   <link rel="alternate" hreflang="x-default" href="https://www.unico-consult.be/">
   <meta property="og:url" content="https://www.unico-consult.be/">
-  <!-- TODO: Replace og-default.jpg with actual 1200x630 OG image featuring the Unico logo -->
-  <meta property="og:image" content="https://www.unico-consult.be/og-default.jpg">
+  <meta property="og:image" content="https://www.unico-consult.be/og-default.svg">
   <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -357,7 +356,7 @@
   <!-- HERO — Full-width with background image -->
   <section class="hero" id="main">
     <div class="hero__bg">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80" alt="Immeubles de bureaux modernes en verre">
+      <img src="assets/images/heroes/hero-index.jpg" alt="Immeubles de bureaux modernes en verre">
     </div>
     <div class="ctn">
       <div class="hero__content reveal">
@@ -727,7 +726,24 @@
     // Animate numbers
     const numObs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { const el = x.target, txt = el.textContent, m = txt.match(/(\d+)/); if (m) { const t = +m[0], p = txt.slice(0, txt.indexOf(m[0])), s = txt.slice(txt.indexOf(m[0]) + m[0].length); let c = 0; const step = Math.max(1, Math.floor(t / 35)), iv = setInterval(() => { c = Math.min(c + step, t); el.textContent = p + c + s; if (c >= t) clearInterval(iv); }, 25); } numObs.unobserve(x.target); } }), { threshold: 0.5 });
     document.querySelectorAll('[data-animate-num]').forEach(el => numObs.observe(el));
+
+    // Hamburger menu
+    const burger = document.querySelector('.nav__burger');
+    const mobileNav = document.querySelector('.nav__mobile');
+    if (burger && mobileNav) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        mobileNav.classList.toggle('open');
+      });
+      mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          burger.classList.remove('active');
+          mobileNav.classList.remove('open');
+        });
+      });
+    }
   </script>
 <script src="/js/cookies.js" defer></script>
+<script src="/js/analytics.js" defer></script>
 </body>
 </html>
