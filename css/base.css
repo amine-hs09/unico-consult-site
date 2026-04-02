@@ -41,6 +41,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 /* ── Containers ── */
 .ctn { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
 .ctn-w { max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
+@media (max-width: 480px) { .ctn, .ctn-w { padding: 0 16px; } }
 
 /* ── Skip link (accessibility) ── */
 .skip-link { position: absolute; top: -100%; left: 16px; padding: 8px 16px; background: var(--purple); color: white; border-radius: 8px; font-weight: 600; font-size: 14px; z-index: 999; transition: top 0.2s; }

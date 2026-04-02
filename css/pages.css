@@ -203,7 +203,54 @@
 }
 
 @media (max-width: 480px) {
-  .client-grid { grid-template-columns: 1fr; }
-  .page-hero--img { min-height: 260px; padding: 120px 0 40px; }
-  .page-hero--img h1 { font-size: 28px !important; }
+  /* Client grid */
+  .client-grid { grid-template-columns: 1fr; gap: 12px; }
+  .client-card { padding: 18px; }
+  .client-card__name { font-size: 15px; }
+  .client-card__desc { font-size: 12.5px; }
+
+  /* Page hero with image */
+  .page-hero--img { min-height: 260px; padding: 100px 0 30px; }
+  .page-hero--img h1 { font-size: 24px !important; }
+
+  /* Partner grid */
+  .partner-grid { grid-template-columns: 1fr; gap: 12px; }
+  .partner-card { padding: 20px; }
+  .partner-card__name { font-size: 16px; }
+  .partner-card__desc { font-size: 13px; }
+
+  /* Contact form */
+  .contact-grid { gap: 28px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group input, .form-group select, .form-group textarea {
+    font-size: 16px; /* Empeche le zoom auto iOS */
+    padding: 12px 14px;
+  }
+  .contact-info__item { padding: 16px; }
+  .contact-map iframe { height: 200px; }
+
+  /* FAQ */
+  .faq-q { padding: 16px 0; font-size: 15px; gap: 12px; }
+  .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .faq-a > p { font-size: 14px; padding: 0 0 16px; }
+
+  /* Expertise */
+  .expertise-section { padding: 50px 0; }
+  .expertise-section h2 { font-size: 22px; }
+  .expertise-section p { font-size: 14px; }
+  .expertise-section li { font-size: 13.5px; }
+
+  /* Legal */
+  .legal { padding: 40px 0 60px; }
+  .legal h2 { font-size: 19px; margin-top: 36px; }
+  .legal p, .legal li { font-size: 14px; }
+
+  /* Fix inline grid styles */
+  [style*="grid-template-columns:repeat(2,1fr)"],
+  [style*="grid-template-columns: repeat(2,1fr)"],
+  [style*="grid-template-columns:repeat(3,1fr)"],
+  [style*="grid-template-columns: repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
 }
