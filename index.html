@@ -302,6 +302,8 @@
       .footer__grid { grid-template-columns: 1fr; gap: 28px; }
       .footer__bot { flex-direction: column; gap: 10px; text-align: center; }
       .cta__actions { flex-direction: column; align-items: center; }
+      .why__grid { grid-template-columns: 1fr; gap: 32px; }
+      .sec-grid { grid-template-columns: 1fr; }
     }
     /* Hamburger menu */
     .nav__burger { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; }
@@ -319,25 +321,99 @@
     .nav__mobile a:hover { color: var(--purple); }
     @media (max-width: 768px) { .nav__burger { display: flex; } }
     @media (max-width: 480px) {
+      .ctn, .ctn-w { padding: 0 16px !important; }
       .hero { min-height: auto; padding: 100px 0 40px; }
-      .hero__title { font-size: clamp(28px, 7vw, 38px); }
-      .hero__sub { font-size: 15px; }
-      .hero__btns { align-items: stretch; }
+      .hero__tag { font-size: 11px; padding: 5px 12px; margin-bottom: 20px; }
+      .hero__title { font-size: clamp(28px, 7vw, 38px); margin-bottom: 16px; }
+      .hero__sub { font-size: 15px; margin-bottom: 28px; }
+      .hero__btns { align-items: stretch; flex-direction: column; gap: 10px; }
+      .btn { padding: 14px 20px; font-size: 14px; min-height: 44px; width: 100%; justify-content: center; }
+      .stats { padding: 50px 0; }
       .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .stat { padding: 16px 0; }
       .stat__num { font-size: clamp(24px, 6vw, 32px); }
+      .stat__num::after { height: 8px; }
       .stat__label { font-size: 12px; }
-      .services__layout { grid-template-columns: 1fr; }
-      .services__featured { padding: 28px 20px; }
+      .stat__divider { display: none; }
+      .marquee-section { padding: 28px 0; }
+      .marquee-section__title { font-size: 10px; margin-bottom: 16px; }
+      .marquee__item { padding: 0 16px; }
+      .marquee__item img, .marquee__item svg { height: 24px; }
+      .marquee__item::after { margin-left: 16px; }
+      .services { padding: 60px 0; }
+      .sh { margin-bottom: 32px; }
+      .sh__over { font-size: 11px; margin-bottom: 10px; }
+      .sh__title { font-size: clamp(22px, 6vw, 30px); }
+      .sh__desc { font-size: 14px; }
+      .services__layout { grid-template-columns: 1fr; gap: 20px; }
+      .services__featured { padding: 24px 18px; border-radius: 14px; }
       .services__featured h3 { font-size: 18px; }
-      .svc-item { padding: 18px 16px; }
+      .services__featured p { font-size: 14px; }
+      .svc-item { padding: 18px 16px; gap: 14px; }
+      .svc-item__icon { width: 38px; height: 38px; }
       .svc-item h3 { font-size: 15px; }
       .svc-item p { font-size: 13px; }
-      .testi__card { width: calc(100vw - 40px); max-width: 320px; }
+      .sectors { padding: 60px 0; }
+      .sec-grid { grid-template-columns: 1fr; gap: 14px; }
+      .sec { padding: 24px 18px; border-radius: 14px; }
+      .sec__num { font-size: 36px; }
+      .sec h3 { font-size: 17px; }
+      .sec p { font-size: 13px; }
+      .testi { padding: 60px 0; }
+      .testi__card { width: calc(100vw - 40px); max-width: 320px; padding: 24px 20px; }
+      .testi__text { font-size: 14px; margin-bottom: 16px; }
+      .why { padding: 60px 0; }
+      .why__grid { grid-template-columns: 1fr; gap: 28px; }
+      .why__list { gap: 14px; }
+      .why__item h4 { font-size: 15px; }
+      .why__item p { font-size: 13px; }
+      .why__check { width: 24px; height: 24px; }
+      .team { padding: 60px 0; }
+      .team__grid { grid-template-columns: 1fr; gap: 14px; }
+      .team__card { padding: 28px 20px; border-radius: 14px; }
+      .team__avatar { width: 64px; height: 64px; font-size: 20px; border-radius: 16px; margin-bottom: 14px; }
+      .team__name { font-size: 17px; }
+      .team__role { font-size: 12px; margin-bottom: 12px; }
+      .team__desc { font-size: 13px; }
+      .team__tags { gap: 5px; margin-top: 12px; }
+      .team__tag { font-size: 10px; padding: 3px 8px; }
+      .partners-logos { padding: 60px 0; }
       .partners-logos__grid { grid-template-columns: 1fr; gap: 12px; }
-      .plogo { padding: 16px; }
+      .plogo { padding: 16px; flex-direction: row; gap: 14px; text-align: left; }
+      .plogo__visual { height: 36px; margin-bottom: 0; }
+      .plogo__visual img, .plogo__visual svg { height: 28px; }
+      .plogo__name { font-size: 13px; }
+      .plogo__desc { font-size: 11.5px; }
+      .cta { padding: 50px 0; }
+      .cta__title { font-size: clamp(22px, 5.5vw, 30px); }
+      .cta__sub { font-size: 14px; margin-bottom: 24px; }
+      .cta__actions { flex-direction: column; align-items: stretch; }
+      .footer { padding: 48px 0 20px; }
+      .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer__desc { font-size: 13px; }
+      .footer__col-t { font-size: 11px; margin-bottom: 12px; }
+      .footer__link { font-size: 13px; margin-bottom: 8px; }
+      .footer__contact { font-size: 12px; }
+      .footer__bot { flex-direction: column; gap: 10px; text-align: center; }
+      .footer__legal { gap: 14px; }
       .nav__cta { display: none; }
       .nav__burger { width: 44px; height: 44px; }
+      /* Hide scroll indicator on mobile */
+      .scroll-hint { display: none !important; }
     }
+    /* Sticky mobile CTA */
+    .mobile-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+      padding: 12px 20px; background: rgba(254,254,254,0.95);
+      backdrop-filter: blur(16px); border-top: 1px solid var(--border-l);
+      box-shadow: 0 -4px 20px rgba(30,27,75,0.06);
+    }
+    .mobile-cta a { display: block; width: 100%; text-align: center; }
+    @media (max-width: 768px) { .mobile-cta { display: block; } body { padding-bottom: 72px; } }
+    /* Skip link */
+    .skip-link { position: absolute; top: -100%; left: 16px; padding: 8px 16px; background: var(--purple); color: white; border-radius: 8px; font-weight: 600; font-size: 14px; z-index: 999; transition: top 0.2s; }
+    .skip-link:focus { top: 12px; }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -389,7 +465,7 @@
         </div>
       </div>
     </div>
-    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;text-align:center">
+    <div class="scroll-hint" style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;text-align:center">
       <div style="width:28px;height:44px;border:2px solid var(--purple-light);border-radius:14px;margin:0 auto 8px;position:relative">
         <div style="width:4px;height:10px;background:var(--purple);border-radius:2px;position:absolute;top:8px;left:50%;transform:translateX(-50%);animation:scrollDot 2s ease-in-out infinite"></div>
       </div>
