@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur ROI | Unico Consult</title>
+  <meta name="description" content="Estimez vos economies en externalisant votre gestion d'entreprise avec Unico Consult. Calculateur ROI gratuit.">
+  <meta property="og:title" content="Calculateur ROI | Unico Consult">
+  <meta property="og:description" content="Estimez vos economies en externalisant votre gestion d'entreprise avec Unico Consult.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unico Consult">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:url" content="https://www.unico-consult.be/calculateur">
+  <meta property="og:image" content="https://www.unico-consult.be/og-default.svg">
+  <link rel="canonical" href="https://www.unico-consult.be/calculateur">
+  <link rel="alternate" hreflang="fr-be" href="https://www.unico-consult.be/calculateur">
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.unico-consult.be/"},
+      {"@type": "ListItem", "position": 2, "name": "Calculateur ROI", "item": "https://www.unico-consult.be/calculateur"}
+    ]
+  }
+  </script>
+  <style>
+    .calc-section { padding: 80px 0 100px; background: var(--bg-lav); }
+    .calc-intro { text-align: center; margin-bottom: 48px; }
+    .calc-intro h1 { font-family: var(--font-d); font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; margin-bottom: 12px; }
+    .calc-intro p { font-size: 17px; color: var(--text-2); max-width: 560px; margin: 0 auto; }
+
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .calc-form-card { background: var(--white); border-radius: 16px; padding: 40px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .calc-form-card h2 { font-family: var(--font-d); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 28px; letter-spacing: -0.02em; }
+
+    .calc-form .form-group { margin-bottom: 20px; }
+    .calc-form .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .calc-form .form-group input,
+    .calc-form .form-group select {
+      width: 100%; padding: 12px 16px; border: 1.5px solid #ddd; border-radius: 10px;
+      font-size: 15px; font-family: var(--font-b); color: var(--navy); background: #fff;
+      transition: border-color 0.2s;
+    }
+    .calc-form .form-group input:focus,
+    .calc-form .form-group select:focus { outline: none; border-color: var(--purple); }
+
+    .calc-checkboxes { display: flex; flex-direction: column; gap: 10px; }
+    .calc-checkboxes label {
+      display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-2);
+      cursor: pointer; padding: 10px 14px; border-radius: 10px; border: 1.5px solid #eee;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .calc-checkboxes label:hover { border-color: var(--purple); background: rgba(108,93,211,0.04); }
+    .calc-checkboxes input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--purple); }
+    .calc-checkboxes input[type="checkbox"]:checked + span { color: var(--navy); font-weight: 500; }
+
+    .calc-submit { margin-top: 28px; }
+    .calc-submit .btn { width: 100%; justify-content: center; }
+
+    /* Results */
+    .calc-results-card {
+      background: var(--white); border-radius: 16px; padding: 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 100px;
+    }
+    .calc-results-card h2 { font-family: var(--font-d); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 28px; letter-spacing: -0.02em; }
+
+    .calc-placeholder { text-align: center; padding: 40px 0; color: var(--text-3); font-size: 15px; }
+    .calc-placeholder svg { display: block; margin: 0 auto 16px; opacity: 0.3; }
+
+    .calc-result-items { display: none; }
+    .calc-result-items.active { display: block; }
+    .calc-result-item { padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+    .calc-result-item:last-child { border-bottom: none; }
+    .calc-result-item__label { font-size: 13px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .calc-result-item__value { font-family: var(--font-d); font-size: 32px; font-weight: 800; color: var(--purple); letter-spacing: -0.03em; }
+    .calc-result-item__value.navy { color: var(--navy); }
+    .calc-result-item__sub { font-size: 13px; color: var(--text-3); margin-top: 2px; }
+
+    .calc-result-cta { margin-top: 28px; }
+    .calc-result-cta .btn { width: 100%; justify-content: center; }
+
+    @media (max-width: 768px) {
+      .calc-grid { grid-template-columns: 1fr; }
+      .calc-results-card { position: static; }
+    }
+    @media (max-width: 480px) {
+      .calc-section { padding: 48px 0 72px; }
+      .calc-form-card, .calc-results-card { padding: 24px; }
+      .calc-form-card h2, .calc-results-card h2 { font-size: 19px; }
+      .calc-result-item__value { font-size: 26px; }
+      .calc-checkboxes label { padding: 8px 10px; font-size: 13.5px; }
+    }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__i">
+      <a href="/" class="nav__logo">
+        <img src="/assets/logos/unico-official.png" alt="Unico Consult" style="height:48px;width:auto">
+      </a>
+      <ul class="nav__links">
+        <li><a href="/expertise">Expertise</a></li>
+        <li><a href="/secteurs">Secteurs</a></li>
+        <li><a href="/clients">Clients</a></li>
+        <li><a href="/equipe">Equipe</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <button class="nav__burger" aria-label="Menu"><span></span></button>
+      <a href="/contact" class="nav__cta">Nous contacter</a>
+    </div>
+  </nav>
+  <div class="nav__mobile">
+    <a href="/expertise">Notre expertise</a>
+    <a href="/secteurs">Nos secteurs</a>
+    <a href="/clients">Nos clients</a>
+    <a href="/equipe">L'equipe</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero--img" id="main">
+    <div class="ctn">
+      <nav style="font-size:13px;color:var(--text-3);margin-bottom:20px"><a href="/" style="color:var(--purple)">Accueil</a> <span style="margin:0 8px">/</span> Calculateur ROI</nav>
+      <h1 style="font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:12px">Calculateur ROI</h1>
+      <p style="font-size:17px;color:var(--text-2);max-width:560px">Estimez vos economies en externalisant votre gestion</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calc-section">
+    <div class="ctn">
+      <div class="calc-intro">
+        <h2 style="font-family:var(--font-d);font-size:clamp(24px,3vw,32px);font-weight:700;color:var(--navy);letter-spacing:-0.02em;margin-bottom:8px">Combien pourriez-vous economiser en externalisant votre gestion ?</h2>
+        <p>Remplissez le formulaire et decouvrez votre potentiel d'economies</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- FORM -->
+        <div class="calc-form-card">
+          <h2>Vos informations</h2>
+          <form class="calc-form" id="calc-form">
+            <div class="form-group">
+              <label for="employees">Nombre d'employes</label>
+              <input type="number" id="employees" name="employees" min="1" required placeholder="Ex: 15">
+            </div>
+            <div class="form-group">
+              <label for="sector">Secteur d'activite</label>
+              <select id="sector" name="sector" required>
+                <option value="">Choisir un secteur</option>
+                <option value="titres-services">Titres-services</option>
+                <option value="transport">Transport</option>
+                <option value="pme">PME</option>
+                <option value="restauration">Restauration</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Services souhaites</label>
+              <div class="calc-checkboxes">
+                <label><input type="checkbox" name="services" value="rh"><span>RH &amp; Paies</span></label>
+                <label><input type="checkbox" name="services" value="backoffice"><span>Back-office</span></label>
+                <label><input type="checkbox" name="services" value="management"><span>Management</span></label>
+                <label><input type="checkbox" name="services" value="logistique"><span>Logistique</span></label>
+                <label><input type="checkbox" name="services" value="image"><span>Image de marque</span></label>
+              </div>
+            </div>
+            <div class="calc-submit">
+              <button type="submit" class="btn btn--p">Calculer mes economies <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="calc-results-card">
+          <h2>Vos resultats</h2>
+          <div class="calc-placeholder" id="calc-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <p>Remplissez le formulaire pour voir vos economies estimees</p>
+          </div>
+          <div class="calc-result-items" id="calc-results">
+            <div class="calc-result-item">
+              <div class="calc-result-item__label">Economie estimee / mois</div>
+              <div class="calc-result-item__value" id="result-savings">0 &euro;</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-item__label">Temps gagne / mois</div>
+              <div class="calc-result-item__value navy" id="result-time">0 h</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-item__label">ROI estime sur 12 mois</div>
+              <div class="calc-result-item__value" id="result-roi">0 &euro;</div>
+              <div class="calc-result-item__sub">Base sur vos parametres actuels</div>
+            </div>
+            <div class="calc-result-cta">
+              <a href="/contact" class="btn btn--p">Discutons de votre projet <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta__bg"></div>
+    <div class="ctn cta__inner">
+      <h2 class="cta__title">Besoin d'un accompagnement ?</h2>
+      <p class="cta__sub">Contactez-nous pour un premier echange sans engagement</p>
+      <div class="cta__actions"><a href="/contact" class="btn btn--w">Nous contacter</a></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="ctn-w">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="/assets/logos/unico-official.png" alt="Unico Consult" style="height:44px;width:auto;filter:brightness(1.3)">
+          </div>
+          <p class="footer__desc">Expert en accompagnement de gestion d'entreprise. Nous permettons aux entrepreneurs de se concentrer sur leur coeur de metier.</p>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avenue Hippocrate 4 bte 001, 1932 Zaventem</div>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0495 54 92 13</div>
+          <div class="footer__contact"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@unico-consult.be</div>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Navigation</h4>
+          <a href="/" class="footer__link">Accueil</a>
+          <a href="/expertise" class="footer__link">Notre expertise</a>
+          <a href="/secteurs" class="footer__link">Nos secteurs</a>
+          <a href="/clients" class="footer__link">Nos clients</a>
+          <a href="/equipe" class="footer__link">L'equipe</a>
+          <a href="/contact" class="footer__link">Contact</a>
+          <a href="/faq" class="footer__link">FAQ</a>
+          <a href="/a-propos" class="footer__link">A propos</a>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Services</h4>
+          <a href="/expertise" class="footer__link">Ressources Humaines</a>
+          <a href="/expertise" class="footer__link">Gestion &amp; Management</a>
+          <a href="/expertise" class="footer__link">Back-office</a>
+          <a href="/expertise" class="footer__link">Logistique</a>
+          <a href="/expertise" class="footer__link">Image de marque</a>
+        </div>
+        <div>
+          <h4 class="footer__col-t">Horaires</h4>
+          <span class="footer__link">Lun — Ven : 9h — 18h</span>
+          <span class="footer__link">Sam — Dim : Ferme</span>
+          <div style="margin-top:20px">
+            <h4 class="footer__col-t">Suivez-nous</h4>
+            <a href="https://www.linkedin.com/company/unico-consult" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bot">
+        <span>&copy; 2019&ndash;2026 Unico Consult SRL &middot; TVA BE 0735.798.943</span>
+        <div class="footer__legal">
+          <a href="/mentions-legales">Mentions legales</a>
+          <a href="/vie-privee">Vie privee</a>
+          <a href="/cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta"><a href="/contact" class="btn btn--p" style="width:100%;justify-content:center">Nous contacter</a></div>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/cookies.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
+  <script src="/js/calculateur.js" defer></script>
+</body>
+</html>

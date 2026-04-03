@@ -24,7 +24,9 @@
     {"source": "/vie-privee", "destination": "/vie-privee.html"},
     {"source": "/cookies", "destination": "/cookies.html"},
     {"source": "/faq", "destination": "/faq.html"},
-    {"source": "/a-propos", "destination": "/a-propos.html"}
+    {"source": "/a-propos", "destination": "/a-propos.html"},
+    {"source": "/cas-clients", "destination": "/cas-clients.html"},
+    {"source": "/calculateur", "destination": "/calculateur.html"}
   ],
   "redirects": [
     {"source": "/rh", "destination": "/expertise", "statusCode": 301},
