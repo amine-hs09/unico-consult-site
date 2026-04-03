@@ -22,11 +22,9 @@ if (form) {
         body: JSON.stringify(data)
       })
 
-      if (res.ok) {
-        const result = await res.json()
-        const confirmNote = result.confirmationSent
-          ? `<p style="font-size:14px;color:var(--text-3);margin-top:12px">Un email de confirmation vous a été envoyé à ${data.email}</p>`
-          : ''
+      const result = await res.json().catch(() => ({}))
+
+      if (res.ok && result.success) {
         form.innerHTML = `
           <div style="text-align:center;padding:48px 24px">
             <div style="width:56px;height:56px;border-radius:14px;background:var(--purple-ghost);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -34,17 +32,23 @@ if (form) {
             </div>
             <h3 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px">Message envoyé !</h3>
             <p style="font-size:15px;color:var(--text-2);line-height:1.6">Merci ${data.name}. Nous avons bien reçu votre message et nous vous recontacterons sous 24h.</p>
-            ${confirmNote}
           </div>`
       } else {
-        const errData = await res.json().catch(() => ({}))
-        throw new Error(errData.error || 'Erreur serveur')
+        throw new Error(result.detail || result.error || 'Erreur serveur')
       }
-    } catch {
+    } catch (err) {
       btn.disabled = false
       btn.textContent = originalText
       btn.style.opacity = '1'
-      alert("Erreur lors de l'envoi. Veuillez réessayer ou nous contacter par téléphone au 0495 54 92 13.")
+      // Show error inline instead of alert
+      let errDiv = form.querySelector('.form-error')
+      if (!errDiv) {
+        errDiv = document.createElement('div')
+        errDiv.className = 'form-error'
+        errDiv.style.cssText = 'padding:14px 18px;background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;margin-top:16px;font-size:14px;color:#991B1B;line-height:1.5'
+        btn.parentElement.appendChild(errDiv)
+      }
+      errDiv.innerHTML = `<strong>Erreur :</strong> ${err.message}<br><span style="font-size:13px;color:#6B7280">Vous pouvez aussi nous contacter par téléphone au <a href="tel:+32495549213" style="color:#7C3AED;font-weight:600">0495 54 92 13</a></span>`
     }
   })
 }
