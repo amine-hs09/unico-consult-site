@@ -128,21 +128,32 @@ export default async function handler(req, res) {
       throw new Error(err.message || 'Failed to send')
     }
 
-    // Send confirmation to sender
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: 'Unico Consult <onboarding@resend.dev>',
-        to: [email],
-        subject: 'Merci pour votre message — Unico Consult',
-        html: confirmationHtml
+    // Send confirmation to sender (wrapped in try/catch — may fail with Resend test sender)
+    let confirmationSent = false
+    try {
+      const confirmRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'Unico Consult <onboarding@resend.dev>',
+          to: [email],
+          subject: 'Merci pour votre message — Unico Consult',
+          html: confirmationHtml
+        })
       })
-    })
+      if (confirmRes.ok) {
+        confirmationSent = true
+      } else {
+        const confirmErr = await confirmRes.json()
+        console.warn('Confirmation email failed (non-blocking):', confirmErr)
+      }
+    } catch (confirmError) {
+      console.warn('Confirmation email error (non-blocking):', confirmError.message)
+    }
 
-    return res.status(200).json({ success: true })
+    return res.status(200).json({ success: true, confirmationSent })
   } catch (error) {
-    console.error('Email error:', error)
-    return res.status(500).json({ error: 'Erreur lors de l\'envoi' })
+    console.error('Email error:', error.message || error)
+    return res.status(500).json({ error: 'Erreur lors de l\'envoi. Veuillez réessayer.' })
   }
 }

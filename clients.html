@@ -98,138 +98,226 @@
   <!-- CLIENT GRID -->
   <section style="padding:80px 0">
     <div class="ctn">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="client-grid">
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Titres-services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Maison'Net</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Administration du personnel, gestion de 6 agences</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">Maison'Net</h3>
+          <p class="client-card__desc">Administration du personnel, gestion de 6 agences</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>1200+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Titres-services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">La Cense</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Accompagnement en gestion d'entreprise TS</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">La Cense</h3>
+          <p class="client-card__desc">Accompagnement en gestion d'entreprise TS</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>85+ employes</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Nassim Consult</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Facturation, legalite chauffeurs, coordination Bolt</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Nassim Consult</h3>
+          <p class="client-card__desc">Facturation, legalite chauffeurs, coordination Bolt</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>45+ collaborateurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">CI&amp;T Group</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Gestion administrative, sous-traitants</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">CI&amp;T Group</h3>
+          <p class="client-card__desc">Gestion administrative, sous-traitants</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>30+ chauffeurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Moby Green</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Facturation, legalite chauffeurs</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Moby Green</h3>
+          <p class="client-card__desc">Facturation, legalite chauffeurs</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>15+ chauffeurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Last Green Mile</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Suivi chauffeurs, facturation</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Last Green Mile</h3>
+          <p class="client-card__desc">Suivi chauffeurs, facturation</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>20+ livreurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Hermes Lines</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Accompagnement en gestion</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Hermes Lines</h3>
+          <p class="client-card__desc">Accompagnement en gestion</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>25+ chauffeurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Restauration</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">The Kitchen 1</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Facturation, administration</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="resto">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+            <span class="client-card__sector client-card__sector--resto">Restauration</span>
+          </div>
+          <h3 class="client-card__name">The Kitchen 1</h3>
+          <p class="client-card__desc">Facturation, administration</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>12+ employes</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">DYMA Services</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Consultance, constitution de societe</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">DYMA Services</h3>
+          <p class="client-card__desc">Consultance, constitution de societe</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>60+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Management</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Logicon</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Audit organisationnel</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Management</span>
+          </div>
+          <h3 class="client-card__name">Logicon</h3>
+          <p class="client-card__desc">Audit organisationnel</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>18+ employes</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Immobilier</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Corner Building</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Assistance logistique</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Immobilier</span>
+          </div>
+          <h3 class="client-card__name">Corner Building</h3>
+          <p class="client-card__desc">Assistance logistique</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>35+ ouvriers</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">1st Belgium</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Analyses de risques, conventions</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Services</span>
+          </div>
+          <h3 class="client-card__name">1st Belgium</h3>
+          <p class="client-card__desc">Analyses de risques, conventions</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>40+ collaborateurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Sante</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Myriam Hssinoui</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Accompagnement independante</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Sante</span>
+          </div>
+          <h3 class="client-card__name">ASBL Voltaire</h3>
+          <p class="client-card__desc">Accompagnement associatif</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>15+ benevoles</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Support technique</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Infratech</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Gestion administrative</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Support technique</span>
+          </div>
+          <h3 class="client-card__name">Infratech</h3>
+          <p class="client-card__desc">Gestion administrative</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>22+ techniciens</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Mooveo Services</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Legalite chauffeurs, gestion administrative</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Mooveo Services</h3>
+          <p class="client-card__desc">Legalite chauffeurs, gestion administrative</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>28+ chauffeurs</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Titres-services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">TS Clean</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Audit organisationnel</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">TS Clean</h3>
+          <p class="client-card__desc">Audit organisationnel</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>90+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">ISI Life Services</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Audit complet, conventions</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">ISI Life Services</h3>
+          <p class="client-card__desc">Audit complet, conventions</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>50+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Nanou</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Convention de services</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">Nanou</h3>
+          <p class="client-card__desc">Convention de services</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>30+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Services</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">CR Project</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Convention de services</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="pme">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/></svg></span>
+            <span class="client-card__sector client-card__sector--pme">Services</span>
+          </div>
+          <h3 class="client-card__name">CR Project</h3>
+          <p class="client-card__desc">Convention de services</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>10+ employes</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:#059669;background:#D1FAE5;padding:3px 10px;border-radius:100px;margin-bottom:12px">Transport</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Bolt</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Plateforme livraison — prestations via Nassim Consult (Enschede, Nijmegen)</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="transport">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="client-card__sector client-card__sector--transport">Transport</span>
+          </div>
+          <h3 class="client-card__name">Bolt</h3>
+          <p class="client-card__desc">Plateforme livraison — prestations via Nassim Consult (Enschede, Nijmegen)</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>800+ chauffeurs-partenaires</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:var(--purple);background:var(--purple-pale);padding:3px 10px;border-radius:100px;margin-bottom:12px">Nettoyage</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Amethys Clean Services</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Societe du groupe — bons de commande, fiches controle, gestion chantiers</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Nettoyage</span>
+          </div>
+          <h3 class="client-card__name">Amethys Clean Services</h3>
+          <p class="client-card__desc">Societe du groupe — bons de commande, fiches controle, gestion chantiers</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>70+ aide-menageres</div>
         </div>
 
-        <div style="padding:24px;border-radius:14px;border:1px solid var(--border-l);background:var(--white)">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:#7C3AED;background:#EDE9FE;padding:3px 10px;border-radius:100px;margin-bottom:12px">Sante</span>
-          <h3 style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Myriam Hssinoui</h3>
-          <p style="font-size:13.5px;color:var(--text-2);line-height:1.6">Kinesitherapeute independante — accompagnement en gestion d'entreprise</p>
+        <div class="client-card">
+          <div class="client-card__sector-wrap" data-sector="ts">
+            <span class="client-card__sector-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="client-card__sector client-card__sector--ts">Titres-services</span>
+          </div>
+          <h3 class="client-card__name">Myriam Clean</h3>
+          <p class="client-card__desc">Kinesitherapeute independante — accompagnement en gestion d'entreprise</p>
+          <div class="client-card__staff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>45+ aide-menageres</div>
         </div>
 
       </div>

@@ -101,7 +101,7 @@
     .hero__sub { font-size: 18px; line-height: 1.75; color: var(--text-2); max-width: 480px; margin-bottom: 40px; }
     .hero__btns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 
-    /* ═══ STATS — Impact cards ═══ */
+    /* ═══ STATS — Hero stats ═══ */
     .stats { padding: 80px 0; background: var(--bg-lav); position: relative; }
     .stats::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border-l); }
     .stats__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
@@ -115,8 +115,23 @@
       font-family: var(--font-d); font-size: clamp(36px, 3.5vw, 52px);
       font-weight: 800; color: var(--purple); letter-spacing: -0.04em;
       line-height: 1; margin-bottom: 10px; display: inline-block;
+      position: relative;
+    }
+    .stat__num--underline::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 8px; background: var(--purple-pale); border-radius: 4px; z-index: -1;
     }
     .stat__label { font-size: 14px; color: var(--text-2); line-height: 1.4; }
+
+    /* ═══ IMPACT STRIP — Results section ═══ */
+    .impact-strip { padding: 70px 0; background: var(--purple); position: relative; overflow: hidden; }
+    .impact-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(129,140,248,0.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(167,139,250,0.2) 0%, transparent 60%); }
+    .impact-strip__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 40px; position: relative; }
+    .impact-strip__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; position: relative; }
+    .impact-card { text-align: center; padding: 24px 16px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); transition: all .3s var(--ease); }
+    .impact-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px); }
+    .impact-card__num { font-family: var(--font-d); font-size: clamp(30px, 3vw, 44px); font-weight: 800; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .impact-card__label { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
 
     /* ═══ BUTTONS ═══ */
     .btn { font-family: var(--font-d); font-weight: 600; font-size: 14.5px; padding: 13px 28px; border-radius: 10px; transition: all .35s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
@@ -294,6 +309,7 @@
       .why__grid { grid-template-columns: 1fr; gap: 40px; }
       .partners-logos__grid { grid-template-columns: repeat(2, 1fr); }
       .cases__grid { grid-template-columns: 1fr 1fr; }
+      .impact-strip__grid { grid-template-columns: repeat(3, 1fr); }
       .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
     }
     @media (max-width: 768px) {
@@ -313,6 +329,9 @@
       .sec-grid { grid-template-columns: 1fr; }
       .cases__grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
       .cases { padding: 70px 0; }
+      .impact-strip__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .impact-strip__grid .impact-card:nth-child(5) { grid-column: 1 / -1; max-width: 280px; margin: 0 auto; }
+      .impact-strip { padding: 50px 0; }
     }
     /* Hamburger menu */
     .nav__burger { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; }
@@ -397,6 +416,12 @@
       .case-card__name { font-size: 18px; margin-bottom: 16px; }
       .case-card__value { font-size: 13.5px; }
       .case-card__badge { font-size: 10.5px; }
+      .impact-strip { padding: 40px 0; }
+      .impact-strip__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .impact-strip__grid .impact-card:nth-child(5) { grid-column: 1 / -1; max-width: 240px; margin: 0 auto; }
+      .impact-card { padding: 18px 12px; }
+      .impact-card__num { font-size: clamp(22px, 5vw, 30px); }
+      .impact-card__label { font-size: 11.5px; }
       .cta { padding: 50px 0; }
       .cta__title { font-size: clamp(22px, 5.5vw, 30px); }
       .cta__sub { font-size: 14px; margin-bottom: 24px; }
@@ -490,24 +515,24 @@
     <div class="ctn-w">
       <div class="stats__grid reveal stagger">
         <div class="stat" style="--i:0">
-          <div class="stat__num" data-animate-num>+35%</div>
-          <div class="stat__label">Productivité moyenne de nos clients</div>
+          <div class="stat__num" data-animate-num>20+</div>
+          <div class="stat__label">Clients accompagnés</div>
         </div>
         <div class="stat" style="--i:1">
-          <div class="stat__num" data-animate-num>98%</div>
-          <div class="stat__label">Taux de satisfaction client</div>
+          <div class="stat__num stat__num--underline" data-animate-num>~15</div>
+          <div class="stat__label">Années d'expérience</div>
         </div>
         <div class="stat" style="--i:2">
-          <div class="stat__num" data-animate-num>150+</div>
-          <div class="stat__label">Paies gérées chaque mois</div>
+          <div class="stat__num" data-animate-num>5</div>
+          <div class="stat__label">Pôles de services</div>
         </div>
         <div class="stat" style="--i:3">
-          <div class="stat__num" data-animate-num>-40%</div>
-          <div class="stat__label">Réduction du turnover RH</div>
+          <div class="stat__num" data-animate-num>4</div>
+          <div class="stat__label">Secteurs d'expertise</div>
         </div>
         <div class="stat" style="--i:4">
-          <div class="stat__num" data-animate-num>24h</div>
-          <div class="stat__label">Délai moyen de réponse</div>
+          <div class="stat__num" data-animate-num>100%</div>
+          <div class="stat__label">Solutions sur mesure</div>
         </div>
       </div>
     </div>
@@ -815,6 +840,35 @@
             <div class="case-card__label case-card__label--result">Résultat</div>
             <div class="case-card__value case-card__value--result">Coûts réduits de 25%, marge nette augmentée de 8 points</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT STRIP — Nos résultats -->
+  <section class="impact-strip">
+    <div class="ctn-w">
+      <div class="impact-strip__title reveal">Nos résultats concrets</div>
+      <div class="impact-strip__grid reveal stagger">
+        <div class="impact-card" style="--i:0">
+          <div class="impact-card__num" data-animate-num>+35%</div>
+          <div class="impact-card__label">Productivité moyenne de nos clients</div>
+        </div>
+        <div class="impact-card" style="--i:1">
+          <div class="impact-card__num" data-animate-num>98%</div>
+          <div class="impact-card__label">Taux de satisfaction client</div>
+        </div>
+        <div class="impact-card" style="--i:2">
+          <div class="impact-card__num" data-animate-num>150+</div>
+          <div class="impact-card__label">Paies gérées chaque mois</div>
+        </div>
+        <div class="impact-card" style="--i:3">
+          <div class="impact-card__num" data-animate-num>-40%</div>
+          <div class="impact-card__label">Réduction du turnover RH</div>
+        </div>
+        <div class="impact-card" style="--i:4">
+          <div class="impact-card__num" data-animate-num>24h</div>
+          <div class="impact-card__label">Délai moyen de réponse</div>
         </div>
       </div>
     </div>
