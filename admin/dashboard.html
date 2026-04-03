@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Unico Consult Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <style>
+    body { background: var(--bg-lav); }
+
+    .dash { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .dash-side {
+      width: 260px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      transition: transform 0.3s var(--ease);
+    }
+    .dash-side .logo {
+      width: 140px;
+      margin: 0 auto 2rem;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    .dash-side nav { flex: 1; }
+    .dash-side a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-d);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s var(--ease);
+      cursor: pointer;
+    }
+    .dash-side a:hover,
+    .dash-side a.active {
+      color: var(--white);
+      background: rgba(124, 58, 237, 0.25);
+      border-right: 3px solid var(--purple-light);
+    }
+    .dash-side a .icon { font-size: 1.15rem; width: 1.5rem; text-align: center; }
+    .dash-side .logout {
+      margin-top: auto;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .dash-side .logout a { color: rgba(255,255,255,0.5); }
+    .dash-side .logout a:hover { color: #F87171; background: rgba(248,113,113,0.1); border-right-color: #F87171; }
+
+    /* Main */
+    .dash-main {
+      flex: 1;
+      margin-left: 260px;
+      padding: 2rem;
+    }
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .dash-header h1 {
+      font-family: var(--font-d);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .dash-header .user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-2);
+      font-size: 0.9rem;
+    }
+    .dash-header .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* Mobile toggle */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      background: var(--navy);
+      color: var(--white);
+      width: 44px;
+      height: 44px;
+      border-radius: 0.625rem;
+      font-size: 1.3rem;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cards */
+    .dash-card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      margin-bottom: 1.5rem;
+    }
+    .dash-card h2 {
+      font-family: var(--font-d);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: var(--purple);
+      color: var(--white);
+      font-family: var(--font-d);
+      font-weight: 600;
+      font-size: 0.8rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-sm:hover { background: var(--purple-deep); }
+
+    /* Table */
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .dash-table th {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      font-family: var(--font-d);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .dash-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border-l);
+      color: var(--text);
+    }
+    .dash-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-d);
+    }
+    .badge-purple { background: var(--purple-pale); color: var(--purple-deep); }
+    .badge-green { background: #D1FAE5; color: #059669; }
+    .badge-amber { background: #FEF3C7; color: #D97706; }
+
+    /* Stars */
+    .stars { color: #F59E0B; letter-spacing: 1px; }
+
+    /* Messages */
+    .msg-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-l);
+    }
+    .msg-item:last-child { border-bottom: none; }
+    .msg-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-3);
+      margin-bottom: 0.35rem;
+    }
+    .msg-item p {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    }
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text-3);
+      font-family: var(--font-d);
+      font-weight: 500;
+    }
+    .stat-card .value {
+      font-family: var(--font-d);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-top: 0.25rem;
+    }
+
+    /* Overlay for mobile */
+    .dash-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 50;
+    }
+
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .dash-side { transform: translateX(-100%); }
+      .dash-side.open { transform: translateX(0); }
+      .dash-overlay.open { display: block; }
+      .mobile-toggle { display: flex; }
+      .dash-main { margin-left: 0; padding: 1rem; padding-top: 4.5rem; }
+      .dash-table { font-size: 0.8rem; }
+      .dash-table th, .dash-table td { padding: 0.5rem 0.4rem; }
+    }
+    @media (max-width: 480px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .dash-header h1 { font-size: 1.35rem; }
+      .dash-card { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">&#9776;</button>
+  <div class="dash-overlay" id="dash-overlay"></div>
+
+  <div class="dash">
+    <!-- Sidebar -->
+    <aside class="dash-side" id="sidebar">
+      <img src="/public/logo.svg" alt="Unico Consult" class="logo" onerror="this.alt='UNICO'">
+      <nav>
+        <a data-tab="clients" class="active"><span class="icon">&#128101;</span> Clients</a>
+        <a data-tab="partenaires"><span class="icon">&#129309;</span> Partenaires</a>
+        <a data-tab="avis"><span class="icon">&#11088;</span> Avis</a>
+        <a data-tab="messages"><span class="icon">&#128172;</span> Messages</a>
+      </nav>
+      <div class="logout">
+        <a id="logout-btn"><span class="icon">&#x2192;</span> Déconnexion</a>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="dash-main">
+      <div class="dash-header">
+        <h1 id="page-title">Clients</h1>
+        <div class="user">
+          <div class="user-avatar">A</div>
+          <span>Admin</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card"><div class="label">Clients</div><div class="value">12</div></div>
+        <div class="stat-card"><div class="label">Partenaires</div><div class="value">8</div></div>
+        <div class="stat-card"><div class="label">Avis</div><div class="value">24</div></div>
+        <div class="stat-card"><div class="label">Messages</div><div class="value">7</div></div>
+      </div>
+
+      <!-- Clients Tab -->
+      <div class="tab-panel active" id="tab-clients">
+        <div class="dash-card">
+          <h2>Clients <button class="btn-sm">+ Ajouter</button></h2>
+          <table class="dash-table">
+            <thead>
+              <tr><th>Nom</th><th>Secteur</th><th>Employés</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>TotalEnergies</td><td>Énergie</td><td>~300</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Carrefour Belgique</td><td>Retail</td><td>~150</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Solvay</td><td>Chimie</td><td>~80</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Proximus</td><td>Telecom</td><td>~200</td><td><span class="badge badge-purple">Prospect</span></td></tr>
+              <tr><td>BNP Paribas Fortis</td><td>Finance</td><td>~500</td><td><span class="badge badge-amber">En pause</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Partenaires Tab -->
+      <div class="tab-panel" id="tab-partenaires">
+        <div class="dash-card">
+          <h2>Partenaires <button class="btn-sm">+ Ajouter</button></h2>
+          <table class="dash-table">
+            <thead>
+              <tr><th>Nom</th><th>Type</th><th>Depuis</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SD Worx</td><td>RH & Payroll</td><td>2020</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Partena Professional</td><td>Secrétariat social</td><td>2019</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Liantis</td><td>Secrétariat social</td><td>2021</td><td><span class="badge badge-green">Actif</span></td></tr>
+              <tr><td>Teamleader</td><td>CRM</td><td>2022</td><td><span class="badge badge-purple">Nouveau</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Avis Tab -->
+      <div class="tab-panel" id="tab-avis">
+        <div class="dash-card">
+          <h2>Avis & Témoignages <button class="btn-sm">+ Ajouter</button></h2>
+          <table class="dash-table">
+            <thead>
+              <tr><th>Nom</th><th>Entreprise</th><th>Note</th><th>Extrait</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Marie Dupont</td><td>TotalEnergies</td>
+                <td><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></td>
+                <td>Unico a transformé notre gestion RH. Service impeccable.</td>
+              </tr>
+              <tr>
+                <td>Jean-Pierre Lemaire</td><td>Carrefour</td>
+                <td><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span></td>
+                <td>Très bon accompagnement sur la restructuration.</td>
+              </tr>
+              <tr>
+                <td>Sophie Van den Berg</td><td>Solvay</td>
+                <td><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></td>
+                <td>Professionnalisme et réactivité remarquables.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Messages Tab -->
+      <div class="tab-panel" id="tab-messages">
+        <div class="dash-card">
+          <h2>Messages reçus</h2>
+          <div class="msg-item">
+            <div class="msg-meta"><strong>Marc Janssens</strong><span>marc@example.com</span><span>2 avril 2026</span></div>
+            <p>Bonjour, nous cherchons un partenaire pour externaliser notre back-office comptable. Pouvez-vous nous rappeler ?</p>
+          </div>
+          <div class="msg-item">
+            <div class="msg-meta"><strong>Laura Peeters</strong><span>laura.p@example.com</span><span>1 avril 2026</span></div>
+            <p>Intéressés par vos services de management de transition pour un remplacement de 6 mois.</p>
+          </div>
+          <div class="msg-item">
+            <div class="msg-meta"><strong>Thomas Martin</strong><span>t.martin@example.com</span><span>30 mars 2026</span></div>
+            <p>Nous aimerions organiser une session de team building avec Unico. Quels sont vos tarifs ?</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

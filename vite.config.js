@@ -20,6 +20,8 @@ export default defineConfig({
         casClients: resolve(__dirname, 'cas-clients.html'),
         notfound: resolve(__dirname, '404.html'),
         calculateur: resolve(__dirname, 'calculateur.html'),
+        admin: resolve(__dirname, 'admin.html'),
+        adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
       }
     }
   }

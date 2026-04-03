@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Unico Consult</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <style>
+    .admin-login {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-lav);
+      padding: 2rem 1rem;
+    }
+    .login-card {
+      background: var(--white);
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 24px rgba(124, 58, 237, 0.08);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .login-card .logo {
+      width: 180px;
+      margin: 0 auto 2rem;
+      display: block;
+    }
+    .login-card h1 {
+      font-family: var(--font-d);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .login-card p {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .login-field {
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .login-field label {
+      display: block;
+      font-family: var(--font-d);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .login-field input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.625rem;
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s var(--ease);
+      outline: none;
+    }
+    .login-field input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px var(--purple-pale);
+    }
+    .login-btn {
+      width: 100%;
+      padding: 0.85rem 1.5rem;
+      background: var(--purple);
+      color: var(--white);
+      font-family: var(--font-d);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.625rem;
+      cursor: pointer;
+      transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+      margin-top: 0.5rem;
+    }
+    .login-btn:hover {
+      background: var(--purple-deep);
+      transform: translateY(-1px);
+    }
+    .login-btn:active {
+      transform: translateY(0);
+    }
+    .login-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .login-error {
+      background: #FEF2F2;
+      color: #DC2626;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      visibility: hidden;
+    }
+    .login-error.show {
+      visibility: visible;
+    }
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 2rem 1.5rem;
+      }
+      .login-card .logo {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-login">
+    <div class="login-card">
+      <img src="/public/logo.svg" alt="Unico Consult" class="logo" onerror="this.style.display='none'">
+      <h1>Administration</h1>
+      <p>Connectez-vous pour accéder au tableau de bord</p>
+      <div id="login-error" class="login-error">Email ou mot de passe incorrect.</div>
+      <form id="login-form" autocomplete="on">
+        <div class="login-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="admin@unico-consult.be" required autocomplete="email">
+        </div>
+        <div class="login-field">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="login-btn" id="login-btn">Se connecter</button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
