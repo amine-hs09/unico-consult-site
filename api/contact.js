@@ -1,3 +1,30 @@
+import { put, head } from '@vercel/blob'
+
+const MESSAGES_BLOB_KEY = 'data/messages.json'
+
+async function saveMessageToBlob(messageData) {
+  try {
+    let messages = []
+    try {
+      const info = await head(MESSAGES_BLOB_KEY, { token: process.env.BLOB_READ_WRITE_TOKEN })
+      const res = await fetch(info.url)
+      messages = await res.json()
+    } catch {
+      // blob doesn't exist yet, start with empty array
+    }
+    messages.push(messageData)
+    await put(MESSAGES_BLOB_KEY, JSON.stringify(messages, null, 2), {
+      access: 'public',
+      contentType: 'application/json',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      addRandomSuffix: false
+    })
+  } catch (err) {
+    console.error('Failed to save message to blob:', err)
+    // Non-fatal — email still sends
+  }
+}
+
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -94,6 +121,19 @@ export default async function handler(req, res) {
     }
 
     console.log('Notification sent successfully:', notifBody.id)
+
+    // Save message to blob store for admin dashboard
+    await saveMessageToBlob({
+      id: String(Date.now()),
+      nom: name,
+      email,
+      date: new Date().toISOString(),
+      message,
+      sujet: subject || '',
+      lu: false,
+      createdAt: new Date().toISOString()
+    })
+
     return res.status(200).json({ success: true })
 
   } catch (error) {
