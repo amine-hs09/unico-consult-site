@@ -1,3 +1,8 @@
-<svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="50%" y="28" font-family="Arial, sans-serif" font-weight="700" font-size="20" text-anchor="middle" fill="#0891B2">Mooveo</text>
+<svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrow/movement icon -->
+  <path d="M8 24 L24 24 L20 18 L32 24 L20 30 L24 24" fill="#0891B2"/>
+  <line x1="4" y1="24" x2="14" y2="24" stroke="#0891B2" stroke-width="2" opacity="0.4"/>
+  <line x1="8" y1="18" x2="16" y2="18" stroke="#0891B2" stroke-width="1.5" opacity="0.3"/>
+  <line x1="8" y1="30" x2="16" y2="30" stroke="#0891B2" stroke-width="1.5" opacity="0.3"/>
+  <text x="48" y="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#0891B2">Mooveo</text>
 </svg>

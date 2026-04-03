@@ -1,3 +1,6 @@
-<svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="50%" y="28" font-family="Arial, sans-serif" font-weight="700" font-size="20" text-anchor="middle" fill="#059669">TS Clean</text>
+<svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Water drop icon -->
+  <path d="M20 8 C20 8 10 20 10 26 10 32 14 36 20 36 26 36 30 32 30 26 30 20 20 8 20 8Z" fill="#059669"/>
+  <ellipse cx="17" cy="24" rx="2" ry="3" fill="#fff" opacity="0.4"/>
+  <text x="48" y="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" fill="#059669">TS Clean</text>
 </svg>

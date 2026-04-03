@@ -1,3 +1,8 @@
-<svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="50%" y="28" font-family="Arial, sans-serif" font-weight="700" font-size="20" text-anchor="middle" fill="#2563EB">CI&T</text>
+<svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Truck icon -->
+  <rect x="12" y="16" width="16" height="10" rx="1" fill="#2563EB"/>
+  <rect x="6" y="20" width="8" height="6" rx="1" fill="#2563EB"/>
+  <circle cx="11" cy="28" r="2.5" fill="#2563EB" stroke="#fff" stroke-width="1"/>
+  <circle cx="24" cy="28" r="2.5" fill="#2563EB" stroke="#fff" stroke-width="1"/>
+  <text x="48" y="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" fill="#2563EB">CI&amp;T Group</text>
 </svg>

@@ -1,3 +1,11 @@
-<svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="50%" y="28" font-family="Georgia, sans-serif" font-weight="700" font-size="20" text-anchor="middle" fill="#92400E">Corner Building</text>
+<svg viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Building icon -->
+  <rect x="10" y="12" width="10" height="24" rx="1" fill="#92400E"/>
+  <rect x="22" y="18" width="8" height="18" rx="1" fill="#92400E" opacity="0.7"/>
+  <rect x="13" y="16" width="3" height="3" rx="0.5" fill="#fff"/>
+  <rect x="13" y="22" width="3" height="3" rx="0.5" fill="#fff"/>
+  <rect x="13" y="28" width="3" height="3" rx="0.5" fill="#fff"/>
+  <rect x="24" y="22" width="3" height="3" rx="0.5" fill="#fff"/>
+  <rect x="24" y="28" width="3" height="3" rx="0.5" fill="#fff"/>
+  <text x="48" y="28" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="14" fill="#92400E">Corner Building</text>
 </svg>
