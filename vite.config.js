@@ -17,6 +17,7 @@ export default defineConfig({
         cookies: resolve(__dirname, 'cookies.html'),
         faq: resolve(__dirname, 'faq.html'),
         apropos: resolve(__dirname, 'a-propos.html'),
+        notfound: resolve(__dirname, '404.html'),
       }
     }
   }

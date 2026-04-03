@@ -377,9 +377,7 @@
   img { max-width: 100%; height: auto; }
 }
 
-/* Reduced motion */
+/* Reduced motion — preserve marquee/carousel animations */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .marquee, .testi__track, .partners__track { animation: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }

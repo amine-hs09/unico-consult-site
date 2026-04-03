@@ -414,10 +414,9 @@
     .skip-link { position: absolute; top: -100%; left: 16px; padding: 8px 16px; background: var(--purple); color: white; border-radius: 8px; font-weight: 600; font-size: 14px; z-index: 999; transition: top 0.2s; }
     .skip-link:focus { top: 12px; }
 
-    /* Reduced motion */
+    /* Reduced motion — preserve marquee/carousel animations */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-      .reveal { opacity: 1; transform: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
