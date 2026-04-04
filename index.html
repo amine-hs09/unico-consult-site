@@ -101,27 +101,29 @@
     .hero__sub { font-size: 18px; line-height: 1.75; color: var(--text-2); max-width: 480px; margin-bottom: 40px; }
     .hero__btns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 
-    /* ═══ STATS — Hero stats ═══ */
-    .stats { padding: 80px 0; background: var(--bg-lav); position: relative; }
-    .stats::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border-l); }
-    .stats__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    /* ═══ STATS — Glassmorphism 3D cards ═══ */
+    .stats { padding: 100px 0; background: linear-gradient(135deg, var(--navy) 0%, #2D1B69 50%, var(--purple-deep) 100%); position: relative; overflow: hidden; }
+    .stats::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(124,58,237,0.3) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(167,139,250,0.2) 0%, transparent 50%); animation: stats-glow 8s ease-in-out infinite alternate; }
+    @keyframes stats-glow { 0% { transform: translate(0,0); } 100% { transform: translate(-5%,3%); } }
+    .stats__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; z-index: 1; }
     .stat {
-      position: relative; padding: 32px 24px; text-align: center;
-      background: #fff; border: 1px solid var(--border); border-radius: 14px;
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      position: relative; padding: 40px 20px; text-align: center;
+      background: rgba(255,255,255,0.07); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
+      transition: all .4s var(--ease); cursor: default;
+      transform-style: preserve-3d; perspective: 600px;
     }
-    .stat:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(124,58,237,0.08); }
+    .stat:hover { transform: translateY(-8px) rotateX(4deg); background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.2); }
+    .stat__icon { font-size: 28px; margin-bottom: 16px; display: block; filter: drop-shadow(0 2px 8px rgba(124,58,237,0.4)); }
     .stat__num {
-      font-family: var(--font-d); font-size: clamp(36px, 3.5vw, 52px);
-      font-weight: 800; color: var(--purple); letter-spacing: -0.04em;
-      line-height: 1; margin-bottom: 10px; display: inline-block;
-      position: relative;
+      font-family: var(--font-d); font-size: clamp(40px, 4vw, 60px);
+      font-weight: 800; color: #fff; letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 12px; display: block;
+      text-shadow: 0 2px 20px rgba(124,58,237,0.5);
     }
-    .stat__num--underline::after {
-      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-      height: 8px; background: var(--purple-pale); border-radius: 4px; z-index: -1;
-    }
-    .stat__label { font-size: 14px; color: var(--text-2); line-height: 1.4; }
+    .stat__num--underline::after { display: none; }
+    .stat__label { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.4; font-weight: 500; }
+    .stat__bar { width: 40px; height: 3px; background: linear-gradient(90deg, var(--purple-light), rgba(255,255,255,0.3)); border-radius: 2px; margin: 14px auto 0; }
 
     /* ═══ IMPACT STRIP — Results section ═══ */
     .impact-strip { padding: 70px 0; background: var(--purple); position: relative; overflow: hidden; }
@@ -151,18 +153,19 @@
     .sh__desc { font-size: 16.5px; color: var(--text-2); max-width: 500px; line-height: 1.65; }
 
     /* ═══ MARQUEE ═══ */
-    .marquee-section { padding: 72px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); overflow: hidden; }
-    .marquee-section__title { text-align: center; font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-    .marquee-section__subtitle { text-align: center; font-family: var(--font-b); font-size: 1rem; color: var(--text-2); margin-bottom: 40px; }
-    .marquee-section__count { text-align: center; margin-bottom: 40px; }
-    .marquee-section__count span { display: inline-block; background: var(--purple); color: var(--white); font-family: var(--font-d); font-weight: 800; font-size: 1.1rem; padding: 0.5rem 1.5rem; border-radius: 2rem; }
+    .marquee-section { padding: 80px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); overflow: hidden; }
+    .marquee-section__header { text-align: center; max-width: 600px; margin: 0 auto 48px; padding: 0 20px; }
+    .marquee-section__title { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--purple); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    .marquee-section__subtitle { font-family: var(--font-d); font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
+    .marquee-section__count { display: inline-block; }
+    .marquee-section__count span { display: inline-block; background: linear-gradient(135deg, var(--purple), var(--purple-deep)); color: var(--white); font-family: var(--font-d); font-weight: 700; font-size: 0.95rem; padding: 0.5rem 1.5rem; border-radius: 2rem; box-shadow: 0 4px 16px rgba(124,58,237,0.25); }
     .marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
     .marquee:hover { animation-play-state: paused; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .marquee__item { display: flex; align-items: center; padding: 0 40px; white-space: nowrap; transition: all .4s var(--ease); cursor: default; }
-    .marquee__item img, .marquee__item svg { height: 56px; width: auto; filter: grayscale(100%) opacity(0.5); transition: all .4s var(--ease); }
+    .marquee__item { display: flex; align-items: center; justify-content: center; padding: 12px 36px; white-space: nowrap; transition: all .4s var(--ease); cursor: default; }
+    .marquee__item img, .marquee__item svg { height: 52px; width: auto; filter: grayscale(100%) opacity(0.45); transition: all .4s var(--ease); object-fit: contain; }
     .marquee__item:hover img, .marquee__item:hover svg { filter: grayscale(0%) opacity(1); transform: scale(1.15); }
-    .marquee__item::after { content: ''; width: 6px; height: 6px; background: var(--purple); border-radius: 50%; margin-left: 40px; flex-shrink: 0; }
+    .marquee__item::after { content: ''; width: 5px; height: 5px; background: var(--purple-light); border-radius: 50%; margin-left: 36px; flex-shrink: 0; opacity: 0.5; }
 
     /* ═══ SERVICES — Asymmetric layout ═══ */
     .services { padding: 100px 0; }
@@ -306,6 +309,7 @@
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 1024px) {
       .hero { min-height: 70vh; }
+      .stats { padding: 80px 0; }
       .stats__grid { grid-template-columns: repeat(3, 1fr); }
       .services__layout { grid-template-columns: 1fr; }
       .sec-grid { grid-template-columns: 1fr; }
@@ -366,12 +370,12 @@
       .stat__num { font-size: clamp(24px, 6vw, 32px); }
       .stat__label { font-size: 12px; }
       .marquee-section { padding: 48px 0; }
-      .marquee-section__title { font-size: 13px; margin-bottom: 8px; }
-      .marquee-section__subtitle { font-size: 0.9rem; margin-bottom: 24px; }
-      .marquee-section__count span { font-size: 0.95rem; padding: 0.4rem 1.2rem; }
-      .marquee__item { padding: 0 24px; }
-      .marquee__item img, .marquee__item svg { height: 40px; }
-      .marquee__item::after { margin-left: 24px; }
+      .marquee-section__header { margin-bottom: 32px; }
+      .marquee-section__subtitle { font-size: clamp(20px, 5vw, 26px); }
+      .marquee-section__count span { font-size: 0.85rem; padding: 0.4rem 1.2rem; }
+      .marquee__item { padding: 8px 20px; }
+      .marquee__item img, .marquee__item svg { height: 36px; }
+      .marquee__item::after { margin-left: 20px; }
       .services { padding: 60px 0; }
       .sh { margin-bottom: 32px; }
       .sh__over { font-size: 11px; margin-bottom: 10px; }
@@ -520,24 +524,34 @@
     <div class="ctn-w">
       <div class="stats__grid reveal stagger">
         <div class="stat" style="--i:0">
+          <span class="stat__icon">&#128101;</span>
           <div class="stat__num" data-animate-num>20+</div>
           <div class="stat__label">Clients accompagnés</div>
+          <div class="stat__bar"></div>
         </div>
         <div class="stat" style="--i:1">
-          <div class="stat__num stat__num--underline" data-animate-num>~15</div>
+          <span class="stat__icon">&#128197;</span>
+          <div class="stat__num" data-animate-num>~15</div>
           <div class="stat__label">Années d'expérience</div>
+          <div class="stat__bar"></div>
         </div>
         <div class="stat" style="--i:2">
+          <span class="stat__icon">&#9881;</span>
           <div class="stat__num" data-animate-num>5</div>
           <div class="stat__label">Pôles de services</div>
+          <div class="stat__bar"></div>
         </div>
         <div class="stat" style="--i:3">
+          <span class="stat__icon">&#127919;</span>
           <div class="stat__num" data-animate-num>4</div>
           <div class="stat__label">Secteurs d'expertise</div>
+          <div class="stat__bar"></div>
         </div>
         <div class="stat" style="--i:4">
+          <span class="stat__icon">&#10004;</span>
           <div class="stat__num" data-animate-num>100%</div>
           <div class="stat__label">Solutions sur mesure</div>
+          <div class="stat__bar"></div>
         </div>
       </div>
     </div>
@@ -545,32 +559,12 @@
 
   <!-- MARQUEE CLIENTS -->
   <section class="marquee-section">
-    <div class="marquee-section__title">Ils nous font confiance</div>
-    <div class="marquee-section__subtitle">+20 entreprises belges accompagnees au quotidien</div>
-    <div class="marquee-section__count"><span>21 clients actifs</span></div>
+    <div class="marquee-section__header">
+      <div class="marquee-section__title">Ils nous font confiance</div>
+      <div class="marquee-section__subtitle">+20 entreprises belges accompagnées au quotidien</div>
+      <div class="marquee-section__count"><span>21 clients actifs</span></div>
+    </div>
     <div class="marquee" data-marquee="40">
-      <span class="marquee__item"><img src="/assets/logos/clients/maisonnet-real.jpg" alt="Maison'Net"></span>
-      <span class="marquee__item"><img src="/assets/logos/lacense-real.png" alt="La Cense"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/cit.svg" alt="CI&T Group"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/mobygreen.svg" alt="Moby Green"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/lgm.svg" alt="Last Green Mile"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/hermes.svg" alt="Hermes Lines"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/kitchen.svg" alt="The Kitchen 1"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/dyma.svg" alt="DYMA Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/logicon.svg" alt="Logicon"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/corner.svg" alt="Corner Building"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/1stbelgium.svg" alt="1st Belgium"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/voltaire.svg" alt="ASBL Voltaire"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/infratech.svg" alt="Infratech"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/mooveo.svg" alt="Mooveo Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/tsclean.svg" alt="TS Clean"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/isilife.svg" alt="ISI Life Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/nanou.svg" alt="Nanou"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/crproject.svg" alt="CR Project"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/bolt-real.png" alt="Bolt"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/amethys-real.png" alt="Amethys Clean Services"></span>
-      <!-- duplicate for seamless loop -->
       <span class="marquee__item"><img src="/assets/logos/clients/maisonnet-real.jpg" alt="Maison'Net"></span>
       <span class="marquee__item"><img src="/assets/logos/lacense-real.png" alt="La Cense"></span>
       <span class="marquee__item"><img src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
