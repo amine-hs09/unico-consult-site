@@ -151,15 +151,18 @@
     .sh__desc { font-size: 16.5px; color: var(--text-2); max-width: 500px; line-height: 1.65; }
 
     /* ═══ MARQUEE ═══ */
-    .marquee-section { padding: 40px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); overflow: hidden; }
-    .marquee-section__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 600; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
-    .marquee { display: flex; width: max-content; animation: marquee 35s linear infinite; }
+    .marquee-section { padding: 72px 0; background: var(--bg-lav); border-top: 1px solid var(--border-l); border-bottom: 1px solid var(--border-l); overflow: hidden; }
+    .marquee-section__title { text-align: center; font-family: var(--font-d); font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .marquee-section__subtitle { text-align: center; font-family: var(--font-b); font-size: 1rem; color: var(--text-2); margin-bottom: 40px; }
+    .marquee-section__count { text-align: center; margin-bottom: 40px; }
+    .marquee-section__count span { display: inline-block; background: var(--purple); color: var(--white); font-family: var(--font-d); font-weight: 800; font-size: 1.1rem; padding: 0.5rem 1.5rem; border-radius: 2rem; }
+    .marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
     .marquee:hover { animation-play-state: paused; }
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .marquee__item { display: flex; align-items: center; padding: 0 28px; white-space: nowrap; transition: all .4s var(--ease); cursor: default; }
-    .marquee__item img, .marquee__item svg { height: 32px; width: auto; filter: grayscale(100%) opacity(0.4); transition: all .4s var(--ease); }
-    .marquee__item:hover img, .marquee__item:hover svg { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
-    .marquee__item::after { content: ''; width: 4px; height: 4px; background: var(--purple-light); border-radius: 50%; margin-left: 28px; flex-shrink: 0; }
+    .marquee__item { display: flex; align-items: center; padding: 0 40px; white-space: nowrap; transition: all .4s var(--ease); cursor: default; }
+    .marquee__item img, .marquee__item svg { height: 56px; width: auto; filter: grayscale(100%) opacity(0.5); transition: all .4s var(--ease); }
+    .marquee__item:hover img, .marquee__item:hover svg { filter: grayscale(0%) opacity(1); transform: scale(1.15); }
+    .marquee__item::after { content: ''; width: 6px; height: 6px; background: var(--purple); border-radius: 50%; margin-left: 40px; flex-shrink: 0; }
 
     /* ═══ SERVICES — Asymmetric layout ═══ */
     .services { padding: 100px 0; }
@@ -362,11 +365,13 @@
       .stat { padding: 20px 16px; }
       .stat__num { font-size: clamp(24px, 6vw, 32px); }
       .stat__label { font-size: 12px; }
-      .marquee-section { padding: 28px 0; }
-      .marquee-section__title { font-size: 10px; margin-bottom: 16px; }
-      .marquee__item { padding: 0 16px; }
-      .marquee__item img, .marquee__item svg { height: 24px; }
-      .marquee__item::after { margin-left: 16px; }
+      .marquee-section { padding: 48px 0; }
+      .marquee-section__title { font-size: 13px; margin-bottom: 8px; }
+      .marquee-section__subtitle { font-size: 0.9rem; margin-bottom: 24px; }
+      .marquee-section__count span { font-size: 0.95rem; padding: 0.4rem 1.2rem; }
+      .marquee__item { padding: 0 24px; }
+      .marquee__item img, .marquee__item svg { height: 40px; }
+      .marquee__item::after { margin-left: 24px; }
       .services { padding: 60px 0; }
       .sh { margin-bottom: 32px; }
       .sh__over { font-size: 11px; margin-bottom: 10px; }
@@ -541,6 +546,8 @@
   <!-- MARQUEE CLIENTS -->
   <section class="marquee-section">
     <div class="marquee-section__title">Ils nous font confiance</div>
+    <div class="marquee-section__subtitle">+20 entreprises belges accompagnees au quotidien</div>
+    <div class="marquee-section__count"><span>21 clients actifs</span></div>
     <div class="marquee" data-marquee="40">
       <span class="marquee__item"><img src="/assets/logos/clients/maisonnet-real.jpg" alt="Maison'Net"></span>
       <span class="marquee__item"><img src="/assets/logos/lacense-real.png" alt="La Cense"></span>
@@ -689,7 +696,7 @@
           <div class="why__item" style="--i:1"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Equipe stable et dédiée</h4><p>3 consultants seniors qui connaissent vos dossiers. Pas de turnover, pas de remise a zero.</p></div></div>
           <div class="why__item" style="--i:2"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Accompagnement 360</h4><p>RH + management + back-office + logistique + branding, tout sous un meme toit.</p></div></div>
           <div class="why__item" style="--i:3"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Ancrage belge</h4><p>Basés a Bruxelles depuis 2019. On connait les règles, la législation et les interlocuteurs.</p></div></div>
-          <div class="why__item" style="--i:4"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Partenaires de reference</h4><p>Dell Technologies, Reposa Italy, SD Worx — un reseau solide a votre service.</p></div></div>
+          <div class="why__item" style="--i:4"><div class="why__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Reseau solide</h4><p>Des fournisseurs et partenaires de confiance pour chaque besoin de votre entreprise.</p></div></div>
         </div>
       </div>
     </div>
@@ -707,80 +714,7 @@
     </div>
   </section>
 
-  <!-- PARTNERS — Logos with grayscale → color hover -->
-  <section class="partners-logos">
-    <div class="ctn-w">
-      <div class="partners-logos__header reveal">
-        <div class="sh__over">Partenaires stratégiques</div>
-        <h2 class="sh__title">Ils soutiennent nos missions</h2>
-      </div>
-      <div class="partners-logos__grid reveal stagger">
-        <a href="#" class="plogo" style="--i:0">
-          <div class="plogo__visual">
-            <img src="/assets/logos/dell-real.png" alt="Dell Technologies" style="height:40px;width:auto">
-          </div>
-          <span class="plogo__name">Dell Technologies</span>
-          <span class="plogo__desc">Equipements informatiques</span>
-        </a>
-        <a href="#" class="plogo" style="--i:1">
-          <div class="plogo__visual">
-            <img src="/assets/logos/sdworx-real.svg" alt="SD Worx" style="height:32px;width:auto">
-          </div>
-          <span class="plogo__name">SD Worx</span>
-          <span class="plogo__desc">Secretariat social & paies</span>
-        </a>
-        <a href="#" class="plogo" style="--i:2">
-          <div class="plogo__visual">
-            <img src="/assets/logos/reposa-real.png" alt="Reposa Italy" style="height:36px;width:auto">
-          </div>
-          <span class="plogo__name">Reposa Italy</span>
-          <span class="plogo__desc">Mobilier professionnel</span>
-        </a>
-        <a href="#" class="plogo" style="--i:3">
-          <div class="plogo__visual">
-            <svg viewBox="0 0 160 32" fill="none"><text x="5" y="22" font-family="Plus Jakarta Sans,sans-serif" font-weight="600" font-size="18" fill="#4338CA">Simply</text><text x="75" y="22" font-family="Plus Jakarta Sans,sans-serif" font-weight="300" font-size="18" fill="#6B7280">Accounts</text></svg>
-          </div>
-          <span class="plogo__name">Simply Accounts</span>
-          <span class="plogo__desc">Comptabilite & fiscal</span>
-        </a>
-        <a href="#" class="plogo" style="--i:4">
-          <div class="plogo__visual">
-            <svg viewBox="0 0 140 32" fill="none"><text x="5" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#1E3A5F">KODEFISC</text><text x="5" y="30" font-family="Arial,sans-serif" font-weight="400" font-size="8" fill="#6B7280">AXXON ACCOUNTANTS</text></svg>
-          </div>
-          <span class="plogo__name">Kodefisc / Axxon</span>
-          <span class="plogo__desc">Comptabilite Belgique</span>
-        </a>
-        <a href="#" class="plogo" style="--i:5">
-          <div class="plogo__visual">
-            <svg viewBox="0 0 100 32" fill="none"><text x="5" y="24" font-family="Arial,sans-serif" font-weight="800" font-size="26" fill="#2563EB">NSI</text><text x="60" y="24" font-family="Arial,sans-serif" font-weight="400" font-size="14" fill="#6B7280">SA</text></svg>
-          </div>
-          <span class="plogo__name">NSI SA</span>
-          <span class="plogo__desc">Infrastructure IT</span>
-        </a>
-        <a href="#" class="plogo" style="--i:6">
-          <div class="plogo__visual">
-            <svg viewBox="0 0 120 32" fill="none"><text x="5" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="#D4A017">ARVAL</text><text x="75" y="22" font-family="Arial,sans-serif" font-weight="400" font-size="12" fill="#6B7280">Fleet</text></svg>
-          </div>
-          <span class="plogo__name">Arval / Toyota FS</span>
-          <span class="plogo__desc">Leasing vehicules</span>
-        </a>
-        <a href="#" class="plogo" style="--i:7">
-          <div class="plogo__visual">
-            <svg viewBox="0 0 120 32" fill="none"><text x="5" y="24" font-family="Arial,sans-serif" font-weight="800" font-size="24" fill="#E63946">BOMA</text></svg>
-          </div>
-          <span class="plogo__name">Boma</span>
-          <span class="plogo__desc">Equipements nettoyage pro</span>
-        </a>
-        <a href="#" class="plogo" style="--i:8">
-          <div class="plogo__visual">
-            <img src="/assets/logos/sodexo-real.png" alt="Sodexo" style="height:32px;width:auto">
-          </div>
-          <span class="plogo__name">Sodexo</span>
-          <span class="plogo__desc">Titres-services electroniques</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- PARTNERS section removed — cannot display third-party logos without written authorization -->
 
   <!-- CAS CLIENTS -->
   <section class="cases reveal">
