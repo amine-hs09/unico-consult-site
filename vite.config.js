@@ -20,6 +20,11 @@ export default defineConfig({
         casClients: resolve(__dirname, 'cas-clients.html'),
         notfound: resolve(__dirname, '404.html'),
         calculateur: resolve(__dirname, 'calculateur.html'),
+        tarifs: resolve(__dirname, 'tarifs.html'),
+        blog: resolve(__dirname, 'blog.html'),
+        blogTitresServices: resolve(__dirname, 'blog/reglementation-titres-services-2026.html'),
+        blogTransport: resolve(__dirname, 'blog/erreurs-rh-transport-belgique.html'),
+        blogFlexiJobs: resolve(__dirname, 'blog/flexi-jobs-horeca-guide-pratique.html'),
         admin: resolve(__dirname, 'admin.html'),
         adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
       }

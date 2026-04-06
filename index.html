@@ -14,8 +14,8 @@
   <link rel="alternate" hreflang="fr-be" href="https://www.unico-consult.be/">
   <link rel="alternate" hreflang="x-default" href="https://www.unico-consult.be/">
   <meta property="og:url" content="https://www.unico-consult.be/">
-  <meta property="og:image" content="https://www.unico-consult.be/og-default.svg">
-  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <meta property="og:image" content="https://www.unico-consult.be/assets/logos/unico-official.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -120,14 +120,14 @@
     .stat__label { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.4; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
 
     /* ═══ IMPACT STRIP — Results section ═══ */
-    .impact-strip { padding: 70px 0; background: var(--purple); position: relative; overflow: hidden; }
-    .impact-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(129,140,248,0.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(167,139,250,0.2) 0%, transparent 60%); }
-    .impact-strip__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 40px; position: relative; }
+    .impact-strip { padding: 70px 0; background: var(--bg-lav); position: relative; overflow: hidden; }
+    .impact-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.04) 0%, transparent 60%); }
+    .impact-strip__title { text-align: center; font-family: var(--font-d); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 40px; position: relative; }
     .impact-strip__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; position: relative; }
-    .impact-card { text-align: center; padding: 24px 16px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); transition: all .3s var(--ease); }
-    .impact-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px); }
-    .impact-card__num { font-family: var(--font-d); font-size: clamp(30px, 3vw, 44px); font-weight: 800; color: #fff; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
-    .impact-card__label { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .impact-card { text-align: center; padding: 24px 16px; transition: all .3s var(--ease); }
+    .impact-card:hover { transform: translateY(-3px); }
+    .impact-card__num { font-family: var(--font-d); font-size: clamp(30px, 3vw, 44px); font-weight: 800; color: var(--purple); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .impact-card__label { font-size: 13px; color: var(--text-2); line-height: 1.4; }
 
     /* ═══ BUTTONS ═══ */
     .btn { font-family: var(--font-d); font-weight: 600; font-size: 14.5px; padding: 13px 28px; border-radius: 10px; transition: all .35s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
@@ -470,7 +470,7 @@
         <li><a href="/expertise">Expertise</a></li>
         <li><a href="/secteurs">Secteurs</a></li>
         <li><a href="/clients">Clients</a></li>
-        <li><a href="/equipe">Equipe</a></li>
+        <li><a href="/equipe">Équipe</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       <button class="nav__burger" aria-label="Menu"><span></span></button>
@@ -481,7 +481,7 @@
     <a href="/expertise">Notre expertise</a>
     <a href="/secteurs">Nos secteurs</a>
     <a href="/clients">Nos clients</a>
-    <a href="/equipe">L'equipe</a>
+    <a href="/equipe">L'équipe</a>
     <a href="/contact">Contact</a>
   </div>
 
@@ -543,27 +543,27 @@
       <div class="marquee-section__title">Plus de 20 entreprises nous font confiance</div>
     </div>
     <div class="marquee" data-marquee="40">
-      <span class="marquee__item"><img src="/assets/logos/clients/maisonnet-real.jpg" alt="Maison'Net"></span>
-      <span class="marquee__item"><img src="/assets/logos/lacense-real.png" alt="La Cense"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/cit.svg" alt="CI&T Group"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/mobygreen.svg" alt="Moby Green"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/lgm.svg" alt="Last Green Mile"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/hermes.svg" alt="Hermes Lines"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/kitchen.svg" alt="The Kitchen 1"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/dyma.svg" alt="DYMA Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/logicon.svg" alt="Logicon"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/corner.svg" alt="Corner Building"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/1stbelgium.svg" alt="1st Belgium"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/voltaire.svg" alt="ASBL Voltaire"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/infratech.svg" alt="Infratech"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/mooveo.svg" alt="Mooveo Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/tsclean.svg" alt="TS Clean"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/isilife.svg" alt="ISI Life Services"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/nanou.svg" alt="Nanou"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/crproject.svg" alt="CR Project"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/bolt-real.png" alt="Bolt"></span>
-      <span class="marquee__item"><img src="/assets/logos/clients/amethys-real.png" alt="Amethys Clean Services"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/maisonnet-real.jpg" alt="Maison'Net"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/lacense-real.png" alt="La Cense"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/nassim.svg" alt="Nassim Consult"></span>
+
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/mobygreen.svg" alt="Moby Green"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/lgm.svg" alt="Last Green Mile"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/hermes.svg" alt="Hermes Lines"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/kitchen.svg" alt="The Kitchen 1"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/dyma.svg" alt="DYMA Services"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/logicon.svg" alt="Logicon"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/corner.svg" alt="Corner Building"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/1stbelgium.svg" alt="1st Belgium"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/voltaire.svg" alt="ASBL Voltaire"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/infratech.svg" alt="Infratech"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/mooveo.svg" alt="Mooveo Services"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/tsclean.svg" alt="TS Clean"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/isilife.svg" alt="ISI Life Services"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/nanou.svg" alt="Nanou"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/crproject.svg" alt="CR Project"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/bolt-real.png" alt="Bolt"></span>
+      <span class="marquee__item"><img loading="lazy" src="/assets/logos/clients/amethys-real.png" alt="Amethys Clean Services"></span>
     </div>
   </section>
 
@@ -613,7 +613,7 @@
       </div>
       <div class="sec-grid reveal stagger">
         <div class="sec" style="--i:0"><div class="sec__num">01</div><h3>Titres-services</h3><p>Gestion intégrale dans ce secteur réglementé : contrats, agences, pointage, conge, conformite.</p><div class="sec__clients"><strong>Clients :</strong> Maison'Net, La Cense — 6 agences</div></div>
-        <div class="sec" style="--i:1"><div class="sec__num">02</div><h3>Transport & Logistique</h3><p>Facturation, légalité chauffeurs, plateformes de livraison, sous-traitants.</p><div class="sec__clients"><strong>Clients :</strong> Nassim, CI&T, Moby Green, LGM, Hermes</div></div>
+        <div class="sec" style="--i:1"><div class="sec__num">02</div><h3>Transport & Logistique</h3><p>Facturation, légalité chauffeurs, plateformes de livraison, sous-traitants.</p><div class="sec__clients"><strong>Clients :</strong> Nassim, Moby Green, LGM, Hermes</div></div>
         <div class="sec" style="--i:2"><div class="sec__num">03</div><h3>Independants & PME</h3><p>Accompagnement sur mesure adapte a chaque entrepreneur et chaque besoin.</p><div class="sec__clients"><strong>Clients :</strong> Kinésithérapeutes, DYMA, CR Project</div></div>
         <div class="sec" style="--i:3"><div class="sec__num">04</div><h3>Restauration & Franchise</h3><p>Administration, facturation franchises, coordination, audit organisationnel.</p><div class="sec__clients"><strong>Clients :</strong> The Kitchen 1, Dark Kitchen, Logicon</div></div>
       </div>
@@ -636,12 +636,7 @@
       </div>
       <div class="testi__card">
         <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"En tant qu'indépendante, je n'avais ni le temps ni les compétences pour gerer toute la partie administrative. Unico Consult m'a accompagnee des le debut avec des conseils personnalises."</p>
-        <div class="testi__author"><div class="testi__avatar">MH</div><div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinésithérapeute</div><span class="testi__sector">Independante</span></div></div>
-      </div>
-      <div class="testi__card">
-        <div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div>
-        <p class="testi__text">"L'equipe d'Unico Consult connait parfaitement les spécificités du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite."</p>
+        <p class="testi__text">"L'équipe d'Unico Consult connait parfaitement les spécificités du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion tout en restant en conformite."</p>
         <div class="testi__author"><div class="testi__avatar">LC</div><div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div></div>
       </div>
       <div class="testi__card">
@@ -652,8 +647,7 @@
       <!-- duplicates for loop -->
       <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Depuis que nous travaillons avec Unico Consult, la gestion de nos agences est devenue beaucoup plus fluide. Leur maitrise des titres-services nous permet de nous concentrer sur notre activite."</p><div class="testi__author"><div class="testi__avatar">S</div><div><div class="testi__name">Samira</div><div class="testi__role">Maison'Net</div><span class="testi__sector">Titres-services</span></div></div></div>
       <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Unico Consult gere l'ensemble de notre administration. Leur réactivité et rigueur sont un atout majeur pour nos societes de transport."</p><div class="testi__author"><div class="testi__avatar">IB</div><div><div class="testi__name">Ilias Bakkioui</div><div class="testi__role">Nassim Consult</div><span class="testi__sector">Transport</span></div></div></div>
-      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"En tant qu'indépendante, Unico Consult m'a accompagnee des le debut avec des conseils personnalises. Je recommande vivement."</p><div class="testi__author"><div class="testi__avatar">MH</div><div><div class="testi__name">Myriam Hssinoui</div><div class="testi__role">Kinésithérapeute</div><span class="testi__sector">Independante</span></div></div></div>
-      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"L'equipe connait parfaitement les spécificités du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion."</p><div class="testi__author"><div class="testi__avatar">LC</div><div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div></div></div>
+      <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"L'équipe connait parfaitement les spécificités du secteur des titres-services. Leur accompagnement nous a permis d'optimiser notre gestion."</p><div class="testi__author"><div class="testi__avatar">LC</div><div><div class="testi__name">La Cense</div><div class="testi__role">Direction</div><span class="testi__sector">Titres-services</span></div></div></div>
       <div class="testi__card"><div class="testi__stars"><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg><svg class="testi__star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.82 7l-3.91 3.81.92 5.38L10 13.47l-4.83 2.72.92-5.38L2.18 7l5.43-.79L10 1z"/></svg></div><p class="testi__text">"Gerer une franchise demande une coordination impeccable. Unico Consult nous laisse le temps de nous concentrer sur nos restaurants."</p><div class="testi__author"><div class="testi__avatar">TK</div><div><div class="testi__name">The Kitchen 1</div><div class="testi__role">Direction</div><span class="testi__sector">Restauration</span></div></div></div>
     </div>
   </section>
@@ -814,10 +808,12 @@
           <a href="/expertise" class="footer__link">Notre expertise</a>
           <a href="/secteurs" class="footer__link">Nos secteurs</a>
           <a href="/clients" class="footer__link">Nos clients</a>
-          <a href="/equipe" class="footer__link">L'equipe</a>
+          <a href="/equipe" class="footer__link">L'équipe</a>
           <a href="/contact" class="footer__link">Contact</a>
+          <a href="/tarifs" class="footer__link">Tarifs</a>
           <a href="/faq" class="footer__link">FAQ</a>
-          <a href="/a-propos" class="footer__link">A propos</a>
+          <a href="/blog" class="footer__link">Blog</a>
+          <a href="/a-propos" class="footer__link">À propos</a>
         </div>
         <div>
           <h4 class="footer__col-t">Services</h4>
@@ -836,7 +832,7 @@
       </div>
       <div class="footer__bot">
         <span>&copy; 2019&ndash;2026 Unico Consult SRL &middot; TVA BE 0735.798.943</span>
-        <div class="footer__legal"><a href="/mentions-legales">Mentions legales</a><a href="/vie-privee">Vie privee</a><a href="/cookies">Cookies</a></div>
+        <div class="footer__legal"><a href="/mentions-legales">Mentions légales</a><a href="/vie-privee">Vie privée</a><a href="/cookies">Cookies</a></div>
       </div>
     </div>
   </footer>

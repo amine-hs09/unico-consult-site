@@ -9,7 +9,8 @@
         {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
         {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
         {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"},
-        {"key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload"}
+        {"key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload"},
+        {"key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.resend.com https://*.vercel-storage.com https://*.public.blob.vercel-storage.com; frame-ancestors 'none'"}
       ]
     }
   ],
@@ -27,6 +28,11 @@
     {"source": "/a-propos", "destination": "/a-propos.html"},
     {"source": "/cas-clients", "destination": "/cas-clients.html"},
     {"source": "/calculateur", "destination": "/calculateur.html"},
+    {"source": "/tarifs", "destination": "/tarifs.html"},
+    {"source": "/blog", "destination": "/blog.html"},
+    {"source": "/blog/reglementation-titres-services-2026", "destination": "/blog/reglementation-titres-services-2026.html"},
+    {"source": "/blog/erreurs-rh-transport-belgique", "destination": "/blog/erreurs-rh-transport-belgique.html"},
+    {"source": "/blog/flexi-jobs-horeca-guide-pratique", "destination": "/blog/flexi-jobs-horeca-guide-pratique.html"},
     {"source": "/admin", "destination": "/admin.html"},
     {"source": "/admin/dashboard", "destination": "/admin/dashboard.html"}
   ],
